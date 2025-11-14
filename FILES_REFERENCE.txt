@@ -1,0 +1,247 @@
+================================================================================
+         RÉFÉRENCE COMPLÈTE - CHEMINS ABSOLUS DES FICHIERS
+================================================================================
+
+RAPPORT D'AUDIT (à lire):
+──────────────────────────────────────────────────────────────────────────
+README_AUDIT.md
+  Chemin: /home/user/eFsvp_maquette/README_AUDIT.md
+  Fonction: Guide d'utilisation des rapports
+  Taille: 5.9 KB
+
+AUDIT_SUMMARY.txt
+  Chemin: /home/user/eFsvp_maquette/AUDIT_SUMMARY.txt
+  Fonction: Résumé exécutif avec 8 problèmes critiques
+  Taille: 18 KB
+  Temps: 10 min
+
+AUDIT_COMPARISON.md
+  Chemin: /home/user/eFsvp_maquette/AUDIT_COMPARISON.md
+  Fonction: Analyse détaillée section par section
+  Taille: 14 KB
+  Temps: 30 min
+
+ACTION_PLAN.md
+  Chemin: /home/user/eFsvp_maquette/ACTION_PLAN.md
+  Fonction: Plan d'action avec code exemple
+  Taille: 9.2 KB
+  Phases: 3 (Critique, Majeure, Polish)
+
+AUDIT_ISSUES.json
+  Chemin: /home/user/eFsvp_maquette/AUDIT_ISSUES.json
+  Fonction: Format JSON pour analyse automatisée
+  Taille: 17 KB
+  Issues: 8 critiques + 15 majeures
+
+================================================================================
+                    FICHIERS SOURCES (Maquette HTML)
+================================================================================
+
+INDEX HTML:
+──────────
+/home/user/eFsvp_maquette/index.html (1933 lignes)
+  Sections: hero (l.325), creations (l.424), services (l.772), portfolio (l.885),
+            process (l.1051), faq (l.1383), contact (l.1622)
+  Référence: Utilisé pour structure HTML et classes CSS
+
+CSS PRINCIPALE:
+──────────────
+/home/user/eFsvp_maquette/src/styles/styles.css (3753 lignes) ⭐ PRINCIPAL
+  Source: Styles pour toutes les sections
+  Section Contact: l.2773-2933 (311 lignes)
+  Section FAQ: l.2600-2770 (350 lignes)
+  Section Process: l.1051-1380 (280 lignes)
+  Section Creations: l.1800-2100+ (300+ lignes)
+  Boutons: l.233-373 (140 lignes)
+
+VARIABLES/TOKENS:
+─────────────────
+/home/user/eFsvp_maquette/src/styles/design-tokens.css (164 lignes)
+  Contient: Variables CSS, couleurs, typographie
+  Alias radius: l.122-127 (--r-xs, --r-sm, --r-md, --r-lg)
+  Status: Adapté en WordPress (design-system.css)
+
+/home/user/eFsvp_maquette/src/styles/design-system.css (285 lignes)
+  Contient: Reset, typographie, layout utilities
+  Status: Adapté en WordPress (339 lignes)
+
+FICHIERS CSS NON INTÉGRÉS:
+──────────────────────────
+/home/user/eFsvp_maquette/src/styles/premium-enhancements.css (686 lignes) ⚠️
+  Contenu: Animations, transitions, effets avancés
+  Status: NON ENQUEUED dans WordPress
+  Action: À enqueuer ou importer
+
+/home/user/eFsvp_maquette/src/styles/premium-unified.css (530 lignes) ⚠️
+  Contenu: Unification des styles premium
+  Status: NON ENQUEUED dans WordPress
+  Action: À enqueuer ou importer
+
+/home/user/eFsvp_maquette/src/styles/cookie-banner.css (140 lignes) ⚠️
+  Contenu: Styles banneau cookies
+  Status: NON ENQUEUED dans WordPress
+  Action: À enqueuer ou copier
+
+================================================================================
+                  FICHIERS WORDPRESS THEME
+================================================================================
+
+FICHIERS DE CONFIGURATION:
+──────────────────────────
+/home/user/eFsvp_maquette/wp-theme-efsvp/functions.php
+  Contient: Enregistrement des blocs (l.29-38)
+  Action: MODIFIER - Ajouter 4 nouveaux blocs
+  Modification: Ajouter 'creations', 'process', 'faq', 'contact' à la liste
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/style.css (23 lignes - VIDE)
+  Status: Contient uniquement le header du thème
+  Action: Optionnel - Peut rester vide (styles via enqueue)
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/inc/enqueue-scripts.php
+  Contient: Enqueue des styles CSS (l.18-72)
+  Action: MODIFIER - Ajouter enqueue pour:
+    - buttons.css
+    - footer.css
+    - premium-enhancements.css
+    - premium-unified.css
+    - cookie-banner.css
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/inc/theme-setup.php
+  Contient: Configuration du thème
+  Status: ✅ OK - Pas de modification nécessaire
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/inc/gutenberg-config.php
+  Contient: Configuration Gutenberg
+  Status: ✅ OK - Bien configuré
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/inc/customizer.php
+  Contient: Customizer WordPress
+  Status: ✅ OK
+
+FICHIERS DE TEMPLATE:
+─────────────────────
+/home/user/eFsvp_maquette/wp-theme-efsvp/header.php ✅
+/home/user/eFsvp_maquette/wp-theme-efsvp/footer.php ✅
+/home/user/eFsvp_maquette/wp-theme-efsvp/index.php ✅
+/home/user/eFsvp_maquette/wp-theme-efsvp/page.php ✅
+/home/user/eFsvp_maquette/wp-theme-efsvp/single.php ✅
+/home/user/eFsvp_maquette/wp-theme-efsvp/404.php ✅
+
+CSS ASSETS:
+───────────
+/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/design-system.css (339 lignes) ✅
+  Status: OK - Bien intégré
+  Action: MODIFIER - Ajouter variables manquantes (radius aliases, font size aliases)
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/gutenberg.css (117 lignes) ✅
+  Status: OK
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/components/header.css (202 lignes) ✅
+  Status: OK - Enqueued correctement
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/components/footer.css (84 lignes) ⚠️
+  Status: Existe mais NON ENQUEUED
+  Action: Enqueuer dans enqueue-scripts.php
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/components/buttons.css ❌
+  Status: À CRÉER
+  Contenu: 140 lignes - Styles des boutons
+
+BLOCS GUTENBERG EXISTANTS:
+──────────────────────────
+/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/hero/ ✅
+  Fichiers: block.json, render.php, style.css (161 lignes), editor.css
+  Status: ✅ OK - Complet
+  Action: MODIFIER render.php - Ajouter sound toggle
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/services/ ✅
+  Fichiers: block.json, render.php, style.css (92 lignes), editor.css
+  Status: ✅ OK
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/portfolio/ ✅
+  Fichiers: block.json, render.php, style.css (140 lignes), editor.css
+  Status: ✅ OK
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/testimonials/ ✅
+  Fichiers: block.json, render.php, style.css (179 lignes), editor.css
+  Status: ✅ OK
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/cta/ ✅
+  Fichiers: block.json, render.php, style.css (132 lignes), editor.css
+  Status: ✅ OK
+
+BLOCS WORDPRESS À CRÉER:
+─────────────────────────
+/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/creations/ ❌ À CRÉER
+  Fichiers nécessaires:
+    - block.json (configuration)
+    - render.php (template PHP)
+    - style.css (~300 lignes)
+    - editor.css (optionnel)
+  Source CSS: src/styles/styles.css (l.1800-2100+)
+  Dépendances: Swiper library
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/process/ ❌ À CRÉER
+  Fichiers nécessaires:
+    - block.json (configuration)
+    - render.php (template PHP)
+    - style.css (~280 lignes)
+    - editor.css (optionnel)
+  Source CSS: src/styles/styles.css (l.1051-1380)
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/faq/ ❌ À CRÉER
+  Fichiers nécessaires:
+    - block.json (configuration)
+    - render.php (template PHP)
+    - style.css (~350 lignes)
+    - editor.css (optionnel)
+  Source CSS: src/styles/styles.css (l.2600-2770)
+
+/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/contact/ ❌ À CRÉER
+  Fichiers nécessaires:
+    - block.json (configuration)
+    - render.php (template PHP)
+    - style.css (~311 lignes)
+    - editor.css (optionnel)
+  Source CSS: src/styles/styles.css (l.2773-2933)
+  Contenu: Formulaire avec validation
+
+================================================================================
+                  RÉSUMÉ DES ACTIONS PAR FICHIER
+================================================================================
+
+À CRÉER (15 fichiers):
+─────────────────────
+Blocs (12 fichiers - 3 fichiers par bloc):
+  □ /wp-theme-efsvp/blocks/creations/{block.json, render.php, style.css}
+  □ /wp-theme-efsvp/blocks/process/{block.json, render.php, style.css}
+  □ /wp-theme-efsvp/blocks/faq/{block.json, render.php, style.css}
+  □ /wp-theme-efsvp/blocks/contact/{block.json, render.php, style.css}
+
+CSS (3 fichiers):
+  □ /wp-theme-efsvp/assets/css/components/buttons.css (140 lignes)
+  □ /wp-theme-efsvp/assets/css/premium-enhancements.css (copier de src)
+  □ /wp-theme-efsvp/assets/css/cookie-banner.css (copier de src)
+
+À MODIFIER (4 fichiers):
+────────────────────────
+  □ /wp-theme-efsvp/functions.php (ajouter 4 blocs)
+  □ /wp-theme-efsvp/inc/enqueue-scripts.php (enqueue 5 CSS)
+  □ /wp-theme-efsvp/assets/css/design-system.css (ajouter variables)
+  □ /wp-theme-efsvp/blocks/hero/render.php (ajouter sound toggle)
+
+À ANALYSER (6 fichiers source):
+───────────────────────────────
+  ✓ /index.html (structure HTML)
+  ✓ /src/styles/styles.css (CSS à adapter)
+  ✓ /src/styles/premium-enhancements.css (à intégrer)
+  ✓ /src/styles/premium-unified.css (à intégrer)
+  ✓ /src/styles/cookie-banner.css (à intégrer)
+  ✓ /src/styles/design-tokens.css (variables)
+
+================================================================================
+
+Généré le: 9 novembre 2025
+Total fichiers listés: 40+
+Chemins vérifiés: Oui
+Format: Chemins absolus

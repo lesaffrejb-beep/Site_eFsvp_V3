@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "la-force-de-la-douceur",
+    "title": "La force de la douceur",
+    "client": "Département Maine-et-Loire",
+    "year": 2024,
+    "badge": "Hymne officiel",
+    "summary": "Hymne officiel célébrant l'identité et les valeurs du département. Performance inaugurale devant 500 invités.",
+    "tags": ["Hymne & marque", "Institution"],
+    "featured": false,
+    "images": []
+  },
+  {
+    "slug": "sival-serie-agricole",
+    "title": "Série promotionnelle agricole",
+    "client": "Destination Angers / SIVAL",
+    "year": 2025,
+    "badge": "Récit narratif",
+    "summary": "Récits musicaux pour valoriser l'innovation agricole lors du plus grand salon européen.",
+    "tags": ["Spectacles & médiations", "Institution"],
+    "featured": false,
+    "images": []
+  },
+  {
+    "slug": "atelier-lacour-25-ans",
+    "title": "25 ans & passation",
+    "client": "Atelier Lacour",
+    "year": 2024,
+    "badge": "Anniversaire",
+    "summary": "Métaphore de la forêt pour célébrer un quart de siècle et préparer la transmission.",
+    "tags": ["Hymne & marque", "Entreprise"],
+    "featured": false,
+    "images": []
+  },
+  {
+    "slug": "histoires-de-resilience",
+    "title": "Histoires de résilience",
+    "client": "Réseau Cocagne",
+    "year": 2024,
+    "badge": "Portraits",
+    "summary": "Collectage et mise en musique de parcours de réinsertion pour un réseau national.",
+    "tags": ["Spectacles & médiations", "Institution"],
+    "featured": false,
+    "images": []
+  },
+  {
+    "slug": "etat-de-nature",
+    "title": "État de nature",
+    "client": "PNR Loire-Anjou-Touraine",
+    "year": "2023",
+    "badge": "Spectacle",
+    "summary": "Spectacle immersif joué plus de 40 fois en pleine nature. Création phare du studio.",
+    "tags": ["Formats immersifs", "Spectacle"],
+    "featured": true,
+    "images": []
+  },
+  {
+    "slug": "deambulation-clisson",
+    "title": "Déambulation historique XVe s.",
+    "client": "Ville de Clisson",
+    "year": 2023,
+    "badge": "Immersif",
+    "summary": "Récit immersif médiéval pour faire revivre l'histoire de la cité aux visiteurs.",
+    "tags": ["Formats immersifs", "Institution"],
+    "featured": false,
+    "images": []
+  }
+]

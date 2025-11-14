@@ -1,0 +1,679 @@
+{
+  "hero": {
+    "title": {
+      "line1": "Vous avez déjà écrit l'histoire.",
+      "line2": "Nous la mettons en scène avec mesure."
+    },
+    "subtitle": "Une direction narrative et musicale ciselée qui laisse respirer vos moments clés et magnifie votre signature.",
+    "cta": {
+      "text": "Partagez votre histoire",
+      "href": "#contact"
+    },
+    "metrics": [
+      {
+        "value": "60+",
+        "label": "Représentations"
+      },
+      {
+        "value": "15+",
+        "label": "Projets institutionnels"
+      },
+      {
+        "value": "1200€",
+        "label": "À partir de"
+      }
+    ]
+  },
+  "audioSection": {
+    "title": "Écoutez ce que nous créons",
+    "subtitle": "Des récits qui touchent, portés par la musique",
+    "infoCard": {
+      "number": "3",
+      "title": "formats",
+      "text": "Écriture · Audio · Live"
+    },
+    "statsCard": {
+      "number": "60+",
+      "title": "représentations",
+      "text": "depuis 2022"
+    },
+  "metadata": {
+    "source": "Chunks #1 + #2 (lignes 0-1934, fichier complet)",
+    "language": "fr",
+    "punctuation": "Respectée selon l'original"
+  },
+  "seo": {
+    "title": "En français s'il vous plaît | Création narrative & musicale sur-mesure",
+    "description": "Studio de création narrative et musicale pour vos événements clés. Écriture, composition, performance live. Angers, Pays de la Loire.",
+    "keywords": "création narrative, composition musicale, spectacle sur-mesure, hymne, angers, pays de la loire"
+  },
+  "navigation": {
+    "logo": "EfSVP",
+    "links": [
+      { "label": "Créations", "href": "#creations" },
+      { "label": "Portfolio", "href": "#portfolio" },
+      { "label": "Process", "href": "#process" },
+      { "label": "FAQ", "href": "#faq" }
+    ],
+    "cta": "Démarrer votre projet"
+  },
+  "hero": {
+    "titleLine1": "Vous avez déjà écrit l'histoire.",
+    "titleLine2": "Nous la mettons en scène avec mesure.",
+    "subtitle": "Une direction narrative et musicale ciselée qui laisse respirer vos moments clés et magnifie votre signature.",
+    "cta": {
+      "label": "Partagez votre histoire",
+      "href": "#contact"
+    },
+    "metrics": [
+      { "value": "60+", "label": "Représentations" },
+      { "value": "15+", "label": "Projets institutionnels" },
+      { "value": "1200€", "label": "À partir de" }
+    ],
+    "scrollLabel": "Faire défiler vers la section Créations"
+  },
+  "sectionsCreations": {
+    "title": "Écoutez ce que nous créons",
+    "subtitle": "Des récits qui touchent, portés par la musique",
+    "audioItems": [
+      {
+        "id": "sample-1",
+        "badge": "Hymne officiel",
+        "title": "La force de la douceur",
+        "client": "Département Maine-et-Loire",
+        "year": "2024",
+        "duration": "3:45",
+        "featured": true
+      },
+      {
+        "id": "sample-2",
+        "title": "Série promotionnelle",
+        "client": "SIVAL",
+        "year": "2025",
+        "featured": false
+      },
+      {
+        "id": "sample-3",
+        "title": "Atelier Lacour",
+        "subtitle": "Métaphore forêt",
+        "year": "2024",
+        "featured": false
+      }
+    ],
+    "infoCards": [
+      {
+        "number": "3",
+        "title": "formats",
+        "text": "Écriture · Audio · Live"
+      },
+      {
+        "number": "60+",
+        "title": "représentations",
+        "text": "depuis 2022",
+        "accent": true
+      }
+    ],
+    "quote": {
+      "text": "J'ai vu des gens pleurer. C'était exactement ce que je voulais.",
+      "author": "Cliente institutionnelle"
+    },
+    "cta": {
+      "text": "Découvrir tous nos projets",
+      "href": "#portfolio"
+    }
+  },
+  "flagshipCases": {
+      "label": "Découvrir tous nos projets",
+      "href": "#portfolio"
+    }
+  },
+  "sectionCases": {
+    "title": "Trois créations qui racontent notre approche",
+    "subtitle": "Problème · Approche · Effet",
+    "cases": [
+      {
+        "id": "sival",
+        "badge": "Série narrative",
+        "title": "SIVAL — L'innovation agricole racontée",
+        "client": "Destination Angers",
+        "year": 2025,
+        "badge": "Série narrative",
+        "title": "SIVAL — L'innovation agricole racontée",
+        "client": "Destination Angers",
+        "year": "2025",
+        "category": "institutions",
+        "problem": "Comment valoriser l'innovation agricole au-delà des chiffres et communiqués, lors du plus grand salon européen du secteur ?",
+        "approach": "Série de récits musicaux courts (3-5 min) mettant en lumière des histoires humaines d'innovateurs. Collectage sur site, composition sur mesure, diffusion lors des conférences.",
+        "effect": "8 récits diffusés auprès de 2 000+ visiteurs. Reprise média (France Bleu, Ouest-France). NPS client : 9.2/10.",
+        "audioLabel": "Écouter 30s"
+      },
+      {
+        "id": "atelier-lacour",
+        "badge": "Anniversaire entreprise",
+        "title": "Atelier Lacour — Métaphore de la forêt",
+        "client": "Entreprise familiale",
+        "year": 2024,
+        "badge": "Anniversaire entreprise",
+        "title": "Atelier Lacour — Métaphore de la forêt",
+        "client": "Entreprise familiale",
+        "year": "2024",
+        "category": "entreprises",
+        "problem": "Célébrer 25 ans d'artisanat et préparer une passation générationnelle sensible, sans tomber dans l'institutionnel ou l'émotionnel facile.",
+        "approach": "Métaphore forestière : racines (fondation), tronc (savoir-faire), branches (transmission). Texte poétique + composition instrumentale bois & cordes. Performance 18 min.",
+        "effect": "120 collaborateurs & partenaires réunis. Témoignage fondateur : \"C'était exactement ça, et je n'aurais jamais su le dire.\"",
+        "audioLabel": "Écouter 30s"
+      },
+      {
+        "id": "etat-de-nature",
+        "badge": "Spectacle immersif",
+        "featured": true,
+        "title": "État de nature — Spectacle en pleine forêt",
+        "client": "PNR Loire-Anjou-Touraine",
+        "year": "2023 →",
+        "badge": "Spectacle immersif",
+        "title": "État de nature — Spectacle en pleine forêt",
+        "client": "PNR Loire-Anjou-Touraine",
+        "year": "2023 →",
+        "category": "spectacles",
+        "featured": true,
+        "featuredLabel": "Création phare",
+        "problem": "Comment sensibiliser aux enjeux écologiques sans militantisme moralisateur, et créer une expérience marquante dans un lieu naturel protégé ?",
+        "approach": "Spectacle immersif 35 min en déambulation forestière. Texte poétique + musique live acoustique + dispositif lumière douce. Public 40 personnes max par représentation.",
+        "effect": "60+ représentations depuis 2023, 2 400+ spectateurs. Taux satisfaction : 94%. Programmation reconduite 2025-2026.",
+        "audioLabel": "Écouter 30s"
+      }
+    ],
+    "cta": {
+      "text": "Voir tous les projets",
+      "href": "#portfolio"
+    }
+  },
+  "services": {
+    "title": "Quatre formules, une signature",
+    "subtitle": "De l'écriture seule au spectacle complet",
+    "formulas": [
+      {
+        "id": "ecriture",
+        "title": "Écriture seule",
+        "priceLabel": "À partir de 1 200€",
+      "label": "Voir tous les projets",
+      "href": "#portfolio"
+    }
+  },
+  "sectionServices": {
+    "title": "Quatre formules, une signature",
+    "subtitle": "De l'écriture seule au spectacle complet",
+    "services": [
+      {
+        "title": "Écriture seule",
+        "price": "À partir de 1 200€",
+        "features": [
+          "Texte professionnel",
+          "2-3 semaines",
+          "Validation incluse"
+        ],
+        "cta": "Découvrir"
+      },
+      {
+        "id": "creation-complete",
+        "title": "Création complète",
+        "priceLabel": "À partir de 2 500€",
+        "title": "Création complète",
+        "price": "À partir de 2 500€",
+        "features": [
+          "Texte + composition",
+          "Enregistrement pro",
+          "3-4 semaines"
+        ],
+        "cta": "Découvrir"
+      },
+      {
+        "id": "performance-live",
+        "title": "Performance Live",
+        "priceLabel": "À partir de 3 600€",
+        "title": "Performance Live",
+        "price": "À partir de 3 600€",
+        "featured": true,
+        "featuredLabel": "Notre signature",
+        "features": [
+          "Concert sur-mesure",
+          "3-45 minutes",
+          "4-5 semaines"
+        ],
+        "cta": "Découvrir"
+      },
+      {
+        "id": "droits-exploitation",
+        "title": "Droits d'exploitation",
+        "priceLabel": "Sur devis",
+        "title": "Droits d'exploitation",
+        "price": "Sur devis",
+        "features": [
+          "Publicité",
+          "Identité sonore",
+          "Campagnes"
+        ],
+        "cta": "Découvrir"
+      }
+    ]
+  },
+  "process": {
+  "sectionPortfolio": {
+    "title": "Ils nous ont fait confiance",
+    "stats": [
+      { "value": "60+", "label": "représentations" },
+      { "value": "15+", "label": "institutions" }
+    ],
+    "filters": {
+      "client": {
+        "title": "Filtrer par client",
+        "options": [
+          { "value": "all", "label": "Tout" },
+          { "value": "institution", "label": "Institutions" },
+          { "value": "entreprise", "label": "Entreprises" },
+          { "value": "spectacle", "label": "Spectacles" }
+        ]
+      },
+      "type": {
+        "title": "Filtrer par type",
+        "options": [
+          { "value": "all", "label": "Tous les types" },
+          { "value": "brand", "label": "Hymnes & marque" },
+          { "value": "mediation", "label": "Spectacles & médiations" },
+          { "value": "immersive", "label": "Formats immersifs" }
+        ]
+      }
+    },
+    "projects": [
+      {
+        "tag": "Hymne officiel",
+        "title": "La force de la douceur",
+        "client": "Département Maine-et-Loire",
+        "year": "2024",
+        "description": "Hymne officiel célébrant l'identité et les valeurs du département. Performance inaugurale devant 500 invités.",
+        "category": "institutions",
+        "clientFilter": "institution",
+        "typeFilter": "brand"
+      },
+      {
+        "tag": "Récit narratif",
+        "title": "Série promotionnelle agricole",
+        "client": "Destination Angers / SIVAL",
+        "year": "2025",
+        "description": "Récits musicaux pour valoriser l'innovation agricole lors du plus grand salon européen.",
+        "category": "entreprises",
+        "clientFilter": "institution",
+        "typeFilter": "brand"
+      },
+      {
+        "tag": "Anniversaire",
+        "title": "25 ans & passation",
+        "client": "Atelier Lacour",
+        "year": "2024",
+        "description": "Métaphore de la forêt pour célébrer un quart de siècle et préparer la transmission.",
+        "category": "entreprises",
+        "clientFilter": "entreprise",
+        "typeFilter": "brand"
+      },
+      {
+        "tag": "Portraits",
+        "title": "Histoires de résilience",
+        "client": "Réseau Cocagne",
+        "year": "2024",
+        "description": "Collectage et mise en musique de parcours de réinsertion pour un réseau national.",
+        "category": "institutions",
+        "clientFilter": "institution",
+        "typeFilter": "mediation"
+      },
+      {
+        "tag": "Spectacle",
+        "title": "État de nature",
+        "client": "PNR Loire-Anjou-Touraine",
+        "year": "2023 →",
+        "description": "Spectacle immersif joué plus de 40 fois en pleine nature. Création phare du studio.",
+        "category": "spectacles",
+        "clientFilter": "institution",
+        "typeFilter": "immersive"
+      },
+      {
+        "tag": "Immersif",
+        "title": "Déambulation historique XVe s.",
+        "client": "Ville de Clisson",
+        "year": "2023",
+        "description": "Récit immersif médiéval pour faire revivre l'histoire de la cité aux visiteurs.",
+        "category": "institutions",
+        "clientFilter": "institution",
+        "typeFilter": "immersive"
+      }
+    ]
+  },
+  "sectionProcess": {
+    "title": "Comment ça marche",
+    "subtitle": "Un process simple et rassurant en 4 étapes",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Écoute",
+        "duration": "2 semaines",
+        "description": "Vous nous racontez votre histoire, vos enjeux. Nous collectons, écoutons, immergeons.",
+        "details": [
+          "Entretiens approfondis",
+          "Documents et archives",
+          "Immersion terrain si besoin"
+        ]
+      },
+      {
+        "number": "02",
+        "title": "Création",
+        "duration": "3-6 semaines",
+        "description": "Nous écrivons et composons votre récit. Un processus créatif rigoureux et transparent.",
+        "details": [
+          "Écriture du texte",
+          "Composition musicale",
+          "Enregistrement professionnel"
+        ]
+      },
+      {
+        "number": "03",
+        "title": "Validation",
+        "duration": "Inclus",
+        "description": "2 allers-retours inclus. Vous validez chaque étape, nous ajustons avec vous.",
+        "details": [
+          "Version 1 → Retours",
+          "Ajustements",
+          "Version 2 → Validation finale"
+        ],
+        "badge": "Transparence totale"
+      },
+      {
+        "number": "04",
+        "title": "Performance",
+        "duration": "Jour J",
+        "description": "Nous venons jouer chez vous ou nous livrons l'enregistrement audio HD.",
+        "details": [
+          "Performance live",
+          "Audio HD professionnel",
+          "Captation vidéo (option)"
+        ],
+        "badge": "Clé en main"
+      }
+    ],
+    "cta": {
+      "text": "Démarrer votre projet",
+      "href": "#contact"
+    }
+  },
+  "testimonials": {
+    "title": "Ce qu'ils disent",
+    "items": [
+      {
+        "rating": 5,
+        "quote": "J'ai vu des gens pleurer. C'était exactement ce que je voulais sans savoir que ça existait.",
+        "author": "Marie Dupont",
+        "role": "Directrice Communication",
+        "organization": "Département Maine-et-Loire",
+        "context": "Hymne officiel \"La force de la douceur\" (2024)"
+      },
+      {
+        "rating": 5,
+        "quote": "Ils ont compris notre métier en deux semaines mieux que certains partenaires historiques.",
+        "author": "Pierre Martin",
+        "role": "Directeur",
+        "organization": "Atelier Lacour",
+        "context": "Récit 25 ans & passation (2024)"
+      },
+      {
+        "rating": 5,
+        "quote": "Dignité, vérité, émotion. Jamais gênant, toujours juste. Une approche rare et précieuse.",
+        "author": "Sophie Bernard",
+        "role": "Responsable Événementiel",
+        "organization": "Réseau Cocagne",
+        "context": "Portraits de réinsertion (2024)"
+      }
+    ]
+  },
+  "statsSection": {
+    "title": "La preuve par les chiffres"
+  },
+  "contact": {
+    "title": "La vôtre commence maintenant",
+    "subtitle": "Réponse sous 48h · Premier échange offert",
+    "quote": "Toutes les bonnes histoires méritent d'être racontées.",
+    "form": {
+      "fields": [
+        {
+          "name": "name",
+      "label": "Démarrer votre projet",
+      "href": "#contact"
+    }
+  },
+  "sectionTestimonials": {
+    "title": "Ce qu'ils disent",
+    "testimonials": [
+      {
+        "quote": "J'ai vu des gens pleurer. C'était exactement ce que je voulais sans savoir que ça existait.",
+        "name": "Marie Dupont",
+        "role": "Directrice Communication",
+        "organization": "Département Maine-et-Loire",
+        "context": "Hymne officiel \"La force de la douceur\" (2024)",
+        "avatar": "M",
+        "stars": 5
+      },
+      {
+        "quote": "Ils ont compris notre métier en deux semaines mieux que certains partenaires historiques.",
+        "name": "Pierre Martin",
+        "role": "Directeur",
+        "organization": "Atelier Lacour",
+        "context": "Récit 25 ans & passation (2024)",
+        "avatar": "P",
+        "stars": 5
+      },
+      {
+        "quote": "Dignité, vérité, émotion. Jamais gênant, toujours juste. Une approche rare et précieuse.",
+        "name": "Sophie Bernard",
+        "role": "Responsable Événementiel",
+        "organization": "Réseau Cocagne",
+        "context": "Portraits de réinsertion (2024)",
+        "avatar": "S",
+        "stars": 5
+      }
+    ]
+  },
+  "sectionStats": {
+    "title": "La preuve par les chiffres",
+    "stats": [
+      { "value": "60+", "label": "Représentations" },
+      { "value": "15+", "label": "Projets institutionnels" },
+      { "value": "1200€", "label": "À partir de" },
+      { "value": "4", "label": "Années d'expérience terrain" }
+    ]
+  },
+  "sectionContact": {
+    "visualQuote": "Toutes les bonnes histoires méritent d'être racontées.",
+    "title": "La vôtre commence maintenant",
+    "subtitle": "Réponse sous 48h · Premier échange offert",
+    "form": {
+      "fields": [
+        {
+          "id": "nom",
+          "label": "Prénom Nom",
+          "type": "text",
+          "required": true,
+          "autocomplete": "name"
+        },
+        {
+          "name": "email",
+          "id": "email",
+          "label": "Email professionnel",
+          "type": "email",
+          "required": true,
+          "autocomplete": "email"
+        },
+        {
+          "name": "organization",
+          "id": "organisation",
+          "label": "Organisation",
+          "type": "text",
+          "required": true,
+          "autocomplete": "organization"
+        },
+        {
+          "name": "projectType",
+          "id": "type-projet",
+          "label": "Type de projet",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Anniversaire",
+            "Inauguration",
+            "Spectacle",
+            "Hymne / Identité",
+            "Autre"
+          ]
+        },
+        {
+          "name": "date",
+            { "value": "", "label": "Sélectionner" },
+            { "value": "anniversaire", "label": "Anniversaire" },
+            { "value": "inauguration", "label": "Inauguration" },
+            { "value": "spectacle", "label": "Spectacle" },
+            { "value": "hymne", "label": "Hymne / Identité" },
+            { "value": "autre", "label": "Autre" }
+          ]
+        },
+        {
+          "id": "date",
+          "label": "Date envisagée",
+          "type": "date",
+          "required": false
+        },
+        {
+          "name": "budget",
+          "label": "Budget estimé",
+          "type": "range",
+          "min": 3000,
+          "max": 30000,
+          "step": 1000,
+          "default": 10000,
+          "required": false
+        },
+        {
+          "name": "message",
+          "label": "Parlez-nous de votre projet",
+          "type": "textarea",
+          "maxLength": 500,
+          "required": true
+        }
+      ],
+      "consent": "J'accepte d'être recontacté pour échanger sur mon projet",
+      "submitText": "Partagez votre histoire"
+    },
+    "alternativeContact": {
+          "id": "budget",
+          "label": "Budget estimé",
+          "type": "range",
+          "required": false,
+          "min": 3000,
+          "max": 30000,
+          "step": 1000,
+          "default": 10000
+        },
+        {
+          "id": "message",
+          "label": "Parlez-nous de votre projet",
+          "type": "textarea",
+          "required": true,
+          "rows": 5,
+          "maxLength": 500
+        }
+      ],
+      "consent": "J'accepte d'être recontacté pour échanger sur mon projet",
+      "submitLabel": "Partagez votre histoire"
+    },
+    "alternative": {
+      "title": "Ou contactez-nous directement",
+      "email": "contact@efsvp.fr",
+      "location": "Basé à Angers · Partout en Francophonie"
+    }
+  },
+  "footer": {
+    "brand": {
+      "name": "En français s'il vous plaît",
+      "tagline": "Vous avez déjà écrit l'histoire",
+      "baseline": "Studio narratif & musical"
+    },
+    "navigation": [
+      { "label": "Créations", "href": "#creations" },
+      { "label": "Services", "href": "#services" },
+      { "label": "Portfolio", "href": "#portfolio" },
+      { "label": "Process", "href": "#process" },
+      { "label": "FAQ", "href": "#faq" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "legal": [
+      { "label": "Mentions légales", "href": "/mentions-legales" },
+      { "label": "CGV", "href": "/cgv" },
+      { "label": "Confidentialité", "href": "/confidentialite" },
+      { "label": "RGPD", "href": "/rgpd" }
+    ],
+    "newsletter": {
+      "title": "Restez inspiré",
+      "description": "1 email/mois · Projets & coulisses",
+      "cta": "S'inscrire"
+    },
+    "copyright": "© 2025 En français s'il vous plaît · Tous droits réservés",
+    "madeWith": "Made with ♥ in Angers"
+  }
+      "logo": "En français s'il vous plaît",
+      "tagline": "\"Vous avez déjà écrit l'histoire\"",
+      "baseline": "Studio narratif & musical"
+    },
+    "navigation": {
+      "title": "Navigation",
+      "links": [
+        { "label": "Créations", "href": "#creations" },
+        { "label": "Services", "href": "#services" },
+        { "label": "Portfolio", "href": "#portfolio" },
+        { "label": "Process", "href": "#process" },
+        { "label": "FAQ", "href": "#faq" },
+        { "label": "Contact", "href": "#contact" }
+      ]
+    },
+    "legal": {
+      "title": "Informations",
+      "links": [
+        { "label": "Mentions légales", "href": "#mentions" },
+        { "label": "CGV", "href": "#cgv" },
+        { "label": "Confidentialité", "href": "#confidentialite" },
+        { "label": "RGPD", "href": "#rgpd" }
+      ]
+    },
+    "newsletter": {
+      "title": "Restez inspiré",
+      "text": "1 email/mois · Projets & coulisses",
+      "placeholder": "Votre email"
+    },
+    "bottom": {
+      "copyright": "© 2025 En français s'il vous plaît · Tous droits réservés",
+      "made": "Made with ♥ in Angers"
+    }
+  },
+  "modals": {
+    "success": {
+      "title": "Message envoyé !",
+      "text": "Merci {name} ! On vous répond sous 48h.",
+      "cta": "Continuer"
+    }
+  },
+  "cookieBanner": {
+    "title": "Respect de votre vie privée",
+    "description": "Nous n'utilisons aucun cookie publicitaire ou de tracking. Ce site fonctionne sans collecte de données personnelles. En poursuivant votre navigation, vous acceptez l'utilisation de cookies techniques nécessaires au bon fonctionnement du site.",
+    "accept": "J'ai compris",
+    "reject": "Refuser"
+  },
+  "notes": [
+    "Contenu complet extrait des chunks #1 + #2 (fichier entier)",
+    "Toute la ponctuation FR a été respectée (guillemets, espaces, etc.)",
+    "Sections complètes : Hero, Créations, Cases, Services, Portfolio (6 projets), Process (4 étapes), Testimonials (3), Stats (4), Contact, Footer"
+  ]
+}

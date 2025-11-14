@@ -1,0 +1,111 @@
+{
+  "description": "Mapping des assets logiques vers leurs chemins finaux après upload Webflow",
+  "note": "Actuellement, le site n'a pas d'images de projets uploadées. Ce fichier servira à mapper les images une fois qu'elles seront préparées.",
+  "logos": {
+    "logo-efsvp-primary": "/assets/logos/efsvp-logo-primary.svg",
+    "logo-efsvp-white": "/assets/logos/efsvp-logo-white.svg",
+    "favicon": "/assets/logos/favicon.svg"
+  },
+  "hero": {
+    "hero-background-video-mp4": "/assets/hero/efsvp-hero.mp4",
+    "hero-background-video-webm": "/assets/hero/efsvp-hero.webm",
+    "hero-placeholder-image": "/assets/hero/hero-placeholder.webp"
+  },
+  "projects": {
+    "la-force-de-la-douceur": {
+      "thumbnail": "/assets/projects/la-force-de-la-douceur-thumb.webp",
+      "hero": "/assets/projects/la-force-de-la-douceur-hero.webp",
+      "gallery": []
+    },
+    "sival-serie-agricole": {
+      "thumbnail": "/assets/projects/sival-serie-agricole-thumb.webp",
+      "hero": "/assets/projects/sival-serie-agricole-hero.webp",
+      "gallery": []
+    },
+    "atelier-lacour-25-ans": {
+      "thumbnail": "/assets/projects/atelier-lacour-25-ans-thumb.webp",
+      "hero": "/assets/projects/atelier-lacour-25-ans-hero.webp",
+      "gallery": []
+    },
+    "histoires-de-resilience": {
+      "thumbnail": "/assets/projects/histoires-de-resilience-thumb.webp",
+      "hero": "/assets/projects/histoires-de-resilience-hero.webp",
+      "gallery": []
+    },
+    "etat-de-nature": {
+      "thumbnail": "/assets/projects/etat-de-nature-thumb.webp",
+      "hero": "/assets/projects/etat-de-nature-hero.webp",
+      "gallery": []
+    },
+    "deambulation-clisson": {
+      "thumbnail": "/assets/projects/deambulation-clisson-thumb.webp",
+      "hero": "/assets/projects/deambulation-clisson-hero.webp",
+      "gallery": []
+    }
+  },
+  "opengraph": {
+    "og-image": "/assets/og/og-image-1200x630.png",
+    "twitter-card": "/assets/og/twitter-card-1200x630.png"
+  },
+  "instructions": {
+    "upload": "Uploader toutes les images dans Webflow Assets Manager",
+    "naming": "Respecter le naming kebab-case (minuscules, tirets)",
+    "format": "WebP pour photos (max 1600px largeur), SVG pour logos",
+    "quality": "WebP qualité 85%, @2x pour Retina",
+    "linking": "Dans Webflow CMS Collections, lier les images aux projets selon ce mapping"
+  "metadata": {
+    "source": "Chunks #1 + #2 (fichier complet)",
+    "exportPlan": {
+      "format": "WebP",
+      "resolution": "@2x",
+      "maxWidth": "1600px",
+      "namingConvention": "kebab-case"
+    },
+    "note": "Analyse complète : le site utilise principalement des gradients CSS plutôt que des images réelles. Seuls les médias hero (vidéos) et favicon sont référencés."
+  },
+  "videos": [
+    {
+      "original": "/media/efsvp-hero.mp4",
+      "description": "Vidéo hero background (MP4)",
+      "usage": "Hero section - full bleed background",
+      "optimizationNeeded": true,
+      "notes": "Vérifier taille et compression"
+    },
+    {
+      "original": "/media/efsvp-hero.webm",
+      "description": "Vidéo hero background (WebM)",
+      "usage": "Hero section - alternative format",
+      "optimizationNeeded": true,
+      "notes": "Vérifier taille et compression"
+    }
+  ],
+  "icons": [
+    {
+      "original": "/favicon.svg",
+      "webflowName": "favicon.svg",
+      "description": "Favicon du site",
+      "usage": "Favicon, OG image",
+      "format": "SVG",
+      "notes": "Déjà optimisé (SVG)"
+    }
+  ],
+  "images": [],
+  "webflowAssetStructure": {
+    "folders": [
+      "/assets/videos/",
+      "/assets/icons/",
+      "/assets/images/",
+      "/assets/images/portfolio/",
+      "/assets/images/clients/"
+    ]
+  },
+  "placeholderStrategy": {
+    "note": "Actuellement, les visuels utilisent des gradients CSS plutôt que des images",
+    "examples": [
+      "case-card__gradient avec linear-gradient",
+      "audio-player__artwork-placeholder avec gradient",
+      "portfolio-card__color avec gradient"
+    ],
+    "webflowImplementation": "Utiliser des divs avec classes de gradient ou couleurs de fond"
+  }
+}

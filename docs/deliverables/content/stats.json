@@ -1,0 +1,95 @@
+[
+  {
+    "id": 1,
+    "value": "60+",
+    "label": "Représentations"
+  },
+  {
+    "id": 2,
+    "value": "15+",
+    "label": "Projets institutionnels"
+  },
+  {
+    "id": 3,
+    "value": "1200€",
+    "label": "À partir de"
+  },
+  {
+    "id": 4,
+    "value": "4",
+    "label": "Années d'expérience terrain"
+  }
+]
+{
+  "metadata": {
+    "source": "Chunks #1 + #2 (fichier complet)",
+    "note": "Section dédiée 'La preuve par les chiffres' trouvée dans chunk #2 (lignes 1354-1378)."
+  },
+  "heroMetrics": [
+    {
+      "value": "60+",
+      "label": "Représentations"
+    },
+    {
+      "value": "15+",
+      "label": "Projets institutionnels"
+    },
+    {
+      "value": "1200€",
+      "label": "À partir de"
+    }
+  ],
+  "portfolioStats": [
+    {
+      "value": "60+",
+      "label": "représentations"
+    },
+    {
+      "value": "15+",
+      "label": "institutions"
+    }
+  ],
+  "preuveParLesChiffres": {
+    "title": "La preuve par les chiffres",
+    "stats": [
+      {
+        "value": "60+",
+        "label": "Représentations",
+        "dataCount": 60
+      },
+      {
+        "value": "15+",
+        "label": "Projets institutionnels",
+        "dataCount": 15
+      },
+      {
+        "value": "1200€",
+        "label": "À partir de",
+        "dataCount": null
+      },
+      {
+        "value": "4",
+        "label": "Années d'expérience terrain",
+        "dataCount": 4
+      }
+    ]
+  },
+  "casesMetrics": {
+    "sival": {
+      "recitsDiffuses": "8 récits diffusés",
+      "visiteurs": "2 000+ visiteurs",
+      "nps": "9.2/10",
+      "mediaReprise": ["France Bleu", "Ouest-France"]
+    },
+    "atelierLacour": {
+      "participants": "120 collaborateurs & partenaires"
+    },
+    "etatDeNature": {
+      "representations": "60+ représentations",
+      "periode": "depuis 2023",
+      "spectateurs": "2 400+ spectateurs",
+      "satisfaction": "94%",
+      "programmation": "reconduite 2025-2026"
+    }
+  }
+}

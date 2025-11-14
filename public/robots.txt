@@ -1,0 +1,15 @@
+# robots.txt for https://site-e-fsvp.vercel.app
+# Award 2025 SEO Configuration
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://site-e-fsvp.vercel.app/sitemap.xml
+
+# Disallow admin/private areas (if any)
+# Disallow: /admin/
+# Disallow: /_next/static/
+
+# Crawl-delay (optional, for rate-limiting aggressive bots)
+# Crawl-delay: 1
