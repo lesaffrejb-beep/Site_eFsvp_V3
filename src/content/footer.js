@@ -5,8 +5,8 @@
 
 export const footerContent = {
   brand: {
-    logo: 'En français s'il vous plaît',
-    tagline: 'Vous avez déjà écrit l'histoire',
+    logo: "En français s'il vous plaît",
+    tagline: "Vous avez déjà écrit l'histoire",
     baseline: 'Studio narratif & musical',
   },
 
@@ -39,7 +39,7 @@ export const footerContent = {
   },
 
   bottom: {
-    copyright: '© 2025 En français s'il vous plaît · Tous droits réservés',
+    copyright: "© 2025 En français s'il vous plaît · Tous droits réservés",
     made: 'Made with {heart} in Angers',
   },
 };

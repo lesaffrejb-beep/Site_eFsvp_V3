@@ -34,7 +34,7 @@ export const portfolioContent = {
       title: 'La force de la douceur',
       client: 'Département Maine-et-Loire',
       year: '2024',
-      description: 'Hymne officiel célébrant l'identité et les valeurs du département. Performance inaugurale devant 500 invités.',
+      description: "Hymne officiel célébrant l'identité et les valeurs du département. Performance inaugurale devant 500 invités.",
       categories: {
         category: 'institutions',
         client: 'institution',
@@ -48,7 +48,7 @@ export const portfolioContent = {
       title: 'Série promotionnelle agricole',
       client: 'Destination Angers / SIVAL',
       year: '2025',
-      description: 'Récits musicaux pour valoriser l'innovation agricole lors du plus grand salon européen.',
+      description: "Récits musicaux pour valoriser l'innovation agricole lors du plus grand salon européen.",
       categories: {
         category: 'entreprises',
         client: 'institution',
@@ -104,7 +104,7 @@ export const portfolioContent = {
       title: 'Déambulation historique XVe s.',
       client: 'Ville de Clisson',
       year: '2023',
-      description: 'Récit immersif médiéval pour faire revivre l'histoire de la cité aux visiteurs.',
+      description: "Récit immersif médiéval pour faire revivre l'histoire de la cité aux visiteurs.",
       categories: {
         category: 'institutions',
         client: 'institution',

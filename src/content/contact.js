@@ -7,7 +7,7 @@ export const contactContent = {
   section: {
     title: 'La vôtre commence maintenant',
     subtitle: 'Réponse sous 48h · Premier échange offert',
-    quote: 'Toutes les bonnes histoires méritent d'être racontées.',
+    quote: "Toutes les bonnes histoires méritent d'être racontées.",
   },
 
   form: {

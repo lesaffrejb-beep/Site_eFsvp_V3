@@ -50,7 +50,7 @@ export const processContent = {
       number: '04',
       title: 'Performance',
       duration: 'Jour J',
-      description: 'Nous venons jouer chez vous ou nous livrons l'enregistrement audio HD.',
+      description: "Nous venons jouer chez vous ou nous livrons l'enregistrement audio HD.",
       details: [
         'Performance live',
         'Audio HD professionnel',

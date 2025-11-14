@@ -6,7 +6,7 @@
 export const servicesContent = {
   section: {
     title: 'Quatre formules, une signature',
-    subtitle: 'De l'écriture seule au spectacle complet',
+    subtitle: "De l'écriture seule au spectacle complet",
   },
 
   services: [
@@ -40,7 +40,7 @@ export const servicesContent = {
     },
     {
       id: 'droits-exploitation',
-      title: 'Droits d'exploitation',
+      title: "Droits d'exploitation",
       badge: 'Sur devis',
       features: ['Publicité', 'Identité sonore', 'Campagnes'],
       ctaLabel: 'Découvrir',

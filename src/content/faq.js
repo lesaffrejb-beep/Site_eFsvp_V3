@@ -11,7 +11,7 @@ export const faqContent = {
   items: [
     {
       id: 'faq-1',
-      question: 'C'est quoi exactement ?',
+      question: "C'est quoi exactement ?",
       answer: 'Des auteurs-compositeurs écrivent et jouent votre histoire pour vos moments clés (2-60 min). C'est du sur-mesure narratif et musical : nous collectons votre histoire, l'écrivons avec dignité, la composons musicalement, puis la jouons en concert ou vous livrons l'enregistrement professionnel.',
     },
     {
@@ -37,7 +37,7 @@ export const faqContent = {
     {
       id: 'faq-6',
       question: 'Et les droits ?',
-      answer: 'Contrat de cession clair (durée/territoires/médias). Usage événementiel inclus. Droits d'exploitation commerciale (pub, identité sonore) : sur devis complémentaire. On adapte à vos besoins.',
+      answer: "Contrat de cession clair (durée/territoires/médias). Usage événementiel inclus. Droits d'exploitation commerciale (pub, identité sonore) : sur devis complémentaire. On adapte à vos besoins.",
     },
     {
       id: 'faq-7',

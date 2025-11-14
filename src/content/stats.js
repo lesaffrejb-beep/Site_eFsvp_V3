@@ -26,7 +26,7 @@ export const statsContent = {
     },
     {
       value: '4',
-      label: 'Années d'expérience terrain',
+      label: "Années d'expérience terrain",
       count: 4,
     },
   ],

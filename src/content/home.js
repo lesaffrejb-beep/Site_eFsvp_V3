@@ -6,7 +6,7 @@
 export const homeContent = {
   hero: {
     title: {
-      line1: 'Vous avez déjà écrit l'histoire.',
+      line1: "Vous avez déjà écrit l'histoire.",
       line2: 'Nous la mettons en scène avec mesure.',
     },
     subtitle: 'Une direction narrative et musicale ciselée qui laisse respirer vos moments clés et magnifie votre signature.',

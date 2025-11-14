@@ -5,7 +5,7 @@
 
 export const testimonialsContent = {
   section: {
-    title: 'Ce qu'ils disent',
+    title: "Ce qu'ils disent",
   },
 
   testimonials: [
