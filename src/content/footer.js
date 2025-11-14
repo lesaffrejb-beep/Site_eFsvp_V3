@@ -5,41 +5,41 @@
 
 export const footerContent = {
   brand: {
-    logo: "En français s'il vous plaît",
-    tagline: "Vous avez déjà écrit l'histoire",
-    baseline: 'Studio narratif & musical',
+    logo: `En français s'il vous plaît`,
+    tagline: `Vous avez déjà écrit l'histoire`,
+    baseline: `Studio de narration & musique sur-mesure`,
   },
 
   navigation: {
-    title: 'Navigation',
+    title: `Navigation`,
     links: [
-      { label: 'Créations', href: '#creations' },
-      { label: 'Services', href: '#services' },
-      { label: 'Portfolio', href: '#portfolio' },
-      { label: 'Process', href: '#process' },
-      { label: 'FAQ', href: '#faq' },
-      { label: 'Contact', href: '#contact' },
+      { label: `Créations`, href: `#creations` },
+      { label: `Services`, href: `#services` },
+      { label: `Portfolio`, href: `#portfolio` },
+      { label: `Process`, href: `#process` },
+      { label: `FAQ`, href: `#faq` },
+      { label: `Contact`, href: `#contact` },
     ],
   },
 
   legal: {
-    title: 'Informations',
+    title: `Informations`,
     links: [
-      { label: 'Mentions légales', href: '#mentions' },
-      { label: 'CGV', href: '#cgv' },
-      { label: 'Confidentialité', href: '#confidentialite' },
-      { label: 'RGPD', href: '#rgpd' },
+      { label: `Mentions légales`, href: `#mentions` },
+      { label: `CGV`, href: `#cgv` },
+      { label: `Confidentialité`, href: `#confidentialite` },
+      { label: `RGPD`, href: `#rgpd` },
     ],
   },
 
   newsletter: {
-    title: 'Restez inspiré',
-    description: '1 email/mois · Projets & coulisses',
-    placeholder: 'Votre email',
+    title: `Restez inspiré`,
+    description: `1 email/mois · Projets & coulisses`,
+    placeholder: `Votre email`,
   },
 
   bottom: {
-    copyright: "© 2025 En français s'il vous plaît · Tous droits réservés",
-    made: 'Made with {heart} in Angers',
+    copyright: `© 2025 En français s'il vous plaît · Tous droits réservés`,
+    made: `Made with {heart} in Angers`,
   },
 };

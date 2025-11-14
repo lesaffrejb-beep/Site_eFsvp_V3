@@ -6,41 +6,50 @@
 export const homeContent = {
   hero: {
     title: {
-      line1: "Vous avez déjà écrit l'histoire.",
-      line2: 'Nous la mettons en scène avec mesure.',
+      line1: `Votre histoire mérite mieux qu'un PowerPoint.`,
+      line2: `Elle mérite un spectacle.`,
     },
-    subtitle: 'Une direction narrative et musicale ciselée qui laisse respirer vos moments clés et magnifie votre signature.',
+    subtitle: `Institutions, territoires, entreprises : nous transformons vos moments clés en expériences narratives sur-mesure, écrites et jouées pour vous.`,
     primaryCta: {
-      label: 'Partagez votre histoire',
-      targetId: '#contact',
+      label: `Partagez votre histoire`,
+      targetId: `#contact`,
     },
+    secondaryCta: {
+      label: `Voir un projet en entier`,
+      href: `#portfolio`,
+    },
+    tagline: `Vous avez déjà écrit l'histoire. On ne fera que vous relire.`,
     metrics: [
       {
-        value: '60+',
-        label: 'Représentations',
+        value: `15+`,
+        label: `Projets sur-mesure`,
       },
       {
-        value: '15+',
-        label: 'Projets institutionnels',
+        value: `60+`,
+        label: `Dates jouées`,
       },
       {
-        value: '1200€',
-        label: 'À partir de',
+        value: `1 200 €`,
+        label: `À partir de`,
+      },
+      {
+        value: `4`,
+        label: `Années de terrain`,
       },
     ],
   },
 
   navigation: {
-    logo: 'EfSVP',
+    logo: `EfSVP`,
     links: [
-      { label: 'Créations', href: '#creations' },
-      { label: 'Portfolio', href: '#portfolio' },
-      { label: 'Process', href: '#process' },
-      { label: 'FAQ', href: '#faq' },
+      { label: `Créations`, href: `#creations` },
+      { label: `Portfolio`, href: `#portfolio` },
+      { label: `Process`, href: `#process` },
+      { label: `FAQ`, href: `#faq` },
     ],
     cta: {
-      label: 'Démarrer votre projet',
-      href: '#contact',
+      label: `Démarrer votre projet`,
+      href: `#contact`,
     },
   },
 };
