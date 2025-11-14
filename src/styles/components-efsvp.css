@@ -42,9 +42,10 @@ body {
 /* ===== HERO SECTION ===== */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, #101927 0%, #1a2332 65%, #111a2a 100%);
-  color: var(--parchemin);
-  padding: clamp(6rem, 10vw, 8.5rem) var(--space-6) clamp(5rem, 8vw, 7rem);
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #1f2a3c 60%, rgba(13, 17, 23, 0.98) 100%);
+  color: var(--text-inverse);
+  padding-top: clamp(6rem, 12vw, 9rem);
+  padding-bottom: clamp(5rem, 10vw, 8rem);
   min-height: 100dvh;
   display: flex;
   align-items: center;
@@ -55,8 +56,8 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 25% 20%, rgba(184, 68, 30, 0.35), transparent 55%),
-    radial-gradient(circle at 80% 75%, rgba(232, 146, 79, 0.22), transparent 60%);
+  background: radial-gradient(circle at 25% 20%, rgba(185, 90, 64, 0.35), transparent 55%),
+    radial-gradient(circle at 80% 75%, rgba(240, 140, 110, 0.22), transparent 60%);
   opacity: 0.85;
   z-index: 0;
 }
@@ -69,104 +70,120 @@ body {
   width: 100%;
 }
 
+
 .hero__grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: clamp(3rem, 6vw, 6rem);
 }
 
 .hero__content {
-  max-width: 680px;
+  max-width: 720px;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-body);
 }
 
 .hero__headline {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 3.2rem + 1.5vw, 4.5rem);
-  font-weight: 700;
-  color: #f5e6d3;
-  line-height: 1.05;
-  letter-spacing: -0.015em;
-  margin-bottom: var(--space-4);
+  color: var(--text-inverse);
+  letter-spacing: -0.02em;
 }
 
-.hero__subheadline {
+.hero__headline-sub {
+  display: block;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(1.5rem, 1.4rem + 0.6vw, 2.5rem);
-  color: rgba(245, 230, 211, 0.92);
-  margin-bottom: var(--space-6);
+  font-weight: var(--font-semibold);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .hero__description {
-  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem);
-  color: rgba(245, 230, 211, 0.82);
-  margin-bottom: var(--space-10);
+  color: rgba(255, 255, 255, 0.72);
   line-height: 1.75;
-  max-width: 42rem;
 }
 
 .hero__description strong {
-  color: var(--ambre-forge);
-  font-weight: 600;
+  color: var(--color-primary-300);
+  font-weight: var(--font-semibold);
 }
 
 .hero__cta-group {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-4);
+}
+
+.hero__cta-group .btn {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .hero__cta-group {
+    flex-direction: row;
+  }
+
+  .hero__cta-group .btn {
+    width: auto;
+  }
 }
 
 .hero__support {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  max-width: 420px;
+  gap: var(--space-6);
+  max-width: 460px;
+  margin: 0 auto;
 }
 
 .social-proof__label {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  color: rgba(245, 230, 211, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .client-badges {
-  display: grid;
-  gap: var(--space-3);
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .client-badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-md);
-  background: rgba(245, 230, 211, 0.08);
-  border: 1px solid rgba(245, 230, 211, 0.12);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  justify-content: center;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
 .client-badge:hover,
 .client-badge:focus-within {
   transform: translateY(-2px);
-  border-color: rgba(232, 146, 79, 0.45);
+  box-shadow: var(--shadow-primary);
+  border-color: rgba(185, 90, 64, 0.35);
 }
 
 .client-badge__label {
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: rgba(245, 230, 211, 0.9);
-  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  font-weight: var(--font-medium);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .client-badge--more .client-badge__label {
-  color: var(--ambre-forge);
+  color: var(--color-primary-300);
 }
 
 @media (min-width: 900px) {
@@ -190,7 +207,7 @@ body {
   }
 
   .client-badges {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    justify-content: center;
   }
 }
 
@@ -229,6 +246,23 @@ body {
   box-shadow: 0 4px 12px rgba(232, 146, 79, 0.3);
 }
 
+.cta.btn-primary {
+  background: var(--color-primary-500);
+  color: var(--text-inverse);
+  box-shadow: none;
+}
+
+.cta.btn-primary:hover {
+  background: var(--color-primary-600);
+  box-shadow: var(--shadow-primary);
+  transform: translateY(-1px);
+}
+
+.cta.btn-primary:active {
+  background: var(--color-primary-700);
+  transform: translateY(0);
+}
+
 .cta--secondary {
   background: white;
   color: var(--terre-cuite);
@@ -255,39 +289,40 @@ body {
 .hero__social-proof {
   margin-top: var(--space-20);
   padding-top: var(--space-12);
-  border-top: 1px solid rgba(245, 230, 211, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.social-proof__label {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(245, 230, 211, 0.6);
+.hero .social-proof__label {
+  font-size: var(--text-sm);
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: var(--space-6);
 }
 
-.social-proof__logos {
+.hero .social-proof__logos {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-8);
+  gap: var(--space-6);
+  justify-content: center;
   align-items: center;
 }
 
-.social-proof__logos img {
+.hero .social-proof__logos img {
   height: 32px;
   width: auto;
   opacity: 0.7;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-base), transform var(--transition-base);
   filter: grayscale(100%) brightness(2);
 }
 
-.social-proof__logos img:hover {
+.hero .social-proof__logos img:hover {
   opacity: 1;
+  transform: translateY(-2px);
 }
 
 .social-proof__more {
-  font-size: 14px;
-  color: rgba(245, 230, 211, 0.6);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.6);
   font-style: italic;
 }
 

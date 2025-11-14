@@ -72,6 +72,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- CSS Files -->
+    <link rel="stylesheet" href="/src/styles/tokens.css" />
+    <link rel="stylesheet" href="/src/styles/utilities.css" />
     <link rel="stylesheet" href="/src/styles/design-tokens.css" />
     <link rel="stylesheet" href="/src/styles/design-system.css" />
     <link rel="stylesheet" href="/src/styles/styles.css" />
@@ -211,31 +213,37 @@
     <!-- ============================================
          SECTION 1: HERO
          ============================================ -->
-    <section class="hero" id="hero" aria-label="Page d'accueil et présentation">
-      <div class="hero__container">
+    <section class="hero section gradient-subtle overflow-hidden" id="hero" aria-label="Page d'accueil et présentation">
+      <div class="hero__container container">
         <div class="hero__grid">
-          <div class="hero__content">
-            <h1 class="hero__headline">
+          <div class="hero__content text-center mx-auto max-w-4xl animate-fade-in">
+            <p class="hero__eyebrow body-small uppercase tracking-wider text-accent mb-6">
+              Studio de création narrative &amp; musicale
+            </p>
+            <h1 class="hero__headline heading-1 text-inverse mb-8">
               Vous avez déjà écrit l'histoire.
+              <span class="hero__headline-sub text-secondary mt-4">
+                On ne fera que vous relire.
+              </span>
             </h1>
-            <p class="hero__subheadline">
-              On ne fera que vous relire.
+            <p class="hero__description body-large text-secondary mx-auto mb-12">
+              Studio de création narrative et musicale sur-mesure.<br />
+              Pour vos moments clés : anniversaires, inaugurations, transitions.<br />
+              <strong class="text-accent">Écriture • Composition • Performance live.</strong>
             </p>
-            <p class="hero__description">
-              Studio de création narrative et musicale sur-mesure.<br>
-              Pour vos moments clés : anniversaires, inaugurations, transitions.<br>
-              <strong>Écriture • Composition • Performance live.</strong>
-            </p>
-            <div class="hero__cta-group">
-              <a href="#contact" class="cta cta--primary">
+            <div class="hero__cta-group flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a href="#contact" class="cta cta--primary btn btn-primary btn-lg">
                 Partagez votre histoire
+              </a>
+              <a href="#projets" class="btn btn-secondary btn-lg">
+                Découvrir nos projets
               </a>
             </div>
           </div>
 
-          <aside class="hero__support" aria-label="Ils nous font confiance">
-            <p class="social-proof__label">Ils nous font confiance</p>
-            <ul class="client-badges" role="list">
+          <aside class="hero__support text-center" aria-label="Ils nous font confiance">
+            <p class="social-proof__label body-small text-secondary mb-6">Ils nous font confiance</p>
+            <ul class="client-badges flex flex-wrap justify-center items-center gap-6" role="list">
               <li class="client-badge">
                 <span class="client-badge__label">Département 49</span>
               </li>
