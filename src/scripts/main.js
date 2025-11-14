@@ -215,6 +215,9 @@ class App {
     // Back to top
     this.initBackToTop();
 
+    // Floating CTA
+    this.initFloatingCTA();
+
     // Bento Grid audio buttons
     this.initBentoAudioButtons();
   }
@@ -504,6 +507,46 @@ class App {
         closeModal();
       }
     });
+
+    // Quick quote form (mini-formulaire)
+    this.initQuickQuoteForm();
+  }
+
+  // ========== QUICK QUOTE FORM ==========
+  initQuickQuoteForm() {
+    const quickForm = document.getElementById('quick-quote-form');
+    if (!quickForm) return;
+
+    quickForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(quickForm);
+      const data = {
+        nom: formData.get('nom'),
+        organisation: formData.get('organisation'),
+        email: formData.get('email'),
+        formule: formData.get('formule'),
+        source: 'quick-quote-form',
+      };
+
+      // In a real implementation, send to backend
+      console.log('Quick quote form submitted:', data);
+
+      // Show success message
+      const modal = document.getElementById('success-modal');
+      const modalName = document.getElementById('modal-name');
+
+      if (modalName && data.nom) {
+        modalName.textContent = data.nom.split(' ')[0];
+      }
+
+      if (modal) {
+        modal.classList.add('active');
+      }
+
+      // Reset form
+      quickForm.reset();
+    });
   }
 
   // ========== STATS COUNTER ==========
@@ -571,6 +614,37 @@ class App {
 
       backToTop.addEventListener('click', () => {
         this.modules.smoothScroll.scrollTo(0, { duration: 2 });
+      });
+    }
+  }
+
+  // ========== FLOATING CTA ==========
+  initFloatingCTA() {
+    const floatingCta = document.getElementById('floating-cta');
+
+    if (floatingCta) {
+      // Show after scrolling past hero
+      window.addEventListener('scroll', () => {
+        const heroHeight = document.querySelector('.hero')?.offsetHeight || 600;
+
+        if (window.pageYOffset > heroHeight * 0.7) {
+          floatingCta.classList.add('visible');
+        } else {
+          floatingCta.classList.remove('visible');
+        }
+      });
+
+      // Smooth scroll to contact
+      floatingCta.addEventListener('click', (e) => {
+        e.preventDefault();
+        const contactSection = document.getElementById('contact');
+
+        if (contactSection && this.modules.smoothScroll) {
+          this.modules.smoothScroll.scrollTo(contactSection, {
+            offset: -80,
+            duration: 1.2,
+          });
+        }
       });
     }
   }
