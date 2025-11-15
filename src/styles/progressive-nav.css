@@ -211,6 +211,7 @@
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity var(--transition-base), visibility var(--transition-base);
   z-index: var(--z-sticky);
 }
@@ -218,6 +219,7 @@
 .nav__overlay[aria-hidden="false"] {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 @media (min-width: 768px) {
@@ -278,5 +280,35 @@
 
   .scroll-progress-bar {
     height: 3px;
+  }
+}
+
+/* ===== Fix mobile menu z-index and positioning ===== */
+@media (max-width: 767px) {
+  .nav__menu {
+    z-index: calc(var(--z-fixed) + 1);
+  }
+
+  .nav__overlay {
+    z-index: var(--z-fixed);
+  }
+
+  /* S'assurer que le body n'a pas de transform ou filter qui pourraient créer un contexte d'empilement */
+  body.menu-open {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* S'assurer que les sections principales ne sont pas superposées */
+  main {
+    position: relative;
+    z-index: var(--z-base);
+    background: var(--bg-primary);
+  }
+
+  /* Ajouter un petit padding-top aux sections pour compenser le header fixe */
+  section:not(.hero) {
+    scroll-margin-top: 80px;
   }
 }
