@@ -292,13 +292,6 @@ export function initPortfolioContent() {
         const sectorChip = project.sector
           ? `<span class="project-card__chip project-card__chip--sector">${project.sector}</span>`
           : '';
-        const typologyChip = project.typology
-          ? `<span class="project-card__chip project-card__chip--typology">${project.typology}</span>`
-          : '';
-        const themeTags = project.themes
-          .slice(0, 2)
-          .map((theme) => `<span class="project-card__tag">${theme}</span>`)
-          .join('');
         const clientInitials = project.client
           ? project.client
               .split(/\s+/)
@@ -331,11 +324,7 @@ export function initPortfolioContent() {
                 <p class="project-card__tagline">${project.tagline}</p>
               </header>
               <p class="project-card__description">${project.shortDescription}</p>
-              ${themeTags ? `<div class="project-card__tags">${themeTags}</div>` : ''}
-              <div class="project-card__chips">
-                ${sectorChip}
-                ${typologyChip}
-              </div>
+              ${sectorChip ? `<div class="project-card__chips">${sectorChip}</div>` : ''}
             </div>
             <footer class="project-card__footer">
               <span class="project-card__status project-card__status--${project.status}">${statusLabel}</span>
