@@ -18,13 +18,13 @@
   --color-background: #FDFDFD; /* Blanc très légèrement cassé, pas pur */
   --color-text-primary: #1A1B25; /* Un noir doux, pas #000 */
   --color-text-secondary: #5B5D6E; /* Pour le texte moins important */
-  --color-primary-accent: #0052FF; /* Un bleu vif et moderne pour les CTA et les liens */
+  --color-primary-accent: #D4A08A; /* Rose saumon/terracotta pour les CTA et les liens */
   --color-border-subtle: #EAEAEB; /* Pour les bordures et séparateurs fins */
   --color-background-muted: #F5F5F7; /* Pour les fonds de section alternés */
 
   /* Couleurs étendues pour états et variantes */
-  --color-primary-accent-hover: #0046DD; /* Hover state du bleu */
-  --color-primary-accent-light: #E6EFFF; /* Fond clair pour badges/tags */
+  --color-primary-accent-hover: #B87963; /* Hover state terracotta foncé */
+  --color-primary-accent-light: #F0DED3; /* Fond clair rose saumon pour badges/tags */
   --color-text-tertiary: #9B9CAA; /* Texte très désaturé */
   --color-white-pure: #FFFFFF; /* Blanc pur pour élévation */
   --color-success: #10B981;
@@ -88,8 +88,8 @@
   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.06);
 
   /* Ombre colorée pour le bouton primaire */
-  --shadow-primary: 0 8px 20px rgba(0, 82, 255, 0.2);
-  --shadow-primary-hover: 0 12px 28px rgba(0, 82, 255, 0.3);
+  --shadow-primary: 0 8px 20px rgba(184, 121, 99, 0.2);
+  --shadow-primary-hover: 0 12px 28px rgba(184, 121, 99, 0.3);
 
   /* ===== 5. TRANSITIONS & ANIMATIONS ===== */
 
