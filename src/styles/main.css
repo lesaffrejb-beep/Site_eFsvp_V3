@@ -1586,7 +1586,7 @@ button {
   height: 24px;
   flex-shrink: 0;
   color: var(--text-accent);
-  transition: transform var(--transition-smooth);
+  transition: transform var(--transition-slow), opacity var(--transition-base);
   opacity: 0.8;
 }
 
