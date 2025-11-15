@@ -88,12 +88,13 @@
 .hero__signature-path {
   fill: none;
   stroke: var(--text-primary);
-  stroke-width: 4.5;
+  stroke-width: 3.2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 14px 28px rgba(26, 35, 50, 0.25));
+  filter: drop-shadow(0 12px 24px rgba(26, 35, 50, 0.18));
   stroke-dasharray: none;
   stroke-dashoffset: 0;
+  /* Variante plus fine et élégante */
 }
 
 .hero__ink-channel {
@@ -162,7 +163,9 @@
   border-radius: 46% 46% 58% 58%;
   filter: drop-shadow(0 12px 24px rgba(26, 35, 50, 0.28));
   transform: translateY(-140%);
+  transform-origin: center center;
   pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .hero__baseline {
