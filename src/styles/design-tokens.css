@@ -1,6 +1,57 @@
 /* ============================================
    EfSVP — Core Design Tokens
    Central palette & scales (no transparency on base layers)
+   ============================================
+
+   SYSTÈME DE DESIGN — DOCUMENTATION
+
+   === PALETTE DE COULEURS ===
+   - Primary (Terracotta): #b95a40 - Couleur signature du studio
+   - Secondary (Kaki Doux): #8a8a68 - Accent naturel
+   - Accent Camel: #c39d6b - Secondaire chaleureux
+   - Accent Beige: #e6d9c3 - Secondaire doux
+   - Ink (Bleu Marine): #1d2c3b - Texte principal foncé
+   - Charcoal: #2d3748 - Texte secondaire
+   - Fonds: Palette Ivoire/Beige Sable (#fbf8f3, #faf6f0, #f0e9dc)
+   - Sections sombres: #0e151b → #141e26 (gradient)
+
+   === ÉCHELLE DE SPACING (base 4px) ===
+   --space-1: 4px    | --space-2: 8px     | --space-3: 12px
+   --space-4: 16px   | --space-5: 20px    | --space-6: 24px
+   --space-8: 32px   | --space-10: 40px   | --space-12: 48px
+   --space-16: 64px  | --space-20: 80px   | --space-24: 96px
+   --space-28: 112px | --space-32: 128px
+
+   Utilisation :
+   - Padding sections : --space-16 à --space-32
+   - Marges entre éléments : --space-4 à --space-12
+   - Gaps de grilles : --space-6 à --space-10
+
+   === ÉCHELLE TYPOGRAPHIQUE (fluid) ===
+   --text-xs:   0.75rem  (12px)   | --text-sm:   0.875rem (14px)
+   --text-base: 1.063rem (17px)   | --text-lg:   1.125rem (18px)
+   --text-xl:   1.25rem  (20px)   | --text-2xl:  1.5rem   (24px)
+   --text-3xl:  2.25rem  (36px)   | --text-4xl:  3rem     (48px)
+   --text-5xl:  3.5rem   (56px)   | --text-6xl:  3.75rem  (60px)
+
+   Line Heights :
+   --leading-tight: 1.1    | Titres principaux
+   --leading-snug: 1.3     | Sous-titres
+   --leading-normal: 1.5   | Corps de texte
+   --leading-relaxed: 1.7  | Texte confortable
+
+   === BORDER RADIUS (Premium Unified) ===
+   --radius-xs: 4px    | --radius-sm: 8px    | --radius-md: 12px
+   --radius-lg: 20px   | --radius-xl: 24px   | --radius-2xl: 32px
+   --radius-full: 9999px (pilule)
+
+   === OMBRES (Hiérarchie Premium) ===
+   --shadow-xs, --shadow-sm : Subtiles (cartes légères)
+   --shadow, --shadow-md : Standard (cartes principales)
+   --shadow-lg, --shadow-xl : Prononcées (cartes flottantes)
+   --shadow-lift : Lift effect (hover states)
+   --shadow-hero-cta, --shadow-dark-card : Spéciaux
+
    ============================================ */
 
 :root {
