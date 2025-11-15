@@ -342,6 +342,9 @@ class App {
 
     // Mobile menu avec focus trap
     if (navToggle && navMenu) {
+      // Initialiser l'état fermé du menu mobile
+      navMenu.setAttribute('aria-hidden', 'true');
+
       let focusableElements = [];
       let firstFocusable = null;
       let lastFocusable = null;
@@ -356,7 +359,10 @@ class App {
         navToggle.setAttribute('aria-expanded', 'false');
         navToggle.setAttribute('aria-label', 'Ouvrir le menu');
         navMenu.classList.remove('active');
+        navMenu.setAttribute('aria-hidden', 'true');
         navOverlay?.classList.remove('is-active');
+        navOverlay?.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
       };
 
@@ -364,7 +370,10 @@ class App {
         navToggle.setAttribute('aria-expanded', 'true');
         navToggle.setAttribute('aria-label', 'Fermer le menu');
         navMenu.classList.add('active');
+        navMenu.setAttribute('aria-hidden', 'false');
         navOverlay?.classList.add('is-active');
+        navOverlay?.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('menu-open');
         document.body.style.overflow = 'hidden';
 
         updateFocusableElements();

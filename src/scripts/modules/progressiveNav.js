@@ -39,19 +39,19 @@ export class ProgressiveNav {
     this.progressBar.setAttribute('aria-valuemin', '0');
     this.progressBar.setAttribute('aria-valuemax', '100');
 
-    // Set initial styles
+    // Set initial styles (utilise les tokens du design system)
     Object.assign(this.progressBar.style, {
       position: 'fixed',
       top: '0',
       left: '0',
       width: '0%',
-      height: '4px',
-      background: 'linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent-gold) 100%)',
-      zIndex: '9999',
+      height: '3px',
+      background: 'linear-gradient(90deg, var(--color-primary-500) 0%, var(--color-primary-400) 50%, var(--color-primary-300) 100%)',
+      zIndex: getComputedStyle(document.documentElement).getPropertyValue('--z-tooltip') || '1600',
       transition: 'opacity 0.3s ease',
       opacity: '0',
       transformOrigin: 'left',
-      boxShadow: '0 0 12px rgba(184, 68, 30, 0.4)',
+      boxShadow: '0 0 12px rgba(185, 90, 64, 0.4)',
       pointerEvents: 'none'
     });
 
