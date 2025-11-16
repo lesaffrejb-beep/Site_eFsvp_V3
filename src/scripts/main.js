@@ -186,7 +186,14 @@ class App {
 
   initSections() {
     // Hero signature animation
-    initHeroSignature();
+    console.log('🔧 [MAIN] Initialisation des sections...');
+    console.log('🔧 [MAIN] GSAP disponible ?', typeof gsap !== 'undefined');
+
+    if (typeof gsap !== 'undefined') {
+      initHeroSignature();
+    } else {
+      console.error('❌ [MAIN] GSAP non chargé avant init hero');
+    }
 
     // const heroInkInstance = initHeroInk();
     // if (heroInkInstance) {
