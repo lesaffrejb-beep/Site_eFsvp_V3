@@ -57,7 +57,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Réduction des graisses chargées - Seulement les nécessaires -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&family=Cormorant:ital,wght@1,600&family=Allura&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&family=Cormorant:ital,wght@1,600&family=Parisienne&display=swap"
       rel="stylesheet"
     />
     <!-- Preload des fonts critiques pour le Hero -->
@@ -217,9 +217,42 @@
         <div class="hero__content">
           <!-- Titre manuscrit -->
           <div class="hero-signature-block">
-            <h1 id="hero-title" class="hero-title-handwritten">
-              En français s'il vous plaît
-            </h1>
+            <div class="hero-signature-wrapper">
+              <svg
+                class="hero-signature-svg"
+                viewBox="0 0 1000 200"
+                role="img"
+                aria-labelledby="hero-signature-title"
+              >
+                <title id="hero-signature-title">
+                  En français s'il vous plaît
+                </title>
+
+                <!-- Version STROKE (écriture) -->
+                <text
+                  id="hero-signature-stroke"
+                  class="hero-signature-text hero-signature-text--stroke"
+                  x="50%"
+                  y="55%"
+                  dominant-baseline="middle"
+                  text-anchor="middle"
+                >
+                  En français s'il vous plaît
+                </text>
+
+                <!-- Version FILL (à apparaître après le trait) -->
+                <text
+                  id="hero-signature-fill"
+                  class="hero-signature-text hero-signature-text--fill"
+                  x="50%"
+                  y="55%"
+                  dominant-baseline="middle"
+                  text-anchor="middle"
+                >
+                  En français s'il vous plaît
+                </text>
+              </svg>
+            </div>
 
             <p class="hero-signature-caption" data-hero-baseline>
               Studio de création narrative &amp; musicale sur-mesure
