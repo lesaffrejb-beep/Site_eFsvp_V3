@@ -72,21 +72,17 @@
 
 /* Path de la signature manuscrite */
 .hero-signature-path {
-  /* CRITIQUE : Forcer stroke au lieu de fill pour l'animation manuscrite */
-  fill: none !important;
+  fill: none;
   stroke: var(--neutral-900, #1a2332);
-  stroke-width: 1.4; /* Trait fin et élégant */
+  stroke-width: 1.5; /* Trait net et élégant */
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 1;
-  /* Animation gérée par GSAP dans le JS - NE PAS définir strokeDasharray/offset ici */
-  filter: drop-shadow(0 2px 4px rgba(26, 35, 50, 0.12));
-  vector-effect: non-scaling-stroke;
-  /* IMPORTANT : L'initialisation de dasharray/offset est gérée par JS avec les longueurs réelles */
+  /* IMPORTANT : Pas de strokeDasharray/offset ici - géré uniquement par GSAP */
+  /* IMPORTANT : Pas de filter drop-shadow qui créerait une double couche */
 }
 
-/* Classe d'initialisation pour empêcher tout flash avant l'animation */
-[data-hero-signature].initializing path {
+/* Classe d'initialisation pour masquer les paths pendant le setup JS */
+.hero-signature-svg.is-initializing .hero-signature-path {
   opacity: 0;
 }
 
@@ -276,23 +272,21 @@
 /* Prefers reduced motion - Tout visible sans animation */
 @media (prefers-reduced-motion: reduce) {
   .hero-signature-path {
-    /* Signature visible immédiatement sans animation */
-    stroke-dasharray: none !important;
-    stroke-dashoffset: 0 !important;
+    /* Signature visible immédiatement sans animation - géré par JS */
   }
 
   .hero-subtitle,
   .hero-signature-caption {
-    opacity: 1 !important;
-    clip-path: none !important;
+    opacity: 1;
+    clip-path: none;
   }
 
   .hero-ink-drop {
-    opacity: 0 !important; /* Pas de goutte d'encre si motion réduite */
+    opacity: 0; /* Pas de goutte d'encre si motion réduite */
   }
 
   .hero-cta > * {
-    opacity: 1 !important;
-    transform: none !important;
+    opacity: 1;
+    transform: none;
   }
 }
