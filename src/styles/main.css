@@ -55,6 +55,7 @@
   --bg-tertiary: #e9ecef;
   --bg-dark: #1a2332;
   --bg-accent: #fef5f3;
+  --color-hero-bg: #f9f5ef; /* Fond hero très léger, presque blanc */
 
   /* Text Colors */
   --text-primary: #1a2332;
