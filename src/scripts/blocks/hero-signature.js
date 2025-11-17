@@ -2,45 +2,56 @@
 import { gsap } from 'gsap';
 
 /**
- * Animation de la signature manuscrite du hero - Version 4.0 (Goutte d'encre + CTA liquide)
+ * =========================================================================
+ * Hero Signature Animation - AWWWARDS 2025 GRADE 🏆
+ * =========================================================================
  *
- * OBJECTIF :
- * - La signature doit être 100% INVISIBLE au chargement (aucun trait, aucun fragment)
- * - Animation progressive "handwriting" du stroke de gauche à droite
- * - Goutte d'encre qui tombe de la signature vers le CTA
- * - Remplissage liquide du CTA depuis le bas vers le haut
- * - Une seule couche de trait nette (pas de superposition/ghost)
- * - Respect de prefers-reduced-motion
+ * OBJECTIF : Animation narrative premium qui raconte une histoire
+ * Signature manuscrite → Goutte d'encre → Remplissage liquide du CTA
  *
- * NOUVELLE STRUCTURE :
- * - Signature SVG animée
- * - Sous-titre visible dès le départ (pas d'animation)
- * - Goutte d'encre dans .hero-ink-drop-layer
- * - CTA unique avec effet de remplissage liquide
+ * CARACTÉRISTIQUES PREMIUM :
+ * - Squash & stretch physique naturel sur la goutte
+ * - Effet gooey/liquide prononcé
+ * - Vague liquide organique pendant le remplissage du CTA
+ * - Timings et easings perfectionnés
+ * - Cohérence physique (gravité, inertie, viscosité)
+ * - Accessibilité stricte (prefers-reduced-motion)
+ *
+ * INSPIRATION : Apple.com, Awwwards SOTD, Studio premium européen
  */
 
-// Mode debug : mettre à true pour logger l'état des paths
+// Mode debug : mettre à true pour logger les étapes
 const DEBUG = false;
 
+/**
+ * Initialise l'animation complète du hero
+ */
 export function initHeroSignature() {
   // ===================================
   // ÉTAPE 1 : RÉCUPÉRATION DES ÉLÉMENTS
   // ===================================
   const svg = document.querySelector('[data-hero-signature]');
-  if (!svg) return;
+  if (!svg) {
+    if (DEBUG) console.warn('Hero signature SVG not found');
+    return;
+  }
 
   const paths = svg.querySelectorAll('.hero-signature-path');
-  if (!paths.length) return;
+  if (!paths.length) {
+    if (DEBUG) console.warn('Hero signature paths not found');
+    return;
+  }
 
   const inkDrop = document.querySelector('[data-hero-ink-drop]');
   const cta = document.querySelector('[data-hero-cta]');
   const ctaInk = cta ? cta.querySelector('.hero-cta__ink-fill') : null;
+  const ctaLabel = cta ? cta.querySelector('.hero-cta__label') : null;
   const subtitle = document.querySelector('[data-hero-baseline]');
 
   // ===================================
   // ÉTAPE 2 : CLASSE D'INITIALISATION
   // ===================================
-  // Ajouter immédiatement la classe pour masquer les paths pendant le setup
+  // Masquer immédiatement pendant le setup pour éviter le flash
   svg.classList.add('is-initializing');
 
   // ===================================
@@ -50,36 +61,16 @@ export function initHeroSignature() {
     '(prefers-reduced-motion: reduce)'
   ).matches;
 
-  // Mode sans animation : tout visible immédiatement
+  // Mode sans animation : état final immédiat
   if (prefersReducedMotion) {
-    paths.forEach((path) => {
-      path.style.strokeDasharray = 'none';
-      path.style.strokeDashoffset = '0';
-      path.style.fill = 'none';
-    });
-
-    if (subtitle) {
-      gsap.set(subtitle, { opacity: 1 });
-    }
-
-    if (inkDrop) {
-      gsap.set(inkDrop, { opacity: 0 });
-    }
-
-    if (cta && ctaInk) {
-      gsap.set(ctaInk, { scaleY: 1 });
-      cta.classList.add('is-filled');
-      gsap.set(cta, { opacity: 1, y: 0 });
-    }
-
-    svg.classList.remove('is-initializing');
+    applyFinalState({ paths, subtitle, inkDrop, cta, ctaInk, svg });
     return;
   }
 
   // ===================================
-  // ÉTAPE 4 : INIT STRICTE DES PATHS
+  // ÉTAPE 4 : INITIALISATION DES ÉTATS
   // ===================================
-  // Le sous-titre reste visible (pas d'animation)
+  // Sous-titre visible dès le départ (pas d'animation)
   if (subtitle) {
     gsap.set(subtitle, { opacity: 1 });
   }
@@ -93,6 +84,7 @@ export function initHeroSignature() {
   if (inkDrop) {
     gsap.set(inkDrop, {
       opacity: 0,
+      scale: 0,
       y: 0
     });
   }
@@ -102,164 +94,254 @@ export function initHeroSignature() {
     gsap.set(ctaInk, { scaleY: 0 });
   }
 
-  // Initialiser TOUS les paths de manière SYNCHRONE avec leur longueur réelle
+  // Initialiser tous les paths avec strokeDasharray
   const pathMeta = [];
-
   paths.forEach((path) => {
     const length = path.getTotalLength();
-
-    // État initial : complètement masqué
     path.style.strokeDasharray = `${length}`;
     path.style.strokeDashoffset = `${length}`;
     path.style.fill = 'none';
-
     pathMeta.push({ path, length });
   });
 
-  // Debug : logger l'état initial
   if (DEBUG) {
-    console.group('Hero signature debug - État initial');
-    pathMeta.forEach(({ path, length }, i) => {
-      const computed = getComputedStyle(path);
-      console.log(`Path #${i}`, {
-        length,
-        dasharray: computed.strokeDasharray,
-        dashoffset: computed.strokeDashoffset,
-        fill: computed.fill
-      });
+    console.log('✅ Hero signature initialized', {
+      pathCount: pathMeta.length,
+      hasInkDrop: !!inkDrop,
+      hasCTA: !!cta
     });
-    console.groupEnd();
   }
 
   // ===================================
-  // ÉTAPE 5 : RETIRER LA CLASSE ET LANCER L'ANIMATION
+  // ÉTAPE 5 : CRÉER LA TIMELINE PREMIUM
   // ===================================
-  // Utiliser requestAnimationFrame pour garantir que le navigateur a appliqué les styles
   requestAnimationFrame(() => {
     svg.classList.remove('is-initializing');
-
-    // ===================================
-    // ÉTAPE 6 : CRÉER LA TIMELINE GSAP
-    // ===================================
-    const tl = gsap.timeline({
-      defaults: { ease: 'power2.out' },
-      delay: 0.3 // Petit délai au chargement
+    createPremiumTimeline({
+      pathMeta,
+      inkDrop,
+      cta,
+      ctaInk,
+      ctaLabel,
+      subtitle
     });
+  });
+}
 
-    // Animer chaque path de la signature
-    pathMeta.forEach(({ path, length }, index) => {
-      // Durée adaptée à la longueur du trait (entre 0.4s et 2s)
-      const duration = gsap.utils.clamp(0.4, 2, length / 250);
+/**
+ * Crée la timeline GSAP premium avec animations narratives
+ */
+function createPremiumTimeline({ pathMeta, inkDrop, cta, ctaInk, ctaLabel, subtitle }) {
+  const tl = gsap.timeline({
+    defaults: { ease: 'power2.out' },
+    delay: 0.4 // Petit délai élégant au chargement
+  });
 
-      // Animer le tracé avec un chevauchement pour fluidité
-      tl.to(
-        path,
-        {
-          strokeDashoffset: 0, // Devient visible progressivement
-          duration: duration,
-          ease: 'power1.inOut'
-        },
-        index === 0 ? 0 : '>-0.12' // Premier path commence à 0, autres se chevauchent légèrement
-      );
-    });
+  // ===================================
+  // SÉQUENCE 1 : SIGNATURE S'ÉCRIT
+  // ===================================
+  // Animation handwriting progressive avec chevauchement naturel
+  pathMeta.forEach(({ path, length }, index) => {
+    // Durée adaptée à la longueur du trait (entre 0.5s et 2.2s)
+    const duration = gsap.utils.clamp(0.5, 2.2, length / 230);
 
-    // Label pour marquer la fin de l'écriture de la signature
-    tl.addLabel('signatureComplete');
+    tl.to(
+      path,
+      {
+        strokeDashoffset: 0,
+        duration: duration,
+        ease: 'power1.inOut' // Easing naturel pour l'écriture
+      },
+      index === 0 ? 0 : '>-0.15' // Chevauchement pour fluidité
+    );
+  });
+
+  // Label pour marquer la fin de l'écriture
+  tl.addLabel('signatureComplete');
+
+  // ===================================
+  // SÉQUENCE 2 : GOUTTE D'ENCRE APPARAÎT
+  // ===================================
+  if (inkDrop && cta && ctaInk) {
+    // Apparition de la goutte avec effet "pop" élastique
+    tl.fromTo(
+      inkDrop,
+      {
+        opacity: 0,
+        scale: 0,
+        y: 0
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.35,
+        ease: 'back.out(2.5)', // Elastic pop
+      },
+      'signatureComplete+=0.25'
+    );
+
+    tl.addLabel('dropReady');
 
     // ===================================
-    // ÉTAPE 7 : ANIMATION DE LA GOUTTE D'ENCRE
+    // SÉQUENCE 3 : GOUTTE TOMBE (SQUASH & STRETCH)
     // ===================================
-    if (inkDrop && cta && ctaInk) {
-      // Apparition de la goutte à la fin de l'écriture
-      tl.to(
-        inkDrop,
+    // Phase 1 : Étirement pendant la chute (gravity)
+    tl.to(
+      inkDrop,
+      {
+        y: '120%',
+        scaleY: 1.6, // Étirement vertical
+        scaleX: 0.75, // Compression horizontale
+        duration: 0.75,
+        ease: 'power2.in', // Accélération naturelle (gravité)
+        // Rotation subtile pour effet naturel
+        rotation: 3
+      },
+      'dropReady+=0.15'
+    );
+
+    tl.addLabel('dropFalling', '>-0.4');
+
+    // Le CTA apparaît pendant que la goutte tombe
+    tl.to(
+      cta,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out'
+      },
+      'dropFalling'
+    );
+
+    // ===================================
+    // SÉQUENCE 4 : IMPACT + REMPLISSAGE LIQUIDE
+    // ===================================
+    tl.addLabel('impact');
+
+    // Phase 2 : Squash à l'impact (physique)
+    tl.to(
+      inkDrop,
+      {
+        scaleY: 0.6, // Écrasement vertical
+        scaleX: 1.4, // Expansion horizontale
+        rotation: 0,
+        duration: 0.12,
+        ease: 'power3.out'
+      },
+      'impact'
+    );
+
+    // Activer la classe pour l'effet de vague liquide
+    tl.call(() => {
+      cta.classList.add('is-filling');
+    }, null, 'impact');
+
+    // Fade out de la goutte (elle "fusionne" avec le CTA)
+    tl.to(
+      inkDrop,
+      {
+        opacity: 0,
+        scale: 1.8,
+        duration: 0.25,
+        ease: 'power2.out'
+      },
+      'impact+=0.08'
+    );
+
+    // Remplissage liquide du CTA de bas en haut
+    tl.to(
+      ctaInk,
+      {
+        scaleY: 1,
+        duration: 1.1,
+        ease: 'power3.out', // Easing organique
+      },
+      'impact+=0.1'
+    );
+
+    tl.addLabel('fillComplete', '>-0.3');
+
+    // ===================================
+    // SÉQUENCE 5 : FINALISATION PREMIUM
+    // ===================================
+    // Retirer la classe is-filling et ajouter is-filled
+    tl.call(() => {
+      cta.classList.remove('is-filling');
+      cta.classList.add('is-filled');
+    }, null, 'fillComplete');
+
+    // Micro-animation du label CTA (pop subtil)
+    if (ctaLabel) {
+      tl.fromTo(
+        ctaLabel,
         {
-          opacity: 1,
-          y: '0%',
-          duration: 0.2,
-          ease: 'power2.out'
+          scale: 0.98,
+          opacity: 0.8
         },
-        'signatureComplete+=0.2'
-      );
-
-      tl.add('inkDropStart');
-
-      // Chute de la goutte vers le CTA
-      tl.to(
-        inkDrop,
         {
+          scale: 1,
           opacity: 1,
-          y: '120%',
-          duration: 0.8,
-          ease: 'cubic-bezier(0.5, 0.1, 0.3, 1)'
-        },
-        'inkDropStart'
-      );
-
-      // ===================================
-      // ÉTAPE 8 : REMPLISSAGE DU CTA
-      // ===================================
-      // Le CTA apparaît légèrement avant que la goutte n'arrive
-      tl.to(
-        cta,
-        {
-          opacity: 1,
-          y: 0,
           duration: 0.4,
-          ease: 'power2.out'
+          ease: 'back.out(1.5)'
         },
-        'inkDropStart+=0.1'
-      );
-
-      // Remplissage liquide du CTA quand la goutte arrive
-      tl.to(
-        ctaInk,
-        {
-          scaleY: 1,
-          duration: 0.7,
-          ease: 'power2.out',
-          onComplete: () => {
-            cta.classList.add('is-filled');
-          }
-        },
-        'inkDropStart+=0.4'
-      );
-
-      // Fade out de la goutte au moment où elle "touche" le CTA
-      tl.to(
-        inkDrop,
-        {
-          opacity: 0,
-          duration: 0.2,
-          ease: 'power1.out'
-        },
-        'inkDropStart+=0.5'
+        'fillComplete-=0.2'
       );
     }
 
     // ===================================
-    // ÉTAPE 9 : CALLBACK FINAL
+    // SÉQUENCE 6 : CLEANUP PERFORMANCE
     // ===================================
-    // Figer l'état final pour garantir qu'il n'y a pas de dérive
+    // Retirer will-change pour optimiser les performances
     tl.call(() => {
       pathMeta.forEach(({ path }) => {
-        path.style.strokeDashoffset = '0';
+        path.style.willChange = 'auto';
       });
 
-      // Debug : logger l'état final
+      if (inkDrop) inkDrop.style.willChange = 'auto';
+      if (ctaInk) ctaInk.style.willChange = 'auto';
+
       if (DEBUG) {
-        console.group('Hero signature debug - État final');
-        pathMeta.forEach(({ path, length }, i) => {
-          const computed = getComputedStyle(path);
-          console.log(`Path #${i}`, {
-            length,
-            dasharray: computed.strokeDasharray,
-            dashoffset: computed.strokeDashoffset,
-            fill: computed.fill
-          });
-        });
-        console.groupEnd();
+        console.log('✅ Hero animation complete - Performance cleanup done');
       }
     });
+  }
+
+  return tl;
+}
+
+/**
+ * Applique l'état final sans animation (prefers-reduced-motion)
+ */
+function applyFinalState({ paths, subtitle, inkDrop, cta, ctaInk, svg }) {
+  // Signature visible immédiatement
+  paths.forEach((path) => {
+    path.style.strokeDasharray = 'none';
+    path.style.strokeDashoffset = '0';
+    path.style.fill = 'none';
   });
+
+  // Sous-titre visible
+  if (subtitle) {
+    gsap.set(subtitle, { opacity: 1 });
+  }
+
+  // Goutte cachée (pas d'animation)
+  if (inkDrop) {
+    gsap.set(inkDrop, { opacity: 0 });
+  }
+
+  // CTA rempli immédiatement
+  if (cta && ctaInk) {
+    gsap.set(ctaInk, { scaleY: 1 });
+    cta.classList.add('is-filled');
+    gsap.set(cta, { opacity: 1, y: 0 });
+  }
+
+  // Retirer la classe d'initialisation
+  svg.classList.remove('is-initializing');
+
+  if (DEBUG) {
+    console.log('✅ Hero signature - Final state applied (reduced motion)');
+  }
 }
