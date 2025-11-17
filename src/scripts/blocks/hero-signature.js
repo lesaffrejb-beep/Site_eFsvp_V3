@@ -51,6 +51,24 @@ export function initHeroSignature() {
   const ctaButtons = document.querySelectorAll('.hero-cta > *');
 
   // ===================================
+  // FILET DE SÉCURITÉ : SUPPRESSION DE TOOLTIPS RÉSIDUELS
+  // ===================================
+  // Supprime tout attribut title qui afficherait un tooltip natif
+  const tooltipTexts = [
+    'En français s'il vous plaît',
+    "En français s'il vous plaît"
+  ];
+
+  tooltipTexts.forEach((needle) => {
+    document.querySelectorAll('[title]').forEach((el) => {
+      const t = el.getAttribute('title') || '';
+      if (t.includes(needle)) {
+        el.removeAttribute('title');
+      }
+    });
+  });
+
+  // ===================================
   // ÉTAPE 2 : CLASSE D'INITIALISATION
   // ===================================
   // Ajouter immédiatement la classe pour masquer les paths pendant le setup
