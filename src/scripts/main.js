@@ -3,6 +3,9 @@
  * EfSVP - AWWWARDS-GRADE MAIN APP PREMIUM
  * Architecture modulaire ES6 avec error handling
  * Performance optimisée Lighthouse > 95
+ * Plan (avril 2025)
+ * - Ajouter glow CTA hero + micro-interactions accessibles
+ * - Harmoniser boutons / contenus injectés avant animations
  * ============================================
  */
 
@@ -186,6 +189,9 @@ class App {
   initSections() {
     // Hero signature animation
     initHeroSignature();
+
+    // Effet glow sur le CTA hero (après injection du contenu)
+    this.initHeroGlow();
 
     const audioContext = initAudioBlock({ modules: this.modules });
     this.modules = audioContext.modules;
@@ -485,6 +491,25 @@ class App {
   initFAQ() {
     // Use new FAQ module
     this.modules.faq = new FAQ();
+  }
+
+  initHeroGlow() {
+    const heroButton = document.querySelector('[data-glow]');
+    if (!heroButton) return;
+
+    const updateGlow = (event) => {
+      const rect = heroButton.getBoundingClientRect();
+      const pointX = (event.clientX ?? event.touches?.[0]?.clientX ?? 0) - rect.left;
+      const pointY = (event.clientY ?? event.touches?.[0]?.clientY ?? 0) - rect.top;
+      heroButton.style.setProperty('--x', `${pointX}px`);
+      heroButton.style.setProperty('--y', `${pointY}px`);
+    };
+
+    heroButton.addEventListener('pointermove', updateGlow);
+    heroButton.addEventListener('mouseleave', () => {
+      heroButton.style.setProperty('--x', '50%');
+      heroButton.style.setProperty('--y', '50%');
+    });
   }
 
   // ========== CONTACT FORM PREMIUM ==========

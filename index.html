@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Plan (avril 2025) : boutons tokenisés + états, CTA hero glow, SVG x2, FAQ padded, border offre premium, footer aligné -->
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -223,12 +224,12 @@
           </ul>
 
           <div class="nav__menu-cta">
-            <a href="#contact" class="cta cta--primary nav__cta-mobile">Partagez votre histoire</a>
+            <a href="#contact" class="btn btn--primary nav__cta-mobile">Partagez votre histoire</a>
           </div>
         </div>
 
         <div class="nav__actions">
-          <a href="#contact" class="cta cta--primary nav__cta">Partagez votre histoire</a>
+          <a href="#contact" class="btn btn--primary nav__cta">Partagez votre histoire</a>
 
           <!-- Mobile Toggle -->
           <button
@@ -279,7 +280,7 @@
           </p>
 
           <!-- CTA : Bouton pill centré -->
-          <a href="#projets" class="hero__cta hero-cta hero-cta--ink" data-hero-cta>
+          <a href="#projets" class="btn btn-hero hero__cta" data-hero-cta data-glow>
             <span class="hero-cta__label">Découvrir nos projets</span>
             <span class="hero-cta__ink-fill" aria-hidden="true"></span>
           </a>
@@ -488,7 +489,7 @@
           </div>
 
           <div class="process__footer" data-scroll>
-            <a href="#contact" class="btn btn-primary btn-lg process__cta">Partagez votre histoire</a>
+            <a href="#contact" class="btn btn--primary btn--lg process__cta">Partagez votre histoire</a>
           </div>
         </div>
       </section>
@@ -548,7 +549,7 @@
                 <li>Validation par étapes</li>
                 <li>Délai : 2-3 semaines</li>
               </ul>
-              <a href="#contact" class="cta cta--secondary">
+              <a href="#contact" class="btn btn--secondary">
                 Découvrir
               </a>
             </article>
@@ -566,7 +567,7 @@
                 <li>Enregistrement audio pro</li>
                 <li>Délai : 3-4 semaines</li>
               </ul>
-              <a href="#contact" class="cta cta--primary">
+              <a href="#contact" class="btn btn--primary">
                 Partagez votre histoire
               </a>
             </article>
@@ -583,7 +584,7 @@
                 <li>Concert live (3-45min)</li>
                 <li>Délai : 4-5 semaines</li>
               </ul>
-              <a href="#contact" class="cta cta--secondary">
+              <a href="#contact" class="btn btn--secondary">
                 Demander un devis
               </a>
             </article>
@@ -834,7 +835,7 @@
                 </div>
 
                 <div class="contact__form-footer">
-                  <button type="submit" class="btn btn-primary btn-lg contact-form__submit">
+                  <button type="submit" class="btn btn--primary btn--lg contact-form__submit">
                     <span class="btn__content">
                       <span class="btn__text">Partagez votre histoire</span>
                       <span class="btn__icon" aria-hidden="true">
@@ -906,15 +907,15 @@
 
         <!-- Footer Bottom -->
         <div class="footer__bottom">
-          <div class="footer__bottom-left">
-            <p class="footer__copyright">
-              © 2025 En français s'il vous plaît · Tous droits réservés
-            </p>
-            <p class="footer__made">
-              Made in Angers with <svg class="footer__heart-icon" viewBox="0 0 24 24" fill="currentColor" aria-label="amour">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
-            </p>
+          <div class="footer__content">
+            <div class="footer__left">
+              <p class="footer__copyright">© 2025 En français s'il vous plaît · Tous droits réservés</p>
+            </div>
+            <div class="footer__right">
+              <p class="footer__credits">
+                Made with <span class="heart-icon" aria-hidden="true">♥</span> in Angers
+              </p>
+            </div>
           </div>
           <button class="footer__back-to-top" id="back-to-top" aria-label="Retour en haut">
             <svg
