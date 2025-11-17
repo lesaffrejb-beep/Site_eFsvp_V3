@@ -82,9 +82,12 @@
   /* Animation gérée par GSAP dans le JS - NE PAS définir strokeDasharray/offset ici */
   filter: drop-shadow(0 2px 4px rgba(26, 35, 50, 0.12));
   vector-effect: non-scaling-stroke;
-  /* Masquer initialement pour éviter flash */
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
+  /* IMPORTANT : L'initialisation de dasharray/offset est gérée par JS avec les longueurs réelles */
+}
+
+/* Classe d'initialisation pour empêcher tout flash avant l'animation */
+[data-hero-signature].initializing path {
+  opacity: 0;
 }
 
 /* Goutte d'encre (apparaît à la fin du tracé et tombe vers le sous-titre) */
