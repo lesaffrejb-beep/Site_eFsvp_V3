@@ -48,8 +48,8 @@
   --hero-padding-bottom: var(--space-8);
   --hero-padding-inline: var(--space-6);
   /* Golden ratio spacing pour cohésion visuelle : baseline-to-cta × 1.618 ≈ animation-to-baseline */
-  --hero-animation-to-baseline: clamp(1.75rem, 3.5vh, 2.5rem); /* Réduit pour rapprochement */
-  --hero-baseline-to-cta: clamp(1.25rem, 2.5vh, 1.75rem); /* Réduit pour rapprochement */
+  --hero-animation-to-baseline: clamp(1.25rem, 2.5vh, 1.75rem);
+  --hero-baseline-to-cta: clamp(1rem, 2vh, 1.5rem);
 }
 
 /* ========================================
@@ -96,10 +96,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0; /* On contrôle spacing individuellement pour précision */
+  gap: var(--space-4);
   width: 100%;
-  max-width: 1100px;
+  max-width: 960px;
   justify-content: center;
+  text-align: center;
+  padding: var(--space-8) var(--container-padding);
+  margin: 0 auto;
 }
 
 .hero__animation {
@@ -183,6 +186,7 @@
   color: var(--color-text-secondary);
   max-width: 560px; /* Largeur optimale lisibilité */
   margin-top: var(--hero-animation-to-baseline);
+  margin-bottom: var(--hero-baseline-to-cta);
   text-align: center;
   padding-inline: var(--space-4); /* Safety mobile */
   opacity: 0.9;
@@ -207,7 +211,7 @@
    ======================================== */
 
 .btn-hero {
-  margin-top: var(--hero-baseline-to-cta);
+  margin-top: 0;
   padding: var(--btn-padding-lg);
   font-size: 1.125rem;
   font-weight: var(--font-semibold);

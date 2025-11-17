@@ -40,7 +40,7 @@ export const homeContent = {
   },
 
   navigation: {
-    logo: `EfSVP`,
+    logo: `En français s'il vous plaît`,
     links: [
       { label: `Accueil`, href: `#hero` },
       { label: `Offres`, href: `#offres` },

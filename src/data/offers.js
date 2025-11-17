@@ -51,7 +51,7 @@ export const offersData = [
   }
 ];
 
-export const offersNote = {
-  text: 'Spectacle 30-60 min & droits d'exploitation sur devis.',
-  highlights: ['Spectacle 30-60 min', 'droits d'exploitation']
-};
+  export const offersNote = {
+    text: "Spectacle 30-60 min & droits d'exploitation sur devis.",
+    highlights: ['Spectacle 30-60 min', "droits d'exploitation"],
+  };

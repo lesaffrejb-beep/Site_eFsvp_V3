@@ -58,7 +58,7 @@
       "Le bus devient un véhicule du quotidien, mais aussi un symbole de lien social, de rencontres et de partage. Chaque trajet est une aventure, une occasion de découvrir sa ville et ses habitants sous un nouveau jour."
     ],
     "category": "vidéo de prévention diffusée dans les collèges",
-    "sector": "mobilite",
+    "sector": "transport",
     "themes": [
       "prévention"
     ],
@@ -174,7 +174,7 @@
       "L’objectif était de dévoiler toute la force que contenait la douceur de l’Anjou tout en soulignant sa diversité, son originalité et sa créativité."
     ],
     "category": "texte et voix pour une vidéo de promotion",
-    "sector": "territoire",
+    "sector": "institutionnel",
     "themes": [],
     "details": {
       "format": "vidéo promotionnelle",
@@ -283,7 +283,7 @@
       "En janvier 2024, pour l’année des Jeux Olympiques de Paris, la commune de Doué-en-Anjou veut mettre l’accent sur le riche tissu associatif local. Ils nous commandent donc une musique sur le sujet pour la diffuser sur leurs réseaux. Nous sommes allés à la rencontre de nombreux responsables d’association pour comprendre au mieux leur passion et leur dévouement, souvent bénévoles."
     ],
     "category": "musique",
-    "sector": "territoire",
+    "sector": "institutionnel",
     "themes": [
       "sport"
     ],
@@ -322,7 +322,7 @@
       "Merci à Malya, Caroline et Ahmed pour leur générosité et leur confiance."
     ],
     "category": "concert live et musiques enregistrées",
-    "sector": "economie-sociale",
+    "sector": "vie-associative",
     "themes": [
       "solidarité et insertion"
     ],
@@ -362,7 +362,7 @@
       "Tous les ans, un terrible vent éteindrait cette immense forge, qui permettrait au peuple d’en bas de survivre. Ce n’est qu’avec l’aide des Forgéens, qui tapent des pieds, des mains et font le plus de bruit possible que la forge peut se rallumer."
     ],
     "category": "ciné-concert live",
-    "sector": "territoire",
+    "sector": "institutionnel",
     "themes": [
       "vie locale"
     ],
@@ -516,7 +516,7 @@
       "Pour cette édition, nous écrivons un texte racontant la journée d’une femme le jour de son mariage, perçue successivement avec un seul sens."
     ],
     "category": "musique",
-    "sector": "territoire",
+    "sector": "institutionnel",
     "themes": [],
     "details": {
       "format": "musique",
@@ -594,7 +594,7 @@
       "Le récit se veut proche du réel, de la terre, du vrai quotidien d’un maraîcher."
     ],
     "category": "concert live",
-    "sector": "agriculture",
+    "sector": "environnement",
     "themes": [],
     "details": {
       "format": "concert live",

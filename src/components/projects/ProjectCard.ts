@@ -8,7 +8,7 @@ interface ProjectCardProps {
 
 export function createProjectCard({ project, onSelect }: ProjectCardProps): HTMLElement {
   const card = document.createElement('article');
-  card.className = 'project-card';
+  card.className = 'project-card card-lift';
   card.tabIndex = 0;
   card.dataset.projectId = project.id;
   card.dataset.sector = project.sector;
@@ -31,11 +31,11 @@ export function createProjectCard({ project, onSelect }: ProjectCardProps): HTML
   }
 
   const badge = document.createElement('span');
-  badge.className = 'project-card__badge';
+  badge.className = 'project-card__category';
   badge.textContent = project.category;
 
   const monogram = document.createElement('span');
-  monogram.className = 'project-card__monogram';
+  monogram.className = 'project-card__initials';
   monogram.textContent = project.cover.initials;
 
   const location = document.createElement('span');
@@ -53,16 +53,16 @@ export function createProjectCard({ project, onSelect }: ProjectCardProps): HTML
   const header = document.createElement('div');
   header.className = 'project-card__header';
 
-  const meta = document.createElement('div');
-  meta.className = 'project-card__meta';
-  meta.innerHTML = `<span>${project.client}</span><span>${project.year}</span>`;
-
   const title = document.createElement('h3');
   title.className = 'project-card__title';
   title.textContent = project.title;
 
-  header.appendChild(meta);
+  const year = document.createElement('span');
+  year.className = 'project-card__year';
+  year.textContent = `${project.year}`;
+
   header.appendChild(title);
+  header.appendChild(year);
 
   const tagline = document.createElement('p');
   tagline.className = 'project-card__tagline';

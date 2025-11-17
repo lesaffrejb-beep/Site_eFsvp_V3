@@ -20,15 +20,15 @@ export function initProjectsApp() {
     onSelect: (project: Project) => modal.open(project),
   });
 
-  const handleFilterChange = (sector: ProjectSector | 'all') => {
-    const filtered = sector === 'all' ? projects : projects.filter((project) => project.sector === sector);
+  const handleFilterChange = (sector: ProjectSector | 'tous') => {
+    const filtered = sector === 'tous' ? projects : projects.filter((project) => project.sector === sector);
     grid.render(filtered);
   };
 
   new SectorFilter({
     container: filtersContainer as HTMLElement,
     sectors,
-    selected: 'all',
+    selected: 'tous',
     onChange: handleFilterChange,
   });
 
