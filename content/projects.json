@@ -1,0 +1,649 @@
+[
+  {
+    "id": "a2mo",
+    "title": "A2MO",
+    "client": "A2MO",
+    "year": 2025,
+    "location": "Saint Brévin les Pins",
+    "status": "delivered",
+    "cover": {
+      "initials": "A2",
+      "gradient": {
+        "from": "var(--color-neutral-700)",
+        "to": "var(--color-primary-500)"
+      }
+    },
+    "shortDescription": "Dans un couloir, 12 portes. Chacune d’elle ouvre sur un moment de vie, un souvenir, un projet d’A2MO. Commande d’un concert live pour les 30 ans et le départ du fondateur de l’entreprise.",
+    "longDescription": [
+      "En septembre 2025, l’entreprise A2MO nous commande un concert interactif pour fêter leurs 30 ans et le départ du fondateur.",
+      "Ils souhaitent un événement festif pour leur séminaire annuel. Nous leur proposons cette idée : les 12 portes d’A2MO. Chaque porte nous emmène dans un moment précis de la vie de leur entreprise : un projet, un outil, une galère, une victoire. Au fil des ouvertures, l’histoire de l’entreprise se raconte dans ce qu’elle fait vraiment : bâtiments, normes, contraintes. Chaque porte a son univers musical et son ambiance."
+    ],
+    "category": "concert interactif",
+    "sector": "btp",
+    "themes": [
+      "construction et évolution d’une entreprise"
+    ],
+    "details": {
+      "format": "Concert interactif",
+      "duration": "20 minutes",
+      "audience": "Séminaire",
+      "deliverables": [
+        "Concert live",
+        "Enregistrement de 12 morceaux"
+      ]
+    },
+    "team": [
+      "Azan SOULARD",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "agglobus",
+    "title": "Agglo’bus",
+    "client": "Communauté d’Agglomération Saumur Val de Loire / Ogalo Mobilités",
+    "year": 2023,
+    "location": "Saumur",
+    "status": "delivered",
+    "cover": {
+      "initials": "AG",
+      "gradient": {
+        "from": "var(--color-info)",
+        "to": "var(--color-primary-300)"
+      }
+    },
+    "shortDescription": "L’histoire de Théo et Léa prenant le bus pour la première fois lors de leur rentrée en sixième. Musique de prévention routière sur les bons usages pour prendre le car.",
+    "longDescription": [
+      "En juin 2023, la Communauté d’Agglomération Saumur Val de Loire nous commande un texte de prévention pour les services Agglo’bus.\nEn collaboration avec l’agence Terre de pixels qui s’occupe de la vidéo, l’objectif est d’informer sur les bons usages pour prendre le bus en toute sécurité.\nNous racontons l’histoire de deux collégiens prenant le bus un matin d’hiver.",
+      "Le bus devient un véhicule du quotidien, mais aussi un symbole de lien social, de rencontres et de partage. Chaque trajet est une aventure, une occasion de découvrir sa ville et ses habitants sous un nouveau jour."
+    ],
+    "category": "vidéo de prévention diffusée dans les collèges",
+    "sector": "mobilite",
+    "themes": [
+      "prévention"
+    ],
+    "details": {
+      "format": "vidéo de prévention",
+      "duration": "3 minutes",
+      "audience": "collégiens",
+      "deliverables": [
+        "Texte",
+        "musique pour une vidéo de prévention routière"
+      ]
+    },
+    "team": [
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "atelier-lacour",
+    "title": "Atelier Lacour",
+    "client": "Atelier Lacour",
+    "year": 2024,
+    "location": "Trélazé",
+    "status": "delivered",
+    "cover": {
+      "initials": "AT",
+      "gradient": {
+        "from": "var(--color-primary-400)",
+        "to": "var(--color-primary-700)"
+      }
+    },
+    "shortDescription": "Chaque entreprise est une forêt qui grandit, affronte des tempêtes et s’épanouit. Le récit de la vie de l’Atelier Lacour pour ses 25 ans.",
+    "longDescription": [
+      "En juillet 2024, Alain Lacour, directeur de l’entreprise Atelier Lacour, nous commande une suite de morceaux pour célébrer les 25 ans de son entreprise et la passation de présidence entre lui et ses reprenants.",
+      "Sa volonté n’est pas que nous écrivions un texte sur lui mais sur son entreprise, en la personnifiant. C’est L’atelier Lacour qui doit prendre la parole pour raconter son histoire.",
+      "Pour réaliser cette commande, nous faisons un récit en métaphore filée avec d’un côté la création et la vie d’une entreprise et de l’autre, la création et la vie d’une forêt.\nUn arbre seul, rejoint par des arbrisseaux, se rassemblant, se renforçant, affrontant les tempêtes et les orages ensemble pour créer une forêt unie et robuste."
+    ],
+    "category": "concert live",
+    "sector": "artisanat",
+    "themes": [],
+    "details": {
+      "format": "concert live",
+      "duration": "7 minutes",
+      "audience": "salariés de l’Atelier Lacour",
+      "deliverables": [
+        "Texte",
+        "musique pour un concert live le jour des 25 ans de l’entreprise"
+      ]
+    },
+    "team": [
+      "Azan SOULARD",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "capeb",
+    "title": "CAPEB",
+    "client": "CAPEB Pays de la Loire",
+    "year": 2023,
+    "location": "Brissac Loire Aubance",
+    "status": "delivered",
+    "cover": {
+      "initials": "CA",
+      "gradient": {
+        "from": "var(--color-primary-400)",
+        "to": "var(--color-primary-700)"
+      }
+    },
+    "shortDescription": "La vie de Guillaume, de sa jeunesse et ses débuts dans la menuiserie à son départ à la retraite en léguant son entreprise à sa fille. Texte pour raconter ce qu’est la vraie vie d’un artisan du patrimoine.",
+    "longDescription": [
+      "En novembre 2023, la CAPEB nous commande un morceau pour raconter ce que c’est qu’être un artisan du bâtiment dans le patrimoine.\nIls veulent que le morceau rende hommage aux travailleurs de leur filière.",
+      "Après une phase de collectage, nous décidons de raconter l’histoire de Guillaume, menuisier spécialisé dans la restauration du patrimoine. Le morceau suit sa vie, de la création de sa boîte jusqu’à son adhésion à la CAPEB et son départ à la retraite.",
+      "La volonté est toujours de créer un récit authentique, c’était tout particulièrement le cas pour cette commande. Il était important d’être fidèle au vrai quotidien d’un menuisier. Nous avons passé 2 jours à suivre l’un d’entre eux dans son travail pour comprendre au mieux la réalité du terrain.",
+      "Merci à Philippe pour sa gentillesse (et pour sa patience devant notre nullité à tenir un rabot droit)."
+    ],
+    "category": "concert live",
+    "sector": "artisanat",
+    "themes": [],
+    "details": {
+      "format": "concert live",
+      "duration": "10 minutes",
+      "audience": "adhérents de la CAPEB Pays de la Loire",
+      "deliverables": [
+        "Texte",
+        "musique pour un concert live"
+      ]
+    },
+    "team": [
+      "Nahuel BAEZA",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "la-force-de-la-douceur",
+    "title": "La force de la douceur",
+    "client": "Département du Maine et Loire",
+    "year": 2024,
+    "location": "Angers",
+    "status": "delivered",
+    "cover": {
+      "initials": "LA",
+      "gradient": {
+        "from": "var(--color-info)",
+        "to": "var(--color-neutral-700)"
+      }
+    },
+    "shortDescription": "L’hymne pour la nouvelle marque de l’Anjou : la force de la douceur.",
+    "longDescription": [
+      "En novembre 2024, le département du Maine-et-Loire nous commande un hymne pour la nouvelle marque de l’Anjou : La force de la douceur.",
+      "En collaboration avec Mathieu Coupat et Camille Després, compositeurs et Kryzalid Films, agence vidéo angevine, nous écrivons et enregistrons 2 clips : une version longue, pour une diffusion aux assises des départements de France et une version courte, pour les cinémas et les offices de tourisme du 49, la télé et les réseaux sociaux.",
+      "L’objectif était de dévoiler toute la force que contenait la douceur de l’Anjou tout en soulignant sa diversité, son originalité et sa créativité."
+    ],
+    "category": "texte et voix pour une vidéo de promotion",
+    "sector": "territoire",
+    "themes": [],
+    "details": {
+      "format": "vidéo promotionnelle",
+      "duration": "1 minute 30",
+      "audience": "tous publics",
+      "deliverables": [
+        "texte",
+        "vidéo"
+      ]
+    },
+    "team": [
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "dis-moi-des-mots-damour",
+    "title": "Dis-moi des mots d’amour",
+    "client": "Théâtre de la Jeune Plume",
+    "year": 2022,
+    "location": "Angers",
+    "status": "delivered",
+    "cover": {
+      "initials": "DI",
+      "gradient": {
+        "from": "var(--color-primary-500)",
+        "to": "var(--color-warning)"
+      }
+    },
+    "shortDescription": "Les ALD touchent 11 millions de personnes en France. Dis-moi des mots d’amour essaye de remettre sur le devant de la scène ce sujet trop souvent tabou. Écriture de la bande-son d’un spectacle de danse sur les Affections de Longue Durée.",
+    "longDescription": [
+      "En novembre 2021, le théâtre de la Jeune Plume nous commande une bande-son pour leur prochain spectacle parlant des Affections de Longue Durée. La forme est particulière : deux danseurs sur scène qui interprètent la bande-son que nous écrivons.",
+      "Né d’une commande de l’association Sport Santé dans le Pays du Chinonais, le spectacle «Dis-moi des mots d’amour» aborde la question des affections de longue durée, de l’annonce à l’acceptation.\nUne façon originale de questionner ces moments où, quand la maladie frappe à la porte, pour le patient, la famille, les amis, les aidants, chaque jour devient une conquête."
+    ],
+    "category": "bande-son d’un spectacle de danse",
+    "sector": "spectacle-vivant",
+    "themes": [
+      "ALD"
+    ],
+    "details": {
+      "format": "bande-son d’un spectacle",
+      "duration": "45 minutes",
+      "audience": "tous publics",
+      "deliverables": [
+        "bande-son"
+      ]
+    },
+    "team": [
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "doue-en-anjou-ou-culture-et-patrimoine-se-rencontrent",
+    "title": "Doué-en-Anjou, où culture et patrimoine se rencontrent",
+    "client": "Commune de Doué en Anjou / Terre de pixels",
+    "year": 2022,
+    "location": "Doué en Anjou",
+    "status": "delivered",
+    "cover": {
+      "initials": "DO",
+      "gradient": {
+        "from": "var(--color-neutral-800)",
+        "to": "var(--color-primary-600)"
+      }
+    },
+    "shortDescription": "Culture et patrimoine sont souvent les deux faces d’une même pièce. C’est le cas à Doué en Anjou où l’un ne peut aller sans l’autre. Musique enregistrée pour les voeux 2022 de la mairie.",
+    "longDescription": [
+      "En janvier 2022, la commune de Doué-en-Anjou nous commande un texte pour les vœux de la Mairie, texte devant célébrer le patrimoine et la vie culturelle municipale.",
+      "Nous travaillons en collaboration avec l’agence douessine Terre de pixels qui s’occupe de la vidéo.\nPour parler de patrimoine et de culture, nous décidons d’axer le texte sur la notion de temps qui se fige. Au théâtre comme devant un monument séculaire, le temps ne se ressent plus de manière habituelle. Il se suspend et nous invite à une forme de contemplation. C’est cette idée que nous avons voulu explorer : comment, à Doué-en-Anjou, le passé et le présent coexistent, se répondent, et créent une harmonie unique."
+    ],
+    "category": "musique",
+    "sector": "patrimoine",
+    "themes": [
+      "culture et patrimoine"
+    ],
+    "details": {
+      "format": "musique",
+      "duration": "4 minutes",
+      "audience": "tous publics",
+      "deliverables": [
+        "musique"
+      ]
+    },
+    "team": [
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "doue-en-sports",
+    "title": "Doué en sports !",
+    "client": "Commune de Doué en Anjou / Terre de pixels",
+    "year": 2024,
+    "location": "Doué en Anjou",
+    "status": "delivered",
+    "cover": {
+      "initials": "DO",
+      "gradient": {
+        "from": "var(--color-info)",
+        "to": "var(--color-neutral-700)"
+      }
+    },
+    "shortDescription": "Pour l’année des Jeux Olympiques de Paris, la ville de Doué-en-Anjou nous commande un texte pour faire la promotion des associations et des personnes faisant vivre la vie sportive de leur commune.",
+    "longDescription": [
+      "En janvier 2024, pour l’année des Jeux Olympiques de Paris, la commune de Doué-en-Anjou veut mettre l’accent sur le riche tissu associatif local. Ils nous commandent donc une musique sur le sujet pour la diffuser sur leurs réseaux. Nous sommes allés à la rencontre de nombreux responsables d’association pour comprendre au mieux leur passion et leur dévouement, souvent bénévoles."
+    ],
+    "category": "musique",
+    "sector": "territoire",
+    "themes": [
+      "sport"
+    ],
+    "details": {
+      "format": "musique",
+      "duration": "3 minutes",
+      "audience": "tous publics",
+      "deliverables": [
+        "musique"
+      ]
+    },
+    "team": [
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "le-jardin-de-cocagne",
+    "title": "Le Jardin de Cocagne",
+    "client": "Jardin de Cocagne Angevin",
+    "year": 2024,
+    "location": "Angers",
+    "status": "delivered",
+    "cover": {
+      "initials": "LE",
+      "gradient": {
+        "from": "var(--color-primary-300)",
+        "to": "var(--color-success)"
+      }
+    },
+    "shortDescription": "Rendre hommage à la résilience. C’était l’objectif de cette commande. 3 récits, 3 personnages, 3 chemins différents convergeant en un point : Le jardin de Cocagne angevin. Commande pour les 25 ans de l’association.",
+    "longDescription": [
+      "En juin 2024, l’association des Jardins de Cocagne nous commande une série de morceaux pour leurs 25 ans.",
+      "Leur volonté est que nous racontions plusieurs histoires de vie, des parcours atypiques, des chemins de traverse qu’ont pu emprunter certains de leurs jardiniers. Il fallait rendre hommage à la résilience. Nous sommes allés rencontrer plusieurs d’entre eux et nous sommes efforcés de retranscrire au mieux leur histoire.",
+      "3 récits, 3 personnages, 3 chemins différents convergeant en un point : Le jardin de Cocagne.",
+      "Merci à Malya, Caroline et Ahmed pour leur générosité et leur confiance."
+    ],
+    "category": "concert live et musiques enregistrées",
+    "sector": "economie-sociale",
+    "themes": [
+      "solidarité et insertion"
+    ],
+    "details": {
+      "format": "concert live et musique enregistrée",
+      "duration": "15 minutes",
+      "audience": "salariés, membres et bénévoles de l’association",
+      "deliverables": [
+        "concert live",
+        "musique enregistrée"
+      ]
+    },
+    "team": [
+      "Azan SOULARD",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "forges-tout-feu-tout-flamme",
+    "title": "Forges, tout feu tout flamme",
+    "client": "Comité des fêtes de la commune de Forges",
+    "year": 2025,
+    "location": "Forges",
+    "status": "delivered",
+    "cover": {
+      "initials": "FO",
+      "gradient": {
+        "from": "var(--color-info)",
+        "to": "var(--color-neutral-700)"
+      }
+    },
+    "shortDescription": "Le projet : un ciné-concert avec une projection sur l’Église de Forges. Un concert avec une histoire sur mesure pour découvrir les légendes de ce hameau, mis en image par Terre de Pixels.",
+    "longDescription": [
+      "En juin 2025, le comité des fêtes de Forges nous approche avec une demande particulière : créer un ciné-concert sur mesure pour les 20 ans de leur festival annuel : Tout feu tout flamme. L’objectif est que nous écrivions une histoire pouvant être illustrée par un film projeté sur la façade de l’Église. L’ambiance doit être festive et chaleureuse.",
+      "Nous inventons donc une légende justifiant l’existence du festival. Depuis toutes ces années, les Forgéens se retrouveraient au début du mois de septembre pour aider un peuple souterrain vivant sous le sol du village à rallumer une grande forge.",
+      "Tous les ans, un terrible vent éteindrait cette immense forge, qui permettrait au peuple d’en bas de survivre. Ce n’est qu’avec l’aide des Forgéens, qui tapent des pieds, des mains et font le plus de bruit possible que la forge peut se rallumer."
+    ],
+    "category": "ciné-concert live",
+    "sector": "territoire",
+    "themes": [
+      "vie locale"
+    ],
+    "details": {
+      "format": "ciné-concert live",
+      "duration": "10 minutes",
+      "audience": "tous publics",
+      "deliverables": [
+        "ciné-concert live"
+      ]
+    },
+    "team": [
+      "Azan SOULARD",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "les-seigneurs-de-clisson",
+    "title": "Les Seigneurs de Clisson",
+    "client": "Commune de Clisson",
+    "year": 2023,
+    "location": "Clisson",
+    "status": "delivered",
+    "cover": {
+      "initials": "LE",
+      "gradient": {
+        "from": "var(--color-neutral-800)",
+        "to": "var(--color-primary-600)"
+      }
+    },
+    "shortDescription": "L’histoire vraie de François Ier d’Avaugour et sa prise de pouvoir à Clisson au XVe siècle avec trahisons et duels. Commande d’une visite historique musicale de la ville de Clisson.",
+    "longDescription": [
+      "En juin 2023, la commune de Clisson nous commande un spectacle historique musical pour découvrir leur centre-ville. L’objectif est de créer une déambulation poétique dévoilant l’histoire de la cité.",
+      "Après une phase de collectage en collaboration avec l’association Clisson Histoire et Patrimoine, nous décidons de mettre en lumière une période rarement évoquée pour Clisson : le XVème siècle. Plus précisément encore les années 1486 et 1487 durant lesquelles la ville passa de l’influence bretonne à française.",
+      "Nous racontons cette histoire à travers les yeux de François Ier d’Avaugour, le fils naturel du Duc de Bretagne qui jouera un rôle clé dans la défaite des Bretons.",
+      "Le spectacle joue avec les codes du roman de chevalerie pour proposer une déambulation historique et comique adaptée à tous les publics."
+    ],
+    "category": "spectacle historique musical",
+    "sector": "patrimoine",
+    "themes": [
+      "histoire de Clisson"
+    ],
+    "details": {
+      "format": "spectacle historique musical",
+      "duration": "1 heure",
+      "audience": "tous publics",
+      "deliverables": [
+        "spectacle déambulatoire historique"
+      ]
+    },
+    "team": [
+      "Nahuel BAEZA",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "le-moulin-de-brissac",
+    "title": "Le Moulin de Brissac",
+    "client": "Commune de Brissac Loire Aubance",
+    "year": 2023,
+    "location": "Brissac Loire Aubance",
+    "status": "delivered",
+    "cover": {
+      "initials": "LE",
+      "gradient": {
+        "from": "var(--color-neutral-800)",
+        "to": "var(--color-primary-600)"
+      }
+    },
+    "shortDescription": "En 2023, le moulin du Pavé de Brissac reçoit le prix du loto du patrimoine permettant sa rénovation. Pour l’occasion, la mairie nous demande un texte pour célébrer cet objet patrimonial symbolique de leur ville.",
+    "longDescription": [
+      "En septembre 2023, le moulin du Pavé de Brissac reçoit le prix du loto du patrimoine. Ce prix garantit la viabilité du bâtiment qui était jusqu’alors menacé. De gros travaux vont pouvoir être entrepris et notamment la rénovation de la hucherolle.",
+      "Pour célébrer l’événement, la commune nous demande d’écrire un texte rendant hommage au savoir-faire traditionnel des meuniers et leur lieu de travail emblématique.",
+      "Ce texte est écrit du point de vue du vent, s’engouffrant dans les ailes et racontant son parcours tout le long du moulin, allant jusqu’à faire tourner les meules."
+    ],
+    "category": "musique jouée en live",
+    "sector": "patrimoine",
+    "themes": [
+      "Moulin de Brissac"
+    ],
+    "details": {
+      "format": "musique",
+      "duration": "3 minutes",
+      "audience": "tous publics",
+      "deliverables": [
+        "musique jouée en live"
+      ]
+    },
+    "team": [
+      "Nahuel BAEZA",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "don-quijote-de-la-francia",
+    "title": "Don Quijote de la Francia",
+    "client": "Commune de Brissac Loire Aubance",
+    "year": 2023,
+    "location": "Brissac Loire Aubance",
+    "status": "delivered",
+    "cover": {
+      "initials": "DO",
+      "gradient": {
+        "from": "var(--color-primary-500)",
+        "to": "var(--color-warning)"
+      }
+    },
+    "shortDescription": "Et si Don Quijote était venu s’installer dans le vignoble brissacois après ses aventures hispaniques ? Spectacle déambulatoire commandé par la ville de Brissac pour les Journées Européennes du Patrimoine.",
+    "longDescription": [
+      "En septembre 2023, pour les Journées Européennes du Patrimoine, la commune de Brissac Loire Aubance nous commande un spectacle déambulatoire pour raconter l’histoire de leur ville.",
+      "La déambulation doit partir du moulin du Pavé et faire ensuite le tour du vignoble brissacois.\nNous avons carte blanche sur la manière dont nous voulons parler de ce patrimoine particulier.",
+      "Nous décidons de nous lancer dans une continuation du pilier de la littérature L’ingénieux Hidalgo Don Quichotte de la Manche. Notre récit commence à la fin du roman et raconte l’arrivée du personnage de Don Quichotte en Anjou, désireux d’investir dans le vignoble local.\nLe spectacle joue avec les passages emblématiques du roman : les moulins, les moutons, le personnage de Sancho Panza tout en ajoutant les détails de l’histoire régionale. Les représentations se font en violon / voix pour pouvoir proposer une mise en scène légère et mobile."
+    ],
+    "category": "spectacle déambulatoire",
+    "sector": "spectacle-vivant",
+    "themes": [],
+    "details": {
+      "format": "spectacle déambulatoire",
+      "duration": "1h 30",
+      "audience": "tous publics",
+      "deliverables": [
+        "spectacle déambulatoire pour les JEP"
+      ]
+    },
+    "team": [
+      "Nahuel BAEZA",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "anjour-et-nuit",
+    "title": "Anjou’r et nuit",
+    "client": "Commune de Brissac Loire Aubance",
+    "year": 2023,
+    "location": "Brissac Loire Aubance",
+    "status": "delivered",
+    "cover": {
+      "initials": "AN",
+      "gradient": {
+        "from": "var(--color-info)",
+        "to": "var(--color-neutral-700)"
+      }
+    },
+    "shortDescription": "Nous n’avions encore jamais écrit pour une course à pied, c’est chose faite. Texte pour célébrer les 5 sens avant le début de la course nocturne d’Anjou’r et nuit.",
+    "longDescription": [
+      "En novembre 2023, pour l’événement Anjou’r et nuit, nous écrivons un texte sur les cinq sens.\nCet événement mêlant trail et animations culturelles met chaque année en avant l’importance des sens.",
+      "Pour cette édition, nous écrivons un texte racontant la journée d’une femme le jour de son mariage, perçue successivement avec un seul sens."
+    ],
+    "category": "musique",
+    "sector": "territoire",
+    "themes": [],
+    "details": {
+      "format": "musique",
+      "duration": "3 minutes",
+      "audience": "tous publics",
+      "deliverables": [
+        "musique"
+      ]
+    },
+    "team": [
+      "Azan SOULARD",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "etat-de-nature",
+    "title": "État de Nature",
+    "client": "PNR Loire Anjou Touraine",
+    "year": 2023,
+    "location": "Partout en France",
+    "status": "delivered",
+    "cover": {
+      "initials": "TA",
+      "gradient": {
+        "from": "var(--color-success)",
+        "to": "var(--color-success-light)"
+      }
+    },
+    "shortDescription": "Dans État de nature, la Rainette, le Héron, les poissons-chats, les castors ou les libellules sont tous des citoyens d'une société bien établie. Nous découvrons cette société au fil de 15 tableaux, 15 chapitres à la rencontre d’une zone humide, ses habitants et ses enjeux.",
+    "longDescription": [
+      "En avril 2023, le Parc Naturel Régional Loire Anjou Touraine nous commande un spectacle musical pour défendre l’intérêt des zones humides auprès du grand public.",
+      "L’objectif est clair : il faut sensibiliser, informer, communiquer de manière nouvelle sur la nécessité de protéger ces espaces déjà menacés. Les zones humides sont des trésors de biodiversité et ont des caractéristiques essentielles permettant de lutter contre le stress hydrique.",
+      "Notre proposition : État de Nature, un spectacle en violon / voix jouable dans les zones humides.",
+      "Dans État de nature, la Rainette, le Héron, les poissons-chats, les castors ou les libellules sont tous des citoyens d'une société bien établie. Nous découvrons cette société au fil de 15 tableaux, 15 chapitres à la rencontre d’une zone humide, ses habitants et ses enjeux.",
+      "Depuis sa création, le spectacle a été joué plus d’une quarantaine de fois dans les Pays de la Loire. En février 2024, une nouvelle version d’État de Nature voit le jour, adaptée pour le Parc Naturel Régional du Médoc.",
+      "Merci aux équipes des deux parcs nous ayant permis de découvrir et de comprendre ces zones essentielles à nos écosystèmes."
+    ],
+    "category": "spectacle",
+    "sector": "environnement",
+    "themes": [],
+    "details": {
+      "format": "spectacle",
+      "duration": "1heure",
+      "audience": "tous publics",
+      "deliverables": [
+        "spectacle jouable directement dans les zones humides"
+      ]
+    },
+    "team": [
+      "Nahuel BAEZA",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "sival",
+    "title": "SIVAL",
+    "client": "Destination Angers / SIVAL",
+    "year": 2025,
+    "location": "Angers",
+    "status": "delivered",
+    "cover": {
+      "initials": "SI",
+      "gradient": {
+        "from": "var(--color-success)",
+        "to": "var(--color-primary-500)"
+      }
+    },
+    "shortDescription": "L’histoire d’un jeune garçon découvrant le métier d’agriculteur à travers son papi.\nCommande surprise pour le départ du président et les 25 ans du SIVAL : Bruno Dupont.",
+    "longDescription": [
+      "En janvier 2025, Destination Angers nous contacte pour réaliser une série de morceaux promotionnels dédiés au SIVAL, le Salon International des Techniques de Productions Végétales.",
+      "Les morceaux doivent également célébrer l’héritage du président du salon, l’un des grands noms de l’agriculture en France : Bruno Dupont.",
+      "Pour réaliser cette commande, nous choisissons de suivre le point de vue d’un enfant découvrant le monde de l’agriculture dans l’exploitation de son grand-père.\nIl y rencontre un collègue de son papi, un certain Bruno Dupont qui va tous les ans à un salon à Angers… Nous suivons ensuite l’évolution de cet enfant, et à travers ses yeux, l’évolution du SIVAL et de l’agriculture en France. Il va créer sa propre exploitation, et, aidé par les technologies découvertes au salon et Bruno, résoudre toutes les difficultés se présentant à lui.",
+      "Le récit se veut proche du réel, de la terre, du vrai quotidien d’un maraîcher."
+    ],
+    "category": "concert live",
+    "sector": "agriculture",
+    "themes": [],
+    "details": {
+      "format": "concert live",
+      "duration": "15 minutes",
+      "audience": "tous publics",
+      "deliverables": [
+        "concert live pour la cérémonie de départ de Bruno Dupont"
+      ]
+    },
+    "team": [
+      "Azan SOULARD",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  },
+  {
+    "id": "souffler-sur-les-braises",
+    "title": "Souffler sur les braises",
+    "client": "Théâtre de la jeune plume",
+    "year": 2023,
+    "location": "Chinon",
+    "status": "delivered",
+    "cover": {
+      "initials": "SO",
+      "gradient": {
+        "from": "var(--color-primary-500)",
+        "to": "var(--color-warning)"
+      }
+    },
+    "shortDescription": "16 couples, 16 facettes d’humanité à 20 ans que nous retrouvons…. plusieurs décennies plus tard. Commande d’une bande-son pour un spectacle sur la vie affective et sexuelle des personnes de plus de 60 ans.",
+    "longDescription": [
+      "En octobre 2023 nous recevons une commande du Centre Local d’Information et de Coordination Alli’âge de Cesson-Sévigné et du théâtre de la jeune plume pour l’écriture d’une bande-son. Cette bande-son constituera le spectacle «SOUFFLER SUR LES BRAISES», qui a pour thème la vie affective et sexuelle des personnes de plus de 60 ans.\n16 tranches de vie, 16 facettes d’humanité à 20 ans que nous retrouvons…. plusieurs décennies plus tard.\nDes vies d’amour, de couple, de secrets et de retrouvailles. Annie, Bernard, Jacqueline, Pierre et les autres ont aimé, ont douté, ont appris. Des chemins croisés, entre épreuves de la vie et tendre entente au quotidien.\nEt s’il y a bien un point commun entre toutes les générations, c’est bien celui des émotions qui nous traversent et notre besoin inextinguible d’aimer et d’être (ou de se sentir) aimé.",
+      "La bande-son est interprétée sur scène par 2 danseurs."
+    ],
+    "category": "concert live",
+    "sector": "spectacle-vivant",
+    "themes": [],
+    "details": {
+      "format": "bande-son d’un spectacle de danse",
+      "duration": "45 minutes",
+      "audience": "tous publics",
+      "deliverables": [
+        "bande-son pour un spectacle de danse"
+      ]
+    },
+    "team": [
+      "Azan SOULARD",
+      "Jean-Baptiste LESAFFRE",
+      "Arthur CHARRIER"
+    ]
+  }
+]

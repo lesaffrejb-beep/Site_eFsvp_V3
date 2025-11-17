@@ -14,7 +14,9 @@
     "lint:css:fix": "stylelint 'src/**/*.css' --fix",
     "format": "prettier --write 'src/**/*.{js,css}' 'index.html'",
     "format:check": "prettier --check 'src/**/*.{js,css}' 'index.html'",
-    "audit:code": "npm run lint && npm run lint:css && npm run format:check"
+    "audit:code": "npm run lint && npm run lint:css && npm run format:check",
+    "projects:parse": "node --experimental-strip-types scripts/parse-projects.ts",
+    "projects:validate": "npm run projects:parse"
   },
   "repository": {
     "type": "git",
