@@ -38,11 +38,12 @@
   --space-24: 6rem;     /* 96px */
   --space-32: 8rem;     /* 128px */
 
-  /* Spacing sémantiques HERO (CRITIQUES - TRÈS GÉNÉREUX) */
-  --hero-padding-top: clamp(8rem, 15vh, 12rem);
-  --hero-padding-bottom: clamp(10rem, 20vh, 16rem);
-  --hero-title-to-baseline: clamp(4rem, 8vh, 6rem);
-  --hero-baseline-to-cta: clamp(3rem, 6vh, 5rem);
+  /* Spacing sémantiques HERO (centrage vertical) */
+  --hero-padding-top: var(--space-8);
+  --hero-padding-bottom: var(--space-8);
+  --hero-padding-inline: var(--space-6);
+  --hero-animation-to-baseline: clamp(2.5rem, 5vh, 4rem);
+  --hero-baseline-to-cta: clamp(2rem, 4vh, 3rem);
 }
 
 /* ========================================
@@ -51,7 +52,7 @@
 
 :root {
   /* Baseline description */
-  --text-hero-baseline-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  --text-hero-baseline-size: clamp(1.0625rem, 2vw, 1.375rem);
   --text-hero-baseline-weight: 400;
   --text-hero-baseline-line-height: 1.6;
   --text-hero-baseline-letter-spacing: 0.01em;
@@ -72,16 +73,14 @@
   align-items: center;
   justify-content: center;
   background: var(--color-hero-bg);
-  padding-top: var(--hero-padding-top);
-  padding-bottom: var(--hero-padding-bottom);
-  padding-inline: var(--space-6); /* Safety mobile */
+  padding: var(--hero-padding-top) var(--hero-padding-inline);
   position: relative;
   overflow: hidden;
 }
 
 .hero__inner {
   width: 100%;
-  max-width: 1000px; /* Plus étroit = plus premium */
+  max-width: 900px; /* Largeur optimale */
   margin: 0 auto;
   position: relative;
 }
@@ -92,6 +91,13 @@
   align-items: center;
   gap: 0; /* On contrôle spacing individuellement pour précision */
   width: 100%;
+  max-width: 900px;
+  justify-content: center;
+}
+
+.hero__animation {
+  width: 100%;
+  max-width: clamp(350px, 55vw, 700px);
 }
 
 /* ========================================
@@ -159,6 +165,7 @@
    BASELINE - CENTRÉ ET MINIMALISTE
    ======================================== */
 
+.hero__baseline,
 .hero-subtitle,
 .hero-signature-caption {
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
@@ -168,24 +175,36 @@
   letter-spacing: var(--text-hero-baseline-letter-spacing);
   color: var(--color-text-secondary);
   max-width: 560px; /* Largeur optimale lisibilité */
-  margin-top: var(--hero-title-to-baseline);
+  margin-top: var(--hero-animation-to-baseline);
   text-align: center;
   padding-inline: var(--space-4); /* Safety mobile */
+  opacity: 0.9;
+  text-wrap: balance;
+
+  /* Micro-interaction */
+  transition: opacity 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+  animation-delay: 0.3s;
 
   /* Anti-aliasing parfait */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.hero:hover .hero__baseline {
+  opacity: 1;
+}
+
 /* ========================================
    CTA - BOUTON PREMIUM NIVEAU AWWWARDS
    ======================================== */
 
+.hero__cta,
 .hero-cta,
 .hero-cta--ink {
   margin-top: var(--hero-baseline-to-cta);
-  padding: 0.9375rem 2.25rem; /* 15px 36px - proportions parfaites */
-  font-size: var(--text-cta-size);
+  padding: 0.875rem 2rem; /* 14px 32px */
+  font-size: 1rem;
   font-weight: var(--text-cta-weight);
   letter-spacing: var(--text-cta-letter-spacing);
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
@@ -202,14 +221,18 @@
 
   /* Shadows premium (subtiles) */
   box-shadow:
-    0 1px 2px rgba(224, 120, 85, 0.2),
-    0 4px 8px rgba(224, 120, 85, 0.12);
+    0 1px 3px rgba(224, 120, 85, 0.3),
+    0 6px 12px rgba(224, 120, 85, 0.15);
 
   /* Transition smooth */
   transition:
-    transform 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    background 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    background 180ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Micro-animation */
+  animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+  animation-delay: 0.5s;
 
   /* Anti-aliasing parfait */
   -webkit-font-smoothing: antialiased;
@@ -220,6 +243,7 @@
   min-width: 44px;
 }
 
+.hero__cta:hover,
 .hero-cta:hover,
 .hero-cta--ink:hover {
   transform: translateY(-2px); /* Subtil, pas agressif */
@@ -229,12 +253,14 @@
     0 8px 16px rgba(224, 120, 85, 0.18);
 }
 
+.hero__cta:active,
 .hero-cta:active,
 .hero-cta--ink:active {
   transform: translateY(0);
   transition-duration: 100ms;
 }
 
+.hero__cta:focus-visible,
 .hero-cta:focus-visible,
 .hero-cta--ink:focus-visible {
   outline: 2px solid var(--color-primary);
@@ -252,37 +278,56 @@
   display: none;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ========================================
    RESPONSIVE PREMIUM - MOBILE (< 640px)
    ======================================== */
 
 @media (max-width: 639px) {
   .hero.hero--signature {
-    padding-top: clamp(6rem, 12vh, 8rem);
-    padding-bottom: clamp(8rem, 15vh, 10rem);
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .hero__animation {
+    max-width: 80vw;
   }
 
   .hero-signature-wrapper {
     max-width: 85vw;
   }
 
+  .hero__baseline,
   .hero-subtitle,
   .hero-signature-caption {
-    font-size: 1.0625rem; /* 17px */
+    margin-top: clamp(2rem, 4vh, 3rem);
+    font-size: 1rem; /* 16px */
     line-height: 1.5;
     max-width: 100%;
   }
 
+  .hero__cta,
   .hero-cta,
   .hero-cta--ink {
-    padding: 0.875rem 2rem; /* Légèrement plus petit */
-    font-size: 1rem;
+    margin-top: clamp(1.75rem, 3vh, 2.5rem);
+    padding: 0.8125rem 1.75rem; /* Légèrement plus petit */
+    font-size: 0.9375rem;
   }
 
   /* Spacing réduit mais toujours généreux */
   :root {
-    --hero-title-to-baseline: clamp(3rem, 6vh, 4rem);
-    --hero-baseline-to-cta: clamp(2.5rem, 5vh, 3.5rem);
+    --hero-animation-to-baseline: clamp(2rem, 4vh, 3rem);
+    --hero-baseline-to-cta: clamp(1.75rem, 3vh, 2.5rem);
   }
 }
 
@@ -291,13 +336,15 @@
    ======================================== */
 
 @media (min-width: 640px) and (max-width: 1023px) {
+  .hero__animation,
   .hero-signature-wrapper {
-    max-width: 70vw;
+    max-width: 65vw;
   }
 
+  .hero__baseline,
   .hero-subtitle,
   .hero-signature-caption {
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.125rem; /* 18px */
   }
 }
 
@@ -306,16 +353,26 @@
    ======================================== */
 
 @media (min-width: 1024px) {
+  .hero__animation,
   .hero-signature-wrapper {
-    max-width: 800px;
+    max-width: 700px;
   }
 
+  .hero__baseline,
   .hero-subtitle,
   .hero-signature-caption {
-    font-size: 1.5rem; /* 24px */
+    font-size: 1.375rem; /* 22px */
+    max-width: 550px;
+  }
+
+  .hero__cta,
+  .hero-cta,
+  .hero-cta--ink {
+    font-size: 1.0625rem; /* 17px */
   }
 
   /* Hover plus subtil sur desktop */
+  .hero__cta:hover,
   .hero-cta:hover,
   .hero-cta--ink:hover {
     transform: translateY(-3px);
