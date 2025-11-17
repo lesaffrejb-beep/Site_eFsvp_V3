@@ -22,12 +22,18 @@ export function initHeroSignature() {
   const svg = document.querySelector('[data-hero-signature]');
   if (!svg) return;
 
+  // Ajouter classe d'initialisation pour cacher les paths pendant le setup
+  svg.classList.add('initializing');
+
   const paths = svg.querySelectorAll('.hero-signature-path');
   const inkDrop = document.querySelector('.hero-ink-drop');
   const subtitle = document.querySelector('[data-hero-baseline]');
   const ctaButtons = document.querySelectorAll('.hero-cta > *');
 
-  if (!paths.length) return;
+  if (!paths.length) {
+    svg.classList.remove('initializing');
+    return;
+  }
 
   // Vérifier prefers-reduced-motion
   const prefersReducedMotion = window.matchMedia(
@@ -49,6 +55,8 @@ export function initHeroSignature() {
     if (inkDrop) {
       gsap.set(inkDrop, { opacity: 0 }); // Pas de goutte en mode réduit
     }
+    // Retirer la classe d'initialisation
+    svg.classList.remove('initializing');
     return;
   }
 
@@ -77,24 +85,42 @@ export function initHeroSignature() {
   }
 
   // ===================================
-  // ÉTAPE 2 : ANIMATION DES PATHS
+  // ÉTAPE 2 : INITIALISATION DES PATHS
+  // ===================================
+
+  // CRITIQUE : Initialiser TOUS les paths comme INVISIBLES AVANT l'animation
+  // Ceci doit être fait de manière SYNCHRONE et DÉTERMINISTE
+  paths.forEach((path) => {
+    const length = path.getTotalLength();
+
+    // Nettoyage complet : supprimer toute transition CSS
+    path.style.transition = 'none';
+
+    // Forcer fill à none (au cas où le markup aurait changé)
+    path.style.fill = 'none';
+
+    // Masquer totalement le trait en utilisant la longueur réelle du path
+    path.style.strokeDasharray = `${length}`;
+    path.style.strokeDashoffset = `${length}`;
+
+    // Forcer un reflow pour garantir que le navigateur applique ces valeurs
+    path.getBoundingClientRect();
+  });
+
+  // Retirer la classe d'initialisation maintenant que les paths sont correctement configurés
+  // Utiliser requestAnimationFrame pour s'assurer que le reflow est bien terminé
+  requestAnimationFrame(() => {
+    svg.classList.remove('initializing');
+  });
+
+  // ===================================
+  // ÉTAPE 3 : ANIMATION DES PATHS
   // ===================================
 
   // Timeline principale
   const tl = gsap.timeline({
     defaults: { ease: 'power2.out' },
     delay: 0.3 // Petit délai au chargement
-  });
-
-  // CRITIQUE : Initialiser TOUS les paths comme INVISIBLES AVANT l'animation
-  paths.forEach((path) => {
-    const length = path.getTotalLength();
-    // Forcer les propriétés immédiatement sans transition
-    path.style.transition = 'none';
-    path.style.strokeDasharray = `${length}`;
-    path.style.strokeDashoffset = `${length}`;
-    // Forcer un reflow pour s'assurer que les changements sont appliqués
-    path.getBoundingClientRect();
   });
 
   // Animer chaque path de la signature
@@ -120,7 +146,7 @@ export function initHeroSignature() {
   tl.addLabel('signatureComplete');
 
   // ===================================
-  // ÉTAPE 3 : ANIMATION DE LA GOUTTE
+  // ÉTAPE 4 : ANIMATION DE LA GOUTTE
   // ===================================
 
   if (inkDrop && subtitle) {
@@ -162,7 +188,7 @@ export function initHeroSignature() {
   }
 
   // ===================================
-  // ÉTAPE 4 : RÉVÉLATION DU SOUS-TITRE
+  // ÉTAPE 5 : RÉVÉLATION DU SOUS-TITRE
   // ===================================
 
   if (subtitle) {
@@ -180,7 +206,7 @@ export function initHeroSignature() {
   }
 
   // ===================================
-  // ÉTAPE 5 : APPARITION DES CTA
+  // ÉTAPE 6 : APPARITION DES CTA
   // ===================================
 
   if (ctaButtons.length) {
