@@ -34,6 +34,12 @@
 - ✅ **Responsive parfait** : Adapté mobile/tablet/desktop
 - 📁 Fichiers : `projectModal.js`, `project-modal.css`, `projects.js`
 
+#### Données projets typées + parser automatique 🧭
+- ✅ **Schéma TypeScript + validation Zod** : `src/types/project.ts`, `src/schemas/project.schema.ts`
+- ✅ **Pipeline de parsing** : `npm run projects:parse` lit `PROJETS.txt` et génère `content/projects.json`
+- ✅ **Interface filtrable** : `src/scripts/projects-app.ts` + composants modulaires dans `src/components/projects/`
+- ✅ **Loader type-safe** : `src/data/projects.loader.ts`
+
 #### Content Management System 📝
 - ✅ **Textes centralisés** : Tous les contenus dans `/src/data/content.js`
 - ✅ **Édition facile** : Modifier les textes sans toucher au HTML
@@ -126,6 +132,16 @@ npm run build
 
 # Preview du build
 npm run preview
+```
+
+### Gestion des projets
+
+```bash
+# Mettre à jour PROJETS.txt puis régénérer le JSON typé
+npm run projects:parse
+
+# Validation rapide (utilise le même parser + schéma)
+npm run projects:validate
 ```
 
 

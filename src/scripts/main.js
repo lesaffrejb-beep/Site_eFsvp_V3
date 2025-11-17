@@ -23,7 +23,7 @@ import { ProgressiveNav } from './modules/progressiveNav.js';
 import { ProcessReveal } from './modules/processReveal.js';
 import { CookieConsent } from './modules/cookieConsent.js';
 import { CopyEmail } from './modules/copyEmail.js';
-import { ProjectModal } from './modules/projectModal.js';
+import { initProjectsApp } from './projects-app.ts';
 import { FAQ } from './modules/faq.js';
 import { initHeroSignature } from './blocks/hero-signature.js';
 import { initAudioBlock } from './blocks/audio.js';
@@ -202,8 +202,8 @@ class App {
     // Portfolio filters
     initPortfolioBlock();
 
-    // Project Modal
-    this.modules.projectModal = new ProjectModal();
+    // Projects app
+    initProjectsApp();
 
     // Testimonials carousel
     const testimonialsInstance = initTestimonialsBlock();
