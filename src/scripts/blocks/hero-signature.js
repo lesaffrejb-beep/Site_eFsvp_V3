@@ -120,51 +120,29 @@ export function initHeroSignature() {
   // ===================================
 
   if (inkDrop && subtitle) {
-    // Calculer la distance entre la signature et le sous-titre
-    const signatureWrapper = document.querySelector('.hero-signature-wrapper');
-    const signatureRect = signatureWrapper?.getBoundingClientRect();
-    const subtitleRect = subtitle.getBoundingClientRect();
-
-    // Distance approximative (fallback si les éléments ne sont pas encore rendus)
-    const dropDistance = subtitleRect.top > 0
-      ? Math.max(60, Math.min(120, subtitleRect.top - (signatureRect?.bottom || 0)))
-      : 80;
-
     // Apparition de la goutte à la fin de l'écriture
     tl.to(
       inkDrop,
       {
         opacity: 1,
-        scale: 1,
-        duration: 0.3,
-        ease: 'back.out(2)'
+        y: 10,
+        duration: 0.25,
+        ease: 'power2.out'
       },
       'signatureComplete-=0.1'
     );
 
-    // Chute de la goutte vers le sous-titre
+    // Chute de la goutte avec déformation
     tl.to(
       inkDrop,
       {
-        y: dropDistance,
-        duration: 0.6,
-        ease: 'power2.in', // Accélération en tombant
+        y: 22,
+        scaleY: 0.8,
+        scaleX: 1.05,
+        duration: 0.18,
+        ease: 'power1.in'
       },
       '>-0.05'
-    );
-
-    // Petit rebond à l'impact
-    tl.to(
-      inkDrop,
-      {
-        scaleY: 0.8,
-        scaleX: 1.2,
-        duration: 0.1,
-        yoyo: true,
-        repeat: 1,
-        ease: 'power2.out'
-      },
-      '>'
     );
 
     // Dissolution de la goutte
@@ -172,11 +150,10 @@ export function initHeroSignature() {
       inkDrop,
       {
         opacity: 0,
-        scale: 1.5,
-        duration: 0.4,
-        ease: 'power2.out'
+        duration: 0.2,
+        ease: 'power1.out'
       },
-      '>-0.15'
+      '-=0.05'
     );
   }
 
