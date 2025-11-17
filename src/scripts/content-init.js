@@ -318,25 +318,22 @@ export function initPortfolioContent() {
           : '';
 
         return `
-          <article class="project-card"
+          <article class="project-card card-lift"
                    data-project-id="${project.slug}"
                    data-typology="${project.typology}"
                    data-sector="${project.sector}"
                    data-status="${project.status}">
             <div class="project-card__visual" aria-hidden="true">
               <div class="project-card__visual-frame">
-                <span class="project-card__badge">${project.format}</span>
-                <span class="project-card__monogram">${clientInitials}</span>
+                <span class="project-card__category">${project.category}</span>
+                <span class="project-card__initials">${clientInitials}</span>
                 <span class="project-card__location">${project.location}</span>
               </div>
             </div>
             <div class="project-card__body">
               <header class="project-card__header">
-                <div class="project-card__meta">
-                  <span class="project-card__client">${project.client}</span>
-                  <span class="project-card__year">${period}</span>
-                </div>
                 <h3 class="project-card__title">${displayTitle}</h3>
+                <span class="project-card__year">${period}</span>
               </header>
               <p class="project-card__description">${project.shortDescription}</p>
               ${tagsHtml}
@@ -561,11 +558,6 @@ export function initContactContent() {
 
   const formNote = document.querySelector('.contact__form-note');
   if (formNote && form.note) formNote.textContent = form.note;
-
-  const altLabel = document.querySelector('.contact__direct-label');
-  const altLocation = document.querySelector('.contact__location');
-  if (altLabel) altLabel.textContent = alternativeContact.title;
-  if (altLocation) altLocation.textContent = alternativeContact.location;
 
   const emailButton = document.querySelector('[data-copy-email]');
   if (emailButton) {

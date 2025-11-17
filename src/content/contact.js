@@ -82,9 +82,7 @@ export const contactContent = {
   },
 
   alternativeContact: {
-    title: `OU ÉCRIVEZ-NOUS DIRECTEMENT`,
     email: `contact@efsvp.fr`,
-    location: `Basé à Angers · Partout en Francophonie`,
   },
 
   successState: {

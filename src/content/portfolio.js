@@ -1,16 +1,16 @@
 import { projectsCollection } from './projects/index.js';
 
 const sectorFilterOptions = [
-  { label: 'Tous les secteurs', value: 'all', active: true },
-  { label: 'Agriculture', value: 'Agriculture' },
-  { label: 'Artisanat', value: 'Artisanat' },
+  { label: 'Tous les secteurs', value: 'tous', active: true },
   { label: 'BTP', value: 'BTP' },
+  { label: 'Institutionnel', value: 'Institutionnel' },
   { label: 'Environnement', value: 'Environnement' },
-  { label: 'Mobilité', value: 'Mobilité' },
-  { label: 'Patrimoine', value: 'Patrimoine' },
+  { label: 'Social', value: 'Social' },
   { label: 'Spectacle vivant', value: 'Spectacle vivant' },
-  { label: 'Territoire', value: 'Territoire' },
-  { label: 'Économie sociale et solidaire', value: 'Économie sociale et solidaire' },
+  { label: 'Artisanat', value: 'Artisanat' },
+  { label: 'Transport', value: 'Transport' },
+  { label: 'Patrimoine', value: 'Patrimoine' },
+  { label: 'Vie associative', value: 'Vie associative' },
 ];
 
 export const portfolioContent = {

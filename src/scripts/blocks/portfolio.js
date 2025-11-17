@@ -37,6 +37,8 @@ const toggleCardVisibility = (card, visible) => {
   });
 };
 
+const isAllValue = (value) => value === 'all' || value === 'tous';
+
 const getAttributeValue = (element, attributes) => {
   for (const attr of attributes) {
     if (!attr) continue;
@@ -56,12 +58,12 @@ const applyFilterState = (cards, state) => {
     const cardSector = getAttributeValue(card, ['data-sector', 'data-category', 'data-client']);
     const cardStatus = getAttributeValue(card, ['data-status']) || 'delivered';
 
-    const matchesClient = !state.client || state.client === 'all' || state.client === cardClient;
-    const matchesType = !state.type || state.type === 'all' || state.type === cardTypeLegacy;
-    const matchesCategory = !state.category || state.category === 'all' || state.category === cardCategoryLegacy;
-    const matchesTypology = !state.typology || state.typology === 'all' || state.typology === cardTypology;
-    const matchesSector = !state.sector || state.sector === 'all' || state.sector === cardSector;
-    const matchesStatus = !state.status || state.status === 'all' || state.status === cardStatus;
+    const matchesClient = !state.client || isAllValue(state.client) || state.client === cardClient;
+    const matchesType = !state.type || isAllValue(state.type) || state.type === cardTypeLegacy;
+    const matchesCategory = !state.category || isAllValue(state.category) || state.category === cardCategoryLegacy;
+    const matchesTypology = !state.typology || isAllValue(state.typology) || state.typology === cardTypology;
+    const matchesSector = !state.sector || isAllValue(state.sector) || state.sector === cardSector;
+    const matchesStatus = !state.status || isAllValue(state.status) || state.status === cardStatus;
 
     const shouldDisplay =
       matchesClient && matchesType && matchesCategory && matchesTypology && matchesSector && matchesStatus;
@@ -106,7 +108,7 @@ const initModernFilters = (root, cards) => {
     type: 'all',
     category: 'all',
     typology: 'all',
-    sector: 'all',
+    sector: 'tous',
     status: 'all',
   };
 
