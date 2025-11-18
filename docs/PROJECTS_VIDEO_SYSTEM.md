@@ -2,6 +2,8 @@
 
 Documentation complète du système de projets dynamiques avec support audio ET vidéo.
 
+> ⚠️ Document partiellement obsolète : se référer en priorité à `public/assets/README.md` pour l'arborescence (images/projects/<slug>/, videos/projects/<slug>/, audio/projects/<slug>/). Les exemples ci-dessous sont alignés sur cette structure.
+
 **Date de mise à jour** : 2025-11-18
 
 ---
@@ -40,17 +42,10 @@ Si les deux sont configurés, la **VIDÉO a la priorité**.
 ### Structure recommandée d'un projet
 
 ```
-/public/assets/projects/mon-projet/
-├── images/
-│   ├── main.jpg          ← Image principale (obligatoire)
-│   ├── gallery-01.jpg    ← Galerie (optionnel)
-│   └── gallery-02.jpg
-├── audio/                ← SI le projet a un audio
-│   ├── track.mp3
-│   └── track.ogg (optionnel)
-└── video/                ← SI le projet a une vidéo
-    ├── video.mp4
-    └── video.webm (optionnel)
+/public/assets/
+├── images/projects/mon-projet/   ← Image principale + galerie
+├── audio/projects/mon-projet/    ← Audio éventuel (hors Git)
+└── videos/projects/mon-projet/   ← Vidéo éventuelle
 ```
 
 ### Fichiers du système
@@ -96,7 +91,7 @@ Chaque projet est un objet dans le tableau JSON centralisé.
   "location": "Paris",
   "status": "delivered",
   "cover": {
-    "image": "/assets/projects/projet-image-seule/images/main.jpg",
+    "image": "/assets/images/projects/projet-image-seule/main.jpg",
     "initials": "MP",
     "gradient": {
       "from": "var(--color-primary-500)",
@@ -129,7 +124,7 @@ Chaque projet est un objet dans le tableau JSON centralisé.
   "location": "Angers",
   "status": "delivered",
   "cover": {
-    "image": "/assets/projects/projet-audio/images/main.jpg",
+    "image": "/assets/images/projects/projet-audio/main.jpg",
     "initials": "CL"
   },
   "shortDescription": "Concert pour les 25 ans...",
@@ -151,7 +146,7 @@ Chaque projet est un objet dans le tableau JSON centralisé.
     "artist": "EfSVP Studio",
     "duration": 420,
     "files": {
-      "mp3": "/assets/projects/projet-audio/audio/concert.mp3"
+      "mp3": "/assets/audio/projects/projet-audio/concert.mp3"
     },
     "waveformColor": "var(--color-primary-500)",
     "description": "Enregistrement complet du concert"
@@ -170,7 +165,7 @@ Chaque projet est un objet dans le tableau JSON centralisé.
   "location": "Paris",
   "status": "delivered",
   "cover": {
-    "image": "/assets/projects/projet-video/images/main.jpg",
+    "image": "/assets/images/projects/projet-video/main.jpg",
     "initials": "VP"
   },
   "shortDescription": "Vidéo de promotion du territoire...",
@@ -191,9 +186,9 @@ Chaque projet est un objet dans le tableau JSON centralisé.
     "title": "Vidéo promotionnelle - Version longue",
     "duration": 180,
     "files": {
-      "mp4": "/assets/projects/projet-video/video/promo.mp4"
+      "mp4": "/assets/videos/projects/projet-video/promo.mp4"
     },
-    "poster": "/assets/projects/projet-video/images/main.jpg",
+    "poster": "/assets/images/projects/projet-video/main.jpg",
     "autoplay": false,
     "description": "Version longue de la vidéo promotionnelle"
   }
@@ -235,14 +230,14 @@ if (hasProjectVideo(project)) {
 ### Cas 1 : Projet simple (image seule)
 
 ✅ **Fichiers nécessaires** :
-- `/public/assets/projects/mon-projet/images/main.jpg`
+- `/public/assets/images/projects/mon-projet/main.jpg`
 
 ✅ **Configuration** :
 ```json
 {
   "id": "mon-projet",
   "cover": {
-    "image": "/assets/projects/mon-projet/images/main.jpg",
+    "image": "/assets/images/projects/mon-projet/main.jpg",
     "initials": "MP"
   }
   // Pas de section "audio" ni "video"
@@ -252,22 +247,22 @@ if (hasProjectVideo(project)) {
 ### Cas 2 : Projet avec audio
 
 ✅ **Fichiers nécessaires** :
-- `/public/assets/projects/mon-projet/images/main.jpg`
-- `/public/assets/projects/mon-projet/audio/track.mp3`
+- `/public/assets/images/projects/mon-projet/main.jpg`
+- `/public/assets/audio/projects/mon-projet/track.mp3`
 
 ✅ **Configuration** :
 ```json
 {
   "id": "mon-projet",
   "cover": {
-    "image": "/assets/projects/mon-projet/images/main.jpg"
+    "image": "/assets/images/projects/mon-projet/main.jpg"
   },
   "audio": {
     "enabled": true,
     "title": "Ma piste",
     "duration": 180,
     "files": {
-      "mp3": "/assets/projects/mon-projet/audio/track.mp3"
+      "mp3": "/assets/audio/projects/mon-projet/track.mp3"
     }
   }
 }
@@ -276,24 +271,24 @@ if (hasProjectVideo(project)) {
 ### Cas 3 : Projet avec vidéo
 
 ✅ **Fichiers nécessaires** :
-- `/public/assets/projects/mon-projet/images/main.jpg`
-- `/public/assets/projects/mon-projet/video/video.mp4`
+- `/public/assets/images/projects/mon-projet/main.jpg`
+- `/public/assets/videos/projects/mon-projet/video.mp4`
 
 ✅ **Configuration** :
 ```json
 {
   "id": "mon-projet",
   "cover": {
-    "image": "/assets/projects/mon-projet/images/main.jpg"
+    "image": "/assets/images/projects/mon-projet/main.jpg"
   },
   "video": {
     "enabled": true,
     "title": "Ma vidéo",
     "duration": 120,
     "files": {
-      "mp4": "/assets/projects/mon-projet/video/video.mp4"
+      "mp4": "/assets/videos/projects/mon-projet/video.mp4"
     },
-    "poster": "/assets/projects/mon-projet/images/main.jpg"
+    "poster": "/assets/images/projects/mon-projet/main.jpg"
   }
 }
 ```
@@ -426,7 +421,7 @@ Si vous aviez des projets avec `cover.jpg`, `thumbnail.jpg`, `hero.jpg` séparé
 ```json
 {
   "cover": {
-    "image": "/assets/projects/mon-projet/images/main.jpg"
+    "image": "/assets/images/projects/mon-projet/main.jpg"
   }
 }
 ```

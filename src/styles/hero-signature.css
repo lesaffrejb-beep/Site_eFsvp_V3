@@ -515,6 +515,62 @@
 }
 
 /* ========================================
+   HERO - OVERRIDES LAYOUT & FULL HEIGHT
+   ======================================== */
+
+.hero.hero--signature {
+  min-height: calc(100vh - var(--header-height));
+  padding-block: var(--space-14);
+  display: flex;
+  align-items: center;
+}
+
+.hero__inner {
+  max-width: var(--layout-max-width, 72rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+}
+
+.hero__animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.hero-signature-wrapper {
+  max-width: 48rem;
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+}
+
+.hero-signature-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero__text-stack {
+  margin-top: -3rem !important;
+  row-gap: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .hero.hero--signature {
+    padding-block: var(--space-10);
+  }
+
+  .hero__text-stack {
+    margin-top: -1.5rem !important;
+  }
+}
+
+/* ========================================
    RESPONSIVE PREMIUM - TRÈS PETIT MOBILE (< 475px)
    ======================================== */
 
@@ -629,4 +685,60 @@ section#hero.force-fullscreen {
 .hero__content {
   max-height: 100%;
   overflow: visible; /* Permet les shadows du CTA */
+}
+
+/* ========================================
+   HERO - OVERRIDES LAYOUT & FULL HEIGHT
+   ======================================== */
+
+.hero.hero--signature {
+  min-height: calc(100vh - var(--header-height));
+  padding-block: var(--space-14);
+  display: flex;
+  align-items: center;
+}
+
+.hero__inner {
+  max-width: var(--layout-max-width, 72rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+}
+
+.hero__animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.hero-signature-wrapper {
+  max-width: 48rem;
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+}
+
+.hero-signature-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero__text-stack {
+  margin-top: -3rem !important;
+  row-gap: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .hero.hero--signature {
+    padding-block: var(--space-10);
+  }
+
+  .hero__text-stack {
+    margin-top: -1.5rem !important;
+  }
 }

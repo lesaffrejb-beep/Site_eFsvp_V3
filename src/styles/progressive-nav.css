@@ -188,26 +188,24 @@
 /* Mobile Menu */
 @media (max-width: 767px) {
   .nav__menu {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: var(--bg-dark);
-    padding: var(--space-8);
-    transform: translateX(-100%);
+    padding: calc(var(--header-height) + var(--space-8)) var(--space-6) var(--space-12);
+    transform: translateY(-100%);
     transition: transform var(--transition-base), opacity var(--transition-base);
     overflow-y: auto;
-    max-height: calc(100vh - 60px);
     width: 100%;
     opacity: 0;
     pointer-events: none;
+    z-index: calc(var(--z-fixed) + 1);
   }
 
   .nav__menu[aria-hidden="false"],
   .nav__menu.is-active {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
   }

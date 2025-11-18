@@ -6,19 +6,21 @@ Organisation des assets (images, vidéos, audio, logos) avec une convention cent
 
 ```
 /public/assets/
-├── images/projects/<slug>/            # Cover + galerie
-├── videos/projects/<slug>/            # Teaser vidéo (optionnel)
+├── images/projects/<slug>/            # Cover + galerie (.gitkeep présent)
+├── videos/projects/<slug>/            # Teaser vidéo (optionnel, .gitkeep présent)
 ├── audio/projects/<slug>/             # Extraits audio (optionnel, ignorés par Git)
 ├── clients/                           # Logos éventuels
 │   ├── logos/
 │   │   └── .gitkeep
 │   └── clients.json
-└── projects/
-    └── _metadata-template.json        # Template d'override facultatif
+└── projects/                          # Réservé aux overrides avancés (dev uniquement)
+    ├── _metadata-template.json
+    └── .gitkeep
 ```
 
 - `<slug>` = valeur du champ `slug` (et `id`) dans `content/projects.json`.
 - Les fichiers audio lourds restent exclus du dépôt (`public/assets/audio/*` est ignoré par Git).
+- Les non-dev n'ont jamais besoin d'ouvrir `public/assets/projects/` : ce dossier ne sert qu'aux overrides spécifiques (metadata.json).
 
 ## 🏷️ Slugs normalisés (référence rapide)
 
@@ -72,3 +74,8 @@ Les champs `video` et `audio` sont optionnels : laisse-les vides si le fichier n
 3. Si vidéo : `public/assets/videos/projects/<slug>/teaser.mp4`.
 4. Si audio : `public/assets/audio/projects/<slug>/extrait-01.mp3`.
 5. Vérifier/mettre à jour `content/projects.json` si un override manuel est nécessaire (le loader suit ces conventions par défaut).
+
+## 🔧 Overrides avancés (réservé aux devs)
+
+- Si un projet a besoin d'un `metadata.json` spécifique, place-le dans `public/assets/projects/<slug>/metadata.json` en te basant sur `_metadata-template.json`.
+- Ne pas déposer d'images/vidéos ici : les médias restent dans `images/projects/<slug>/` et `videos/projects/<slug>/` pour les non-dev.

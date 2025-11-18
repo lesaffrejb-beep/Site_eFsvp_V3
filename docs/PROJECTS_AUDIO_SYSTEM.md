@@ -1,5 +1,7 @@
 # 🎵 Système Audio des Projets - Guide Complet
 
+> ⚠️ Document partiellement obsolète : l'arborescence de référence est décrite dans `public/assets/README.md` (images/projects/<slug>/, videos/projects/<slug>/, audio/projects/<slug>/). Les exemples ci-dessous ont été alignés sur cette structure.
+
 Ce guide explique le nouveau système audio premium intégré aux projets portfolio EfSVP.
 
 ---
@@ -64,12 +66,10 @@ src/
 
 public/
 └── assets/
-    └── projects/
-        ├── _metadata-template.json  # Template de référence
-        └── [project-id]/
-            ├── metadata.json        # Config projet (optionnel)
-            ├── images/              # Images du projet
-            └── audio/               # Fichiers audio
+    ├── images/projects/<slug>/      # Images du projet (cover + galerie)
+    ├── audio/projects/<slug>/       # Fichiers audio (hors Git)
+    └── projects/                    # Overrides avancés (metadata.json éventuel)
+        └── _metadata-template.json
 ```
 
 ---
@@ -92,8 +92,8 @@ Ajoutez le champ `audio` directement dans le JSON central :
     "artist": "EfSVP Studio",
     "duration": 420,
     "files": {
-      "mp3": "/assets/projects/atelier-lacour/audio/concert-25ans.mp3",
-      "ogg": "/assets/projects/atelier-lacour/audio/concert-25ans.ogg"
+      "mp3": "/assets/audio/projects/atelier-lacour/concert-25ans.mp3",
+      "ogg": "/assets/audio/projects/atelier-lacour/concert-25ans.ogg"
     },
     "waveformColor": "var(--color-primary-500)",
     "description": "Enregistrement complet du concert"
