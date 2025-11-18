@@ -41,9 +41,12 @@ export class ProjectModal {
     if (metaEl) metaEl.textContent = [project.client, project.year, project.location].filter(Boolean).join(' · ');
 
     if (descriptionEl) {
-      descriptionEl.innerHTML = project.longDescription
-        .map((paragraph) => `<p>${paragraph}</p>`)
-        .join('');
+      descriptionEl.innerHTML = '';
+      project.longDescription.forEach((paragraph) => {
+        const p = document.createElement('p');
+        p.textContent = paragraph;
+        descriptionEl.appendChild(p);
+      });
     }
 
     if (statsContainer && statsGrid) {
@@ -57,16 +60,20 @@ export class ProjectModal {
         { label: 'Équipe', value: project.team.join(' • ') },
       ].filter((entry) => Boolean(entry.value));
 
-      statsGrid.innerHTML = stats
-        .map(
-          (entry) => `
-          <div class="stat-item">
-            <dt>${entry.label}</dt>
-            <dd>${entry.value}</dd>
-          </div>
-        `
-        )
-        .join('');
+      statsGrid.innerHTML = '';
+      stats.forEach((entry) => {
+        const item = document.createElement('div');
+        item.className = 'stat-item';
+
+        const term = document.createElement('dt');
+        term.textContent = entry.label;
+
+        const definition = document.createElement('dd');
+        definition.textContent = entry.value;
+
+        item.append(term, definition);
+        statsGrid.appendChild(item);
+      });
 
       statsContainer.style.display = stats.length ? 'block' : 'none';
     }

@@ -11,40 +11,42 @@ gsap.registerPlugin(ScrollTrigger);
 
 export class SmoothScroll {
   constructor() {
-    this.lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
-    });
+    this.enabled = this.shouldEnableSmoothScroll();
+    this.lenis = this.enabled
+      ? new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          direction: 'vertical',
+          gestureDirection: 'vertical',
+          smooth: true,
+          mouseMultiplier: 1,
+          smoothTouch: false,
+          touchMultiplier: 2,
+          infinite: false,
+        })
+      : null;
 
-    this.init();
+    if (this.enabled && this.lenis) {
+      this.init();
+    }
   }
 
   init() {
-    // RAF loop
-    const raf = (time) => {
-      this.lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
-
     // Sync avec ScrollTrigger
-    this.lenis.on('scroll', ScrollTrigger.update);
+    this.lenis?.on('scroll', ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
-      this.lenis.raf(time * 1000);
+      this.lenis?.raf(time * 1000);
     });
-
-    gsap.ticker.lagSmoothing(0);
 
     // Anchor links smooth
     this.setupAnchorLinks();
+  }
+
+  shouldEnableSmoothScroll() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
+    return !prefersReducedMotion && !hasCoarsePointer;
   }
 
   setupAnchorLinks() {
@@ -66,14 +68,26 @@ export class SmoothScroll {
   }
 
   scrollTo(target, options = {}) {
-    this.lenis.scrollTo(target, options);
+    if (this.lenis) {
+      this.lenis.scrollTo(target, options);
+      return;
+    }
+
+    const element = typeof target === 'string' ? document.querySelector(target) : target;
+    if (element instanceof HTMLElement) {
+      const top = element.getBoundingClientRect().top + window.pageYOffset + (options.offset || 0);
+      window.scrollTo({
+        top,
+        behavior: 'smooth',
+      });
+    }
   }
 
   stop() {
-    this.lenis.stop();
+    this.lenis?.stop();
   }
 
   start() {
-    this.lenis.start();
+    this.lenis?.start();
   }
 }

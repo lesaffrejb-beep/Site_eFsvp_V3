@@ -10,9 +10,7 @@ try {
   console.log(`✅ Projects loader: ${validatedProjects.length} projets chargés et validés`);
 } catch (error) {
   console.error('❌ Projects loader: Erreur de validation des projets', error);
-  // Fallback: utiliser les données brutes si la validation échoue
-  validatedProjects = projectsData as Project[];
-  console.warn(`⚠️ Projects loader: Utilisation des données brutes (${validatedProjects.length} projets)`);
+  validatedProjects = [];
 }
 
 export function getAllProjects(): Project[] {
