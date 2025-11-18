@@ -175,9 +175,9 @@
   max-width: clamp(800px, 85vw, 1400px); /* ✅ SVG TRÈS GRANDE - Dribbble style */
   margin-inline: auto;
 
-  /* ✅ NEGATIVE MARGIN pour rapprocher du texte */
+  /* ✅ NEGATIVE MARGIN AGGRESSIVE pour rapprocher du texte */
   margin-top: 0 !important;
-  margin-bottom: -2rem !important;
+  margin-bottom: -4rem !important; /* ✅ -4rem au lieu de -2rem */
 
   transform: scale(1.2); /* ✅ 120% - domination visuelle */
   transform-origin: center;
@@ -227,9 +227,8 @@
   color: var(--color-text-secondary);
   max-width: 50ch;
 
-  /* ✅ MARGES ULTRA-SERRÉES - NEGATIVE pour rapprocher du SVG */
-  margin-top: -1rem !important;
-  margin-bottom: 1.5rem !important;
+  /* ✅ MARGES ZÉRO - le spacing est géré par .hero__text-stack gap */
+  margin: 0 !important;
   margin-left: auto !important;
   margin-right: auto !important;
 
@@ -258,15 +257,15 @@
   align-items: center;
 
   /* ✅ GAP MINIMAL entre texte et CTA */
-  gap: 0 !important;
+  gap: 1.5rem !important; /* ✅ 24px entre texte et CTA */
 
   /* ✅ POSITION RELATIVE pour flow normal */
   position: relative;
 
   width: min(100%, 720px);
 
-  /* ✅ MARGES MINIMALES */
-  margin-top: 0 !important;
+  /* ✅ MARGE NÉGATIVE AGGRESSIVE pour coller au SVG */
+  margin-top: -3rem !important; /* ✅ NEGATIVE pour rapprocher du SVG */
   margin-bottom: 0 !important;
   padding: 0 !important;
 
@@ -453,8 +452,8 @@
   .hero-signature-wrapper {
     max-width: 90vw !important;
     transform: scale(1.15) !important;
-    /* ✅ NEGATIVE margin sur mobile aussi */
-    margin-bottom: -1.5rem !important;
+    /* ✅ NEGATIVE margin AGGRESSIVE sur mobile */
+    margin-bottom: -3rem !important; /* ✅ -3rem au lieu de -1.5rem */
   }
 
   .hero-signature-svg {
@@ -466,18 +465,17 @@
     position: relative;
     transform: none;
     width: 100%;
-    margin-top: 0 !important;
+    margin-top: -2rem !important; /* ✅ NEGATIVE pour rapprocher du SVG */
     margin-bottom: 0 !important;
-    gap: 0 !important;
+    gap: 1.25rem !important; /* ✅ Gap entre texte et CTA */
     padding: 0 !important;
   }
 
   .hero__baseline,
   .hero-subtitle,
   .hero-signature-caption {
-    /* ✅ NEGATIVE margin sur mobile */
-    margin-top: -0.75rem !important;
-    margin-bottom: 1.25rem !important;
+    /* ✅ MARGES ZÉRO - spacing géré par gap */
+    margin: 0 !important;
     font-size: 1rem !important;
     line-height: 1.4;
     max-width: 100%;
@@ -507,11 +505,16 @@
     transform: scale(1.15); /* ✅ Un peu moins de scale sur tablette */
   }
 
+  .hero__text-stack {
+    margin-top: -2.5rem !important; /* ✅ NEGATIVE pour rapprocher du SVG */
+    gap: 1.5rem !important; /* ✅ Gap entre texte et CTA */
+  }
+
   .hero__baseline,
   .hero-subtitle,
   .hero-signature-caption {
     font-size: clamp(0.95rem, 2vw, 1.25rem) !important; /* ✅ Responsive */
-    margin-bottom: clamp(1.25rem, 3vh, 2rem) !important;
+    margin: 0 !important; /* ✅ Spacing géré par gap */
   }
 }
 
@@ -552,21 +555,25 @@
   .hero-signature-wrapper {
     max-width: 95vw !important;
     transform: scale(1.1) !important;
-    /* ✅ NEGATIVE margin même sur très petit mobile */
-    margin-bottom: -1rem !important;
+    /* ✅ NEGATIVE margin AGGRESSIVE même sur très petit mobile */
+    margin-bottom: -2.5rem !important; /* ✅ -2.5rem au lieu de -1rem */
   }
 
   .hero-signature-svg {
     transform: scale(1.1) !important;
   }
 
+  .hero__text-stack {
+    margin-top: -1.5rem !important; /* ✅ NEGATIVE pour rapprocher */
+    gap: 1rem !important; /* ✅ Gap entre texte et CTA */
+  }
+
   .hero__baseline,
   .hero-subtitle,
   .hero-signature-caption {
     font-size: 0.95rem !important;
-    /* ✅ NEGATIVE margin */
-    margin-top: -0.5rem !important;
-    margin-bottom: 1.25rem !important;
+    /* ✅ MARGES ZÉRO - spacing géré par gap */
+    margin: 0 !important;
   }
 }
 
@@ -621,4 +628,33 @@
   position: relative;
   z-index: 10;
   background: var(--bg-primary, #f9f5ef);
+}
+
+/* ========================================
+   OPTION NUCLÉAIRE - FORCE 100VH STRICT
+   ======================================== */
+
+/* Force absolue : le hero DOIT faire 100vh exactement */
+.hero,
+.hero.hero--signature,
+section.hero,
+section#hero {
+  /* Force 100vh strict avec overflow caché */
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}
+
+/* Reset brutal de tous les enfants pour éliminer padding/margin parasites */
+.hero * {
+  box-sizing: border-box;
+}
+
+/* Garantit que rien ne déborde du hero */
+.hero__inner,
+.hero__content {
+  max-height: 100%;
+  overflow: visible; /* Permet les shadows du CTA */
 }
