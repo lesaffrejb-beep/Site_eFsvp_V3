@@ -71,7 +71,9 @@ class App {
 
       console.log('✅ EfSVP Premium Site - Loaded successfully');
     } catch (error) {
-      console.error('❌ Critical initialization error:', error);
+      console.error('🚨 CRITICAL BOOT ERROR:', error);
+      console.error('🚨 Error stack:', error?.stack);
+      console.error('🚨 Error type:', error?.constructor?.name);
       this.handleCriticalError(error);
     }
   }
@@ -142,13 +144,14 @@ class App {
       startApp(); // Chargement forcé (fallback)
     });
 
-    // 🚨 Sécurité ultime : si dans 2s rien ne s'est passé, on ouvre les vannes
+    // 🚨 Sécurité ultime : si dans 10s rien ne s'est passé, on ouvre les vannes
+    // (Augmenté de 2s à 10s pour éviter les faux positifs sur connexions lentes)
     setTimeout(() => {
       if (!document.body.classList.contains('loaded')) {
-        console.warn('🚨 Emergency Start triggered');
+        console.warn('🚨 Emergency Start triggered after 10s timeout');
         startApp();
       }
-    }, 2000);
+    }, 10000);
   }
 
   async initCore() {
@@ -272,16 +275,41 @@ class App {
   handleCriticalError(error) {
     console.warn('⚠️ Une erreur a été supprimée pour forcer l\'affichage:', error);
 
-    // Force site display
+    // Force site display - NUCLEAR MODE
     document.body.classList.add('loaded');
+    document.body.classList.remove('is-loading');
+    document.documentElement.classList.remove('is-loading');
+    document.body.style.overflow = '';
 
     // Remove preloader if it exists
     const loader = document.querySelector('.preloader');
-    if (loader) loader.style.display = 'none';
+    if (loader) {
+      loader.style.display = 'none';
+      loader.remove();
+    }
 
-    // Remove any error overlays that might exist
-    const existingOverlays = document.querySelectorAll('[class*="error-"]');
-    existingOverlays.forEach(el => el.remove());
+    // Remove ALL possible error overlays (nuclear cleanup)
+    const selectors = [
+      '[class*="error-"]',
+      '[id*="error-"]',
+      '[class*="overlay"]',
+      '[class*="critical-"]',
+      'div[style*="z-index: 99999"]',
+      'div[style*="position: fixed"][style*="width: 100%"]'
+    ];
+
+    selectors.forEach(selector => {
+      try {
+        document.querySelectorAll(selector).forEach(el => {
+          // Ne pas supprimer les overlays légitimes (nav, modal)
+          if (!el.id?.includes('nav') && !el.classList.contains('modal-overlay')) {
+            el.remove();
+          }
+        });
+      } catch (e) {
+        console.warn('Cleanup selector failed:', selector, e);
+      }
+    });
   }
 
   /**
