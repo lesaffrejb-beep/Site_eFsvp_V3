@@ -45,8 +45,8 @@ export const projectSchema = z.object<Project>({
   media: z.object({
     coverImage: z.string().min(1),
     gallery: z.array(z.string()).optional(),
-    video: z.string().min(1).nullable().optional(),
-    audio: z.string().min(1).nullable().optional(),
+    video: z.string().min(1).optional(),
+    audio: z.string().min(1).optional(),
   }),
   audio: z
     .object({

@@ -13,6 +13,7 @@ export class ProjectModal {
     this.modal = document.getElementById('project-modal');
     this.closeButton = document.getElementById('project-modal-close');
     this.overlay = this.modal?.querySelector('.modal-overlay') as HTMLElement | null;
+    this.setModalAccessibility(false);
     this.attachEvents();
   }
 
@@ -108,7 +109,7 @@ export class ProjectModal {
     }
 
     this.modal.classList.add('active');
-    this.modal.setAttribute('aria-hidden', 'false');
+    this.setModalAccessibility(true);
     document.body.style.overflow = 'hidden';
     setTimeout(() => this.closeButton?.focus(), 100);
   }
@@ -129,7 +130,19 @@ export class ProjectModal {
     }
 
     this.modal.classList.remove('active');
-    this.modal.setAttribute('aria-hidden', 'true');
+    this.setModalAccessibility(false);
     document.body.style.overflow = '';
+  }
+
+  private setModalAccessibility(isOpen: boolean) {
+    if (!this.modal) return;
+
+    this.modal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+
+    if (isOpen) {
+      this.modal.removeAttribute('inert');
+    } else {
+      this.modal.setAttribute('inert', '');
+    }
   }
 }

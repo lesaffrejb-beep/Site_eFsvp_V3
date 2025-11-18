@@ -40,20 +40,21 @@ export class ProgressiveNav {
     this.progressBar.setAttribute('aria-valuemax', '100');
 
     // Set initial styles (utilise les tokens du design system)
-    Object.assign(this.progressBar.style, {
-      position: 'fixed',
-      top: '0',
-      left: '0',
-      width: '0%',
-      height: '3px',
-      background: 'linear-gradient(90deg, var(--color-primary-500) 0%, var(--color-primary-400) 50%, var(--color-primary-300) 100%)',
-      zIndex: getComputedStyle(document.documentElement).getPropertyValue('--z-tooltip') || '1600',
-      transition: 'opacity 0.3s ease',
-      opacity: '0',
-      transformOrigin: 'left',
-      boxShadow: '0 0 12px rgba(185, 90, 64, 0.4)',
-      pointerEvents: 'none'
-    });
+      Object.assign(this.progressBar.style, {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '3px',
+        background: 'linear-gradient(90deg, var(--color-primary-500) 0%, var(--color-primary-400) 50%, var(--color-primary-300) 100%)',
+        zIndex: getComputedStyle(document.documentElement).getPropertyValue('--z-tooltip') || '1600',
+        transition: 'transform 0.2s ease-out, opacity 0.3s ease',
+        opacity: '0',
+        transformOrigin: 'left',
+        transform: 'scaleX(0)',
+        boxShadow: '0 0 12px rgba(185, 90, 64, 0.4)',
+        pointerEvents: 'none'
+      });
 
     document.body.appendChild(this.progressBar);
   }
@@ -70,14 +71,15 @@ export class ProgressiveNav {
     }, { passive: true });
   }
 
-  handleScroll() {
-    const currentScroll = window.pageYOffset;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercentage = Math.min((currentScroll / docHeight) * 100, 100);
+    handleScroll() {
+      const currentScroll = window.pageYOffset;
+      const docHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const scrollPercentage = Math.min((currentScroll / docHeight) * 100, 100);
+      const scaleX = Math.max(0, scrollPercentage / 100);
 
-    // Update progress bar
-    this.progressBar.style.width = `${scrollPercentage}%`;
-    this.progressBar.setAttribute('aria-valuenow', Math.round(scrollPercentage));
+      // Update progress bar
+      this.progressBar.style.transform = `scaleX(${scaleX})`;
+      this.progressBar.setAttribute('aria-valuenow', Math.round(scrollPercentage));
 
     // Navigation show/hide logic
     if (currentScroll > this.scrollThreshold) {
