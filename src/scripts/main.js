@@ -9,34 +9,22 @@
  * ============================================
  */
 
-// 🚨 HOTFIX: Emergency bypass du preloader
-// Date: 2025-11-18
-// Raison: Boucle infinie en production (Vercel)
-// TODO: Réactiver après investigation approfondie du root cause
-const EMERGENCY_SKIP_PRELOADER = true;
-const PRELOADER_FAILSAFE_TIMEOUT = 2000; // 2 secondes max (was 3s)
+const EMERGENCY_SKIP_PRELOADER = false;
+const PRELOADER_FAILSAFE_TIMEOUT = 4000; // Failsafe ponctuel
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SmoothScroll } from './modules/smoothScroll.js';
-import { CursorManager } from './modules/cursor.js';
-import { MagneticButtons } from './modules/magnetic.js';
 import { ErrorHandler } from './modules/errorHandler.js';
 import { LazyLoadManager } from './modules/lazyLoad.js';
 import { FormValidator } from './modules/formValidator.js';
 import { AnimationsManager } from './modules/animations.js';
-import { ProgressBar } from './modules/progressBar.js';
 import { ProgressiveNav } from './modules/progressiveNav.js';
 import { ProcessReveal } from './modules/processReveal.js';
 import { CookieConsent } from './modules/cookieConsent.js';
 import { CopyEmail } from './modules/copyEmail.js';
-import { initProjectsApp } from './projects-app.ts';
 import { FAQ } from './modules/faq.js';
-import { initHeroSignature } from './blocks/hero-signature.js';
-import { initAudioBlock } from './blocks/audio.js';
-import { initPortfolioBlock } from './blocks/portfolio.js';
-import { initTestimonialsBlock } from './blocks/testimonials.js';
 import { initAllContent } from './content-init.js';
+import { initPortfolioBlock } from './blocks/portfolio.js';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -64,12 +52,9 @@ const antiVeilFailsafe = () => {
 // appliquer tout de suite + en fin de chargement
 antiVeilFailsafe();
 window.addEventListener('load', antiVeilFailsafe);
-// ré-appliquer périodiquement si GSAP tourne (sécurité)
-if (window.gsap && window.gsap.ticker) {
-  window.gsap.ticker.add(() => {
-    if (window.gsap.ticker.frame % 60 === 0) antiVeilFailsafe(); // ~1 fois/s
-  });
-}
+setTimeout(() => {
+  antiVeilFailsafe();
+}, PRELOADER_FAILSAFE_TIMEOUT);
 
 // ============================================
 // APP CLASS - Orchestration Premium
@@ -79,6 +64,8 @@ class App {
     this.modules = {};
     this.isMobile = window.innerWidth < 1024;
     this.isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+    this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
 
     this.init();
   }
@@ -98,10 +85,10 @@ class App {
       this.initLazyLoading();
 
       // 4. Core modules
-      this.initCore();
+      await this.initCore();
 
       // 5. Section modules
-      this.initSections();
+      await this.initSections();
 
       // 6. Animations premium
       this.initAnimations();
@@ -158,6 +145,8 @@ class App {
       main.style.opacity = '1';
       main.style.visibility = 'visible';
     }
+
+    antiVeilFailsafe();
   }
 
   async handlePreloader() {
@@ -168,12 +157,17 @@ class App {
     }
 
     const preloader = document.getElementById('preloader');
-
-    // FAILSAFE: Force preloader removal after max timeout (reduced to 2s)
     const failsafeTimeout = setTimeout(() => {
       console.error('⏱️ FAILSAFE: Preloader timeout, force show');
       this.skipToMainContent();
     }, PRELOADER_FAILSAFE_TIMEOUT);
+
+    if (!preloader) {
+      clearTimeout(failsafeTimeout);
+      antiVeilFailsafe();
+      document.body.classList.add('loaded');
+      return;
+    }
 
     // Wait for page load
     await new Promise((resolve) => {
@@ -192,23 +186,36 @@ class App {
     // Hide preloader
     if (preloader) {
       preloader.classList.add('hidden');
-      setTimeout(() => preloader.remove(), 500);
+      preloader.addEventListener(
+        'transitionend',
+        () => {
+          preloader.remove();
+        },
+        { once: true },
+      );
+      setTimeout(() => preloader.remove(), 900);
     }
 
     document.body.classList.add('loaded');
     document.body.style.overflow = '';
+    antiVeilFailsafe();
 
     // Clear failsafe timeout
     clearTimeout(failsafeTimeout);
   }
 
-  initCore() {
+  async initCore() {
     // Cookie Consent (RGPD/CNIL) - Initialize early
     this.modules.cookieConsent = new CookieConsent();
 
     // Smooth Scroll (Lenis)
-    this.modules.smoothScroll = new SmoothScroll();
-    window.lenis = this.modules.smoothScroll.lenis; // Global access
+    if (!this.prefersReducedMotion && !this.hasCoarsePointer) {
+      const { SmoothScroll } = await import('./modules/smoothScroll.js');
+      this.modules.smoothScroll = new SmoothScroll();
+      if (this.modules.smoothScroll.lenis) {
+        window.lenis = this.modules.smoothScroll.lenis; // Global access
+      }
+    }
 
     // Reading Progress Bar Premium (REMPLACÉ par ProgressiveNav)
     // this.modules.progressBar = new ProgressBar();
@@ -217,12 +224,14 @@ class App {
     this.modules.progressiveNav = new ProgressiveNav();
 
     // Custom Cursor (desktop only)
-    if (!this.isMobile) {
+    if (!this.isMobile && !this.hasCoarsePointer && !this.prefersReducedMotion) {
+      const { CursorManager } = await import('./modules/cursor.js');
       this.modules.cursor = new CursorManager();
     }
 
     // Magnetic Buttons
-    if (!this.isMobile) {
+    if (!this.isMobile && !this.hasCoarsePointer && !this.prefersReducedMotion) {
+      const { MagneticButtons } = await import('./modules/magnetic.js');
       this.modules.magnetic = new MagneticButtons();
     }
 
@@ -233,15 +242,21 @@ class App {
     this.initScrollReveal();
   }
 
-  initSections() {
-    // Hero signature animation
-    initHeroSignature();
+  async initSections() {
+    // Hero signature animation (lazy)
+    if (document.querySelector('[data-hero-signature]')) {
+      const { initHeroSignature } = await import('./blocks/hero-signature.js');
+      initHeroSignature();
+    }
 
     // Effet glow sur le CTA hero (après injection du contenu)
     this.initHeroGlow();
 
-    const audioContext = initAudioBlock({ modules: this.modules });
-    this.modules = audioContext.modules;
+    if (document.querySelector('.audio-player, .efsvp-audio')) {
+      const { initAudioBlock } = await import('./blocks/audio.js');
+      const audioContext = initAudioBlock({ modules: this.modules });
+      this.modules = audioContext.modules;
+    }
 
     // Process Reveal Animation
     this.modules.processReveal = new ProcessReveal();
@@ -250,12 +265,19 @@ class App {
     initPortfolioBlock();
 
     // Projects app
-    initProjectsApp();
+    const hasProjectsApp = document.querySelector('.projects__grid');
+    if (hasProjectsApp) {
+      const { initProjectsApp } = await import('./projects-app.ts');
+      initProjectsApp();
+    }
 
     // Testimonials carousel
-    const testimonialsInstance = initTestimonialsBlock();
-    if (testimonialsInstance) {
-      this.modules.testimonials = testimonialsInstance;
+    if (document.querySelector('.testimonials__carousel')) {
+      const { initTestimonialsBlock } = await import('./blocks/testimonials.js');
+      const testimonialsInstance = initTestimonialsBlock();
+      if (testimonialsInstance) {
+        this.modules.testimonials = testimonialsInstance;
+      }
     }
 
     // FAQ Accordion
@@ -587,6 +609,26 @@ class App {
     const quickForm = document.getElementById('quick-quote-form');
     if (!quickForm) return;
 
+    const submitButton = quickForm.querySelector('button[type="submit"]');
+    const defaultLabel = submitButton?.textContent || 'Envoyer';
+    let statusMessage = quickForm.querySelector('[data-quick-quote-status]');
+
+    if (!statusMessage) {
+      statusMessage = document.createElement('p');
+      statusMessage.dataset.quickQuoteStatus = 'true';
+      statusMessage.className = 'quick-quote__status';
+      statusMessage.setAttribute('role', 'status');
+      statusMessage.setAttribute('aria-live', 'polite');
+      statusMessage.textContent = '';
+      submitButton?.insertAdjacentElement('afterend', statusMessage);
+    }
+
+    const setStatus = (message, type = 'info') => {
+      if (!statusMessage) return;
+      statusMessage.textContent = message;
+      statusMessage.dataset.state = type;
+    };
+
     quickForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -596,14 +638,43 @@ class App {
         organisation: formData.get('organisation'),
         email: formData.get('email'),
         formule: formData.get('formule'),
+        budget: formData.get('budget'),
+        message: formData.get('message'),
         source: 'quick-quote-form',
       };
 
-      // In a real implementation, send to backend
-      console.log('Quick quote form submitted:', data);
+      try {
+        submitButton?.setAttribute('disabled', 'true');
+        if (submitButton) submitButton.textContent = 'Envoi en cours…';
 
-      // Reset form
-      quickForm.reset();
+        const response = await fetch('/api/quick-quote', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Quick quote error: ${response.status}`);
+        }
+
+        const result = await response.json();
+        if (!result?.ok) {
+          throw new Error('Quick quote error: invalid response');
+        }
+
+        setStatus('Message envoyé ! On vous répond sous 48h.', 'success');
+        quickForm.reset();
+      } catch (error) {
+        console.error('❌ Quick quote form error', error);
+        setStatus('Un problème est survenu, réessayez plus tard.', 'error');
+      } finally {
+        if (submitButton) {
+          submitButton.textContent = defaultLabel;
+          submitButton.removeAttribute('disabled');
+        }
+      }
     });
   }
 

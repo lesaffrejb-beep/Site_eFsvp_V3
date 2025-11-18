@@ -50,7 +50,7 @@ function buildInitials(title: string): string {
   return letters.padEnd(2, 'X');
 }
 
-function normalizeSector(raw: string): ProjectSector {
+export function normalizeSector(raw: string): ProjectSector {
   const text = raw.toLowerCase();
   if (text.includes('btp')) return 'btp';
   if (text.includes('agric')) return 'agriculture';
@@ -59,8 +59,15 @@ function normalizeSector(raw: string): ProjectSector {
   if (text.includes('transport') || text.includes('mobil')) return 'mobilite';
   if (text.includes('spectacle')) return 'spectacle-vivant';
   if (text.includes('patrimoine')) return 'patrimoine';
-  if (text.includes('association') || text.includes('social') || text.includes('insertion')) return 'economie-sociale';
-  if (text.includes('tourisme') || text.includes('institutionnel') || text.includes('territoire')) return 'territoire';
+  if (text.includes('insertion') || text.includes('social')) return 'economie-sociale';
+  if (text.includes('association') || text.includes('associatif')) return 'vie-associative';
+  if (
+    text.includes('tourisme') ||
+    text.includes('institutionnel') ||
+    text.includes('territoire') ||
+    text.includes('collectivit')
+  )
+    return 'territoire';
   return 'territoire';
 }
 
@@ -198,6 +205,7 @@ function sectorGradient(sector: ProjectSector): { from: string; to: string } {
       return { from: 'var(--color-primary-500)', to: 'var(--color-warning)' };
     case 'territoire':
       return { from: 'var(--color-info)', to: 'var(--color-neutral-700)' };
+    case 'vie-associative':
     case 'economie-sociale':
     default:
       return { from: 'var(--color-primary-300)', to: 'var(--color-success)' };
@@ -271,4 +279,6 @@ function main() {
   console.log(`✅ ${projects.length} projets parsés et validés`);
 }
 
-main();
+if (process.argv[1] === __filename) {
+  main();
+}

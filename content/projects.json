@@ -21,8 +21,7 @@
     "category": "concert interactif",
     "sector": "btp",
     "themes": [
-      "Concert interactif",
-      "Anniversaire & transmission"
+      "construction et évolution d’une entreprise"
     ],
     "details": {
       "format": "Concert interactif",
@@ -59,10 +58,9 @@
       "Le bus devient un véhicule du quotidien, mais aussi un symbole de lien social, de rencontres et de partage. Chaque trajet est une aventure, une occasion de découvrir sa ville et ses habitants sous un nouveau jour."
     ],
     "category": "vidéo de prévention diffusée dans les collèges",
-    "sector": "transport",
+    "sector": "mobilite",
     "themes": [
-      "Morceau sur mesure",
-      "Prévention routière"
+      "prévention"
     ],
     "details": {
       "format": "vidéo de prévention",
@@ -92,43 +90,29 @@
         "to": "var(--color-primary-700)"
       }
     },
-    "shortDescription": "Chaque entreprise est une forêt qui grandit, affronte des tempêtes et s'épanouit. Le récit de la vie de l'Atelier Lacour pour ses 25 ans.",
+    "shortDescription": "Chaque entreprise est une forêt qui grandit, affronte des tempêtes et s’épanouit. Le récit de la vie de l’Atelier Lacour pour ses 25 ans.",
     "longDescription": [
-      "En juillet 2024, Alain Lacour, directeur de l'entreprise Atelier Lacour, nous commande une suite de morceaux pour célébrer les 25 ans de son entreprise et la passation de présidence entre lui et ses reprenants.",
-      "Sa volonté n'est pas que nous écrivions un texte sur lui mais sur son entreprise, en la personnifiant. C'est L'atelier Lacour qui doit prendre la parole pour raconter son histoire.",
-      "Pour réaliser cette commande, nous faisons un récit en métaphore filée avec d'un côté la création et la vie d'une entreprise et de l'autre, la création et la vie d'une forêt.\nUn arbre seul, rejoint par des arbrisseaux, se rassemblant, se renforçant, affrontant les tempêtes et les orages ensemble pour créer une forêt unie et robuste."
+      "En juillet 2024, Alain Lacour, directeur de l’entreprise Atelier Lacour, nous commande une suite de morceaux pour célébrer les 25 ans de son entreprise et la passation de présidence entre lui et ses reprenants.",
+      "Sa volonté n’est pas que nous écrivions un texte sur lui mais sur son entreprise, en la personnifiant. C’est L’atelier Lacour qui doit prendre la parole pour raconter son histoire.",
+      "Pour réaliser cette commande, nous faisons un récit en métaphore filée avec d’un côté la création et la vie d’une entreprise et de l’autre, la création et la vie d’une forêt.\nUn arbre seul, rejoint par des arbrisseaux, se rassemblant, se renforçant, affrontant les tempêtes et les orages ensemble pour créer une forêt unie et robuste."
     ],
     "category": "concert live",
     "sector": "artisanat",
-    "themes": [
-      "Morceau sur mesure",
-      "Anniversaire & transmission"
-    ],
+    "themes": [],
     "details": {
       "format": "concert live",
       "duration": "7 minutes",
-      "audience": "salariés de l'Atelier Lacour",
+      "audience": "salariés de l’Atelier Lacour",
       "deliverables": [
         "Texte",
-        "musique pour un concert live le jour des 25 ans de l'entreprise"
+        "musique pour un concert live le jour des 25 ans de l’entreprise"
       ]
     },
     "team": [
       "Azan SOULARD",
       "Jean-Baptiste LESAFFRE",
       "Arthur CHARRIER"
-    ],
-    "audio": {
-      "enabled": true,
-      "title": "La Forêt Lacour - Concert 25 ans",
-      "artist": "EfSVP Studio",
-      "duration": 420,
-      "files": {
-        "mp3": "/assets/projects/atelier-lacour/audio/concert-25ans.mp3"
-      },
-      "waveformColor": "var(--color-primary-500)",
-      "description": "Enregistrement complet du concert joué lors de la célébration des 25 ans de l'Atelier Lacour"
-    }
+    ]
   },
   {
     "id": "capeb",
@@ -153,10 +137,7 @@
     ],
     "category": "concert live",
     "sector": "artisanat",
-    "themes": [
-      "Morceau sur mesure",
-      "Artisanat patrimonial"
-    ],
+    "themes": [],
     "details": {
       "format": "concert live",
       "duration": "10 minutes",
@@ -193,11 +174,8 @@
       "L’objectif était de dévoiler toute la force que contenait la douceur de l’Anjou tout en soulignant sa diversité, son originalité et sa créativité."
     ],
     "category": "texte et voix pour une vidéo de promotion",
-    "sector": "institutionnel",
-    "themes": [
-      "Hymne territorial",
-      "Marque Maine et Loire"
-    ],
+    "sector": "territoire",
+    "themes": [],
     "details": {
       "format": "vidéo promotionnelle",
       "duration": "1 minute 30",
@@ -234,8 +212,7 @@
     "category": "bande-son d’un spectacle de danse",
     "sector": "spectacle-vivant",
     "themes": [
-      "Bande-son de spectacle",
-      "Santé & ALD"
+      "ALD"
     ],
     "details": {
       "format": "bande-son d’un spectacle",
@@ -272,8 +249,7 @@
     "category": "musique",
     "sector": "patrimoine",
     "themes": [
-      "Morceau sur mesure",
-      "Vœux institutionnels"
+      "culture et patrimoine"
     ],
     "details": {
       "format": "musique",
@@ -307,10 +283,9 @@
       "En janvier 2024, pour l’année des Jeux Olympiques de Paris, la commune de Doué-en-Anjou veut mettre l’accent sur le riche tissu associatif local. Ils nous commandent donc une musique sur le sujet pour la diffuser sur leurs réseaux. Nous sommes allés à la rencontre de nombreux responsables d’association pour comprendre au mieux leur passion et leur dévouement, souvent bénévoles."
     ],
     "category": "musique",
-    "sector": "institutionnel",
+    "sector": "territoire",
     "themes": [
-      "Morceau sur mesure",
-      "Vie associative"
+      "sport"
     ],
     "details": {
       "format": "musique",
@@ -347,11 +322,9 @@
       "Merci à Malya, Caroline et Ahmed pour leur générosité et leur confiance."
     ],
     "category": "concert live et musiques enregistrées",
-    "sector": "vie-associative",
+    "sector": "economie-sociale",
     "themes": [
-      "Concert sur mesure",
-      "Anniversaire",
-      "Vie associative"
+      "solidarité et insertion"
     ],
     "details": {
       "format": "concert live et musique enregistrée",
@@ -389,10 +362,9 @@
       "Tous les ans, un terrible vent éteindrait cette immense forge, qui permettrait au peuple d’en bas de survivre. Ce n’est qu’avec l’aide des Forgéens, qui tapent des pieds, des mains et font le plus de bruit possible que la forge peut se rallumer."
     ],
     "category": "ciné-concert live",
-    "sector": "institutionnel",
+    "sector": "territoire",
     "themes": [
-      "Ciné-concert",
-      "Festival rural"
+      "vie locale"
     ],
     "details": {
       "format": "ciné-concert live",
@@ -432,8 +404,7 @@
     "category": "spectacle historique musical",
     "sector": "patrimoine",
     "themes": [
-      "Déambulation historique",
-      "Spectacle médiéval"
+      "histoire de Clisson"
     ],
     "details": {
       "format": "spectacle historique musical",
@@ -472,8 +443,7 @@
     "category": "musique jouée en live",
     "sector": "patrimoine",
     "themes": [
-      "Morceau sur mesure",
-      "Patrimoine local"
+      "Moulin de Brissac"
     ],
     "details": {
       "format": "musique",
@@ -511,11 +481,7 @@
     ],
     "category": "spectacle déambulatoire",
     "sector": "spectacle-vivant",
-    "themes": [
-      "Spectacle déambulatoire",
-      "Patrimoine vinicole",
-      "Comédie chevaleresque"
-    ],
+    "themes": [],
     "details": {
       "format": "spectacle déambulatoire",
       "duration": "1h 30",
@@ -550,11 +516,8 @@
       "Pour cette édition, nous écrivons un texte racontant la journée d’une femme le jour de son mariage, perçue successivement avec un seul sens."
     ],
     "category": "musique",
-    "sector": "institutionnel",
-    "themes": [
-      "Morceau sur mesure",
-      "Événement associatif"
-    ],
+    "sector": "territoire",
+    "themes": [],
     "details": {
       "format": "musique",
       "duration": "3 minutes",
@@ -594,10 +557,7 @@
     ],
     "category": "spectacle",
     "sector": "environnement",
-    "themes": [
-      "Spectacle",
-      "Sensibilisation écologique"
-    ],
+    "themes": [],
     "details": {
       "format": "spectacle",
       "duration": "1heure",
@@ -634,11 +594,8 @@
       "Le récit se veut proche du réel, de la terre, du vrai quotidien d’un maraîcher."
     ],
     "category": "concert live",
-    "sector": "environnement",
-    "themes": [
-      "Concert sur mesure",
-      "Saga agricole"
-    ],
+    "sector": "agriculture",
+    "themes": [],
     "details": {
       "format": "concert live",
       "duration": "15 minutes",
@@ -674,10 +631,7 @@
     ],
     "category": "concert live",
     "sector": "spectacle-vivant",
-    "themes": [
-      "Bande-son de spectacle",
-      "Vie affective seniors"
-    ],
+    "themes": [],
     "details": {
       "format": "bande-son d’un spectacle de danse",
       "duration": "45 minutes",
@@ -691,103 +645,5 @@
       "Jean-Baptiste LESAFFRE",
       "Arthur CHARRIER"
     ]
-  },
-  {
-    "id": "chemin-des-dames",
-    "title": "Le chemin des dames",
-    "client": "Autoproduction",
-    "year": 2026,
-    "location": "Angers - Paris",
-    "status": "in-progress",
-    "cover": {
-      "image": "/assets/images/projects/chemin-des-dames-cover.jpg",
-      "initials": "CD",
-      "gradient": {
-        "from": "var(--color-primary-500)",
-        "to": "var(--color-neutral-700)"
-      }
-    },
-    "shortDescription": "Le chemin des dames est un concept de dîner-spectacle immersif historique. En partenariat avec Les petits pères.",
-    "longDescription": [
-      "Le chemin des dames est le premier projet autoproduit d’en français s’il vous plaît. Il est en cours de construction. Les premières représentations sont prévues pour l’année 2026.",
-      "Le concept : un dîner-spectacle historique immersif racontant l’histoire de 4 soldats le 16 avril 1917 au matin. Chaque acte nous plonge dans le passé d’un personnage. Les plats répondent à l’histoire. Toute la musique est jouée en live.",
-      "Le chemin des dames est réellement à la croisée entre le spectacle et le dîner gastronomique. Une dizaine de plats, 5 actes, le service, la vaisselle, le décor, tout est inclus dans l’histoire."
-    ],
-    "category": "dîner-spectacle immersif",
-    "sector": "spectacle-vivant",
-    "themes": [
-      "Dîner-spectacle",
-      "Expérience immersive",
-      "Patrimoine et gastronomie"
-    ],
-    "details": {
-      "format": "Dîner-spectacle immersif",
-      "duration": "1h45",
-      "audience": "Tous publics",
-      "deliverables": [
-        "Spectacle",
-        "Expérience culinaire immersive"
-      ]
-    },
-    "team": [
-      "Azan SOULARD",
-      "Jean-Baptiste LESAFFRE",
-      "Arthur CHARRIER",
-      "Pierre TAPIE"
-    ],
-    "partners": [
-      "Les petits pères"
-    ]
-  },
-  {
-    "id": "demo-video-exemple",
-    "title": "Démo Vidéo - Hymne Territorial",
-    "client": "Démo Système Vidéo",
-    "year": 2025,
-    "location": "Angers",
-    "status": "delivered",
-    "cover": {
-      "initials": "DV",
-      "gradient": {
-        "from": "var(--color-info)",
-        "to": "var(--color-primary-500)"
-      }
-    },
-    "shortDescription": "Projet de démonstration du nouveau système vidéo intégré. Cet exemple montre comment intégrer une vidéo dans un projet avec le lecteur premium personnalisé.",
-    "longDescription": [
-      "Ce projet est un exemple de démonstration du nouveau système de vidéo intégré à la plateforme EfSVP.",
-      "Il illustre comment configurer un projet avec une vidéo locale, un poster personnalisé, et tous les contrôles du lecteur vidéo premium.",
-      "Le système détecte automatiquement la présence d'une vidéo et affiche le lecteur approprié avec tous les contrôles : play/pause, timeline, volume, et plein écran."
-    ],
-    "category": "vidéo promotionnelle",
-    "sector": "institutionnel",
-    "themes": [
-      "Vidéo",
-      "Innovation technique",
-      "Démo système"
-    ],
-    "details": {
-      "format": "Vidéo HD",
-      "duration": "2 minutes",
-      "audience": "Développeurs et clients",
-      "deliverables": [
-        "Vidéo HD",
-        "Documentation technique"
-      ]
-    },
-    "team": [
-      "Équipe Technique EfSVP"
-    ],
-    "video": {
-      "enabled": true,
-      "title": "Démo du lecteur vidéo premium",
-      "duration": 120,
-      "files": {
-        "mp4": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-      },
-      "poster": "/assets/images/projects/chemin-des-dames-cover.jpg",
-      "autoplay": false,
-      "description": "Vidéo de démonstration Big Buck Bunny (Blender Foundation) utilisée pour tester le lecteur vidéo."
-    }
   }
 ]

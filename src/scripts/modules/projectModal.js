@@ -8,6 +8,19 @@
 
 import { projectsBySlug } from '../../content/projects/index.js';
 
+const SECTOR_LABELS = {
+  artisanat: 'Artisanat',
+  btp: 'BTP',
+  environnement: 'Environnement',
+  patrimoine: 'Patrimoine',
+  agriculture: 'Agriculture',
+  mobilite: 'Mobilité',
+  'economie-sociale': 'Économie sociale',
+  'spectacle-vivant': 'Spectacle vivant',
+  territoire: 'Territoire',
+  'vie-associative': 'Vie associative',
+};
+
 export class ProjectModal {
   constructor() {
     this.modal = null;
@@ -149,29 +162,37 @@ export class ProjectModal {
     }
 
     if (descEl) {
-      const paragraphs = project.longDescription
-        .split('\n\n')
-        .filter((p) => p.trim())
-        .map((p) => `<p>${p.trim()}</p>`)
-        .join('');
-      descEl.innerHTML = paragraphs;
+      descEl.innerHTML = '';
+      const rawParagraphs = Array.isArray(project.longDescription)
+        ? project.longDescription
+        : project.longDescription.split('\n\n');
+
+      rawParagraphs
+        .map((p) => p.trim())
+        .filter(Boolean)
+        .forEach((paragraph) => {
+          const p = document.createElement('p');
+          p.textContent = paragraph;
+          descEl.appendChild(p);
+        });
     }
 
     if (statsEl && statsContentEl) {
       const details = this.buildProjectDetails(project);
       if (details.length > 0) {
-        const statsHTML = details
-          .map(
-            ({ label, value }) => `
-            <div class="stat-item">
-              <dt>${label}</dt>
-              <dd>${value}</dd>
-            </div>
-          `
-          )
-          .join('');
+        statsContentEl.innerHTML = '';
+        details.forEach(({ label, value }) => {
+          const item = document.createElement('div');
+          item.className = 'stat-item';
 
-        statsContentEl.innerHTML = statsHTML;
+          const term = document.createElement('dt');
+          term.textContent = label;
+          const description = document.createElement('dd');
+          description.textContent = value;
+
+          item.append(term, description);
+          statsContentEl.appendChild(item);
+        });
         statsEl.style.display = 'block';
       } else {
         statsEl.style.display = 'none';
@@ -193,7 +214,7 @@ export class ProjectModal {
     const details = [];
 
     if (project.sector) {
-      details.push({ label: 'Secteur', value: project.sector });
+      details.push({ label: 'Secteur', value: SECTOR_LABELS[project.sector] || project.sector });
     }
     if (project.typology) {
       details.push({ label: 'Typologie', value: project.typology });

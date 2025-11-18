@@ -4,34 +4,37 @@ export type ProjectSector =
   | 'artisanat'
   | 'btp'
   | 'environnement'
-  | 'institutionnel'
   | 'patrimoine'
-  | 'social'
+  | 'agriculture'
+  | 'mobilite'
+  | 'economie-sociale'
   | 'spectacle-vivant'
-  | 'transport'
+  | 'territoire'
   | 'vie-associative';
 
 export const SECTOR_LABELS: Record<ProjectSector, string> = {
   artisanat: 'Artisanat',
   btp: 'BTP',
   environnement: 'Environnement',
-  institutionnel: 'Institutionnel',
   patrimoine: 'Patrimoine',
-  social: 'Social',
+  agriculture: 'Agriculture',
+  mobilite: 'Mobilité',
+  'economie-sociale': 'Économie sociale',
+  territoire: 'Territoire',
   'spectacle-vivant': 'Spectacle vivant',
-  transport: 'Transport',
   'vie-associative': 'Vie associative',
 };
 
 export const SECTOR_OPTIONS = [
   { id: 'tous', label: 'Tous les secteurs' },
   { id: 'btp', label: SECTOR_LABELS.btp },
-  { id: 'institutionnel', label: SECTOR_LABELS.institutionnel },
   { id: 'environnement', label: SECTOR_LABELS.environnement },
-  { id: 'social', label: SECTOR_LABELS.social },
+  { id: 'agriculture', label: SECTOR_LABELS.agriculture },
+  { id: 'mobilite', label: SECTOR_LABELS.mobilite },
+  { id: 'economie-sociale', label: SECTOR_LABELS['economie-sociale'] },
   { id: 'spectacle-vivant', label: SECTOR_LABELS['spectacle-vivant'] },
   { id: 'artisanat', label: SECTOR_LABELS.artisanat },
-  { id: 'transport', label: SECTOR_LABELS.transport },
+  { id: 'territoire', label: SECTOR_LABELS.territoire },
   { id: 'patrimoine', label: SECTOR_LABELS.patrimoine },
   { id: 'vie-associative', label: SECTOR_LABELS['vie-associative'] },
 ] as const;

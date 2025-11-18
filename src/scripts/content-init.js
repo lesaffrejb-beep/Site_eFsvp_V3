@@ -224,7 +224,12 @@ export function initServicesContent() {
       // Features
       const featuresContainer = serviceCard.querySelector('.service-card__features');
       if (featuresContainer && service.features.length > 0) {
-        featuresContainer.innerHTML = service.features.map((feature) => `<li>${feature}</li>`).join('');
+        featuresContainer.innerHTML = '';
+        service.features.forEach((feature) => {
+          const item = document.createElement('li');
+          item.textContent = feature;
+          featuresContainer.appendChild(item);
+        });
       }
     }
   });
@@ -284,7 +289,12 @@ export function initProcessContent() {
       badge.style.display = step.badge ? 'inline-flex' : 'none';
     }
     if (detailsList) {
-      detailsList.innerHTML = step.details.map((detail) => `<li>${detail}</li>`).join('');
+      detailsList.innerHTML = '';
+      step.details.forEach((detail) => {
+        const item = document.createElement('li');
+        item.textContent = detail;
+        detailsList.appendChild(item);
+      });
     }
   });
 
@@ -308,28 +318,51 @@ export function initTestimonialsContent() {
   // Testimonials - génération dynamique dans le swiper
   const testimonialsWrapper = document.querySelector('.testimonials__carousel .swiper-wrapper');
   if (testimonialsWrapper && testimonials.length > 0) {
-    testimonialsWrapper.innerHTML = testimonials
-      .map(
-        (testimonial) => `
-      <div class="swiper-slide">
-        <article class="testimonial-card">
-          <div class="testimonial-card__rating" aria-label="${testimonial.rating} étoiles">
-            ${'★'.repeat(testimonial.rating)}
-          </div>
-          <blockquote class="testimonial-card__quote">"${testimonial.quote}"</blockquote>
-          <footer class="testimonial-card__footer">
-            <div class="testimonial-card__avatar">${testimonial.avatar}</div>
-            <div class="testimonial-card__author">
-              <cite class="testimonial-card__name">${testimonial.name}</cite>
-              <p class="testimonial-card__role">${testimonial.role} · ${testimonial.organization}</p>
-              <p class="testimonial-card__context">${testimonial.context}</p>
-            </div>
-          </footer>
-        </article>
-      </div>
-    `
-      )
-      .join('');
+    testimonialsWrapper.innerHTML = '';
+    testimonials.forEach((testimonial) => {
+      const slide = document.createElement('div');
+      slide.className = 'swiper-slide';
+
+      const card = document.createElement('article');
+      card.className = 'testimonial-card';
+
+      const rating = document.createElement('div');
+      rating.className = 'testimonial-card__rating';
+      rating.setAttribute('aria-label', `${testimonial.rating} étoiles`);
+      rating.textContent = '★'.repeat(testimonial.rating);
+
+      const quote = document.createElement('blockquote');
+      quote.className = 'testimonial-card__quote';
+      quote.textContent = `"${testimonial.quote}"`;
+
+      const footer = document.createElement('footer');
+      footer.className = 'testimonial-card__footer';
+
+      const avatar = document.createElement('div');
+      avatar.className = 'testimonial-card__avatar';
+      avatar.textContent = testimonial.avatar;
+
+      const author = document.createElement('div');
+      author.className = 'testimonial-card__author';
+
+      const name = document.createElement('cite');
+      name.className = 'testimonial-card__name';
+      name.textContent = testimonial.name;
+
+      const role = document.createElement('p');
+      role.className = 'testimonial-card__role';
+      role.textContent = `${testimonial.role} · ${testimonial.organization}`;
+
+      const context = document.createElement('p');
+      context.className = 'testimonial-card__context';
+      context.textContent = testimonial.context;
+
+      author.append(name, role, context);
+      footer.append(avatar, author);
+      card.append(rating, quote, footer);
+      slide.appendChild(card);
+      testimonialsWrapper.appendChild(slide);
+    });
   }
 }
 
@@ -376,27 +409,51 @@ export function initFaqContent() {
   // FAQ Items - génération dynamique du HTML
   const faqContainer = document.querySelector('.faq__list');
   if (faqContainer && items.length > 0) {
-    faqContainer.innerHTML = items
-      .map(
-        (item, index) => `
-      <article class="faq__item faq-item">
-        <button class="faq__question faq-item__question"
-                id="${item.id}-question"
-                aria-expanded="false"
-                aria-controls="${item.id}-answer"
-                tabindex="0">
-          <span class="faq__question-label">${item.question}</span>
-          <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="faq__answer faq-item__answer" id="${item.id}-answer" role="region" aria-labelledby="${item.id}-question">
-          <p>${item.answer}</p>
-        </div>
-      </article>
-    `
-      )
-      .join('');
+    faqContainer.innerHTML = '';
+    items.forEach((item) => {
+      const article = document.createElement('article');
+      article.className = 'faq__item faq-item';
+
+      const questionButton = document.createElement('button');
+      questionButton.className = 'faq__question faq-item__question';
+      questionButton.id = `${item.id}-question`;
+      questionButton.setAttribute('aria-expanded', 'false');
+      questionButton.setAttribute('aria-controls', `${item.id}-answer`);
+      questionButton.tabIndex = 0;
+
+      const label = document.createElement('span');
+      label.className = 'faq__question-label';
+      label.textContent = item.question;
+
+      const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      icon.setAttribute('class', 'faq__icon');
+      icon.setAttribute('width', '24');
+      icon.setAttribute('height', '24');
+      icon.setAttribute('viewBox', '0 0 24 24');
+      icon.setAttribute('fill', 'none');
+      icon.setAttribute('stroke', 'currentColor');
+      icon.setAttribute('stroke-width', '2');
+      icon.setAttribute('aria-hidden', 'true');
+
+      const polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+      polyline.setAttribute('points', '6 9 12 15 18 9');
+      icon.appendChild(polyline);
+
+      questionButton.append(label, icon);
+
+      const answer = document.createElement('div');
+      answer.className = 'faq__answer faq-item__answer';
+      answer.id = `${item.id}-answer`;
+      answer.setAttribute('role', 'region');
+      answer.setAttribute('aria-labelledby', `${item.id}-question`);
+
+      const answerText = document.createElement('p');
+      answerText.textContent = item.answer;
+      answer.appendChild(answerText);
+
+      article.append(questionButton, answer);
+      faqContainer.appendChild(article);
+    });
 
     console.log(`✅ FAQ: ${items.length} questions générées`);
   } else {
@@ -439,9 +496,13 @@ export function initContactContent() {
       input.setAttribute('step', field.step);
     }
     if (input && field.type === 'select' && field.options) {
-      input.innerHTML = field.options
-        .map((option) => `<option value="${option.value}">${option.label}</option>`)
-        .join('');
+      input.innerHTML = '';
+      field.options.forEach((option) => {
+        const optionEl = document.createElement('option');
+        optionEl.value = option.value;
+        optionEl.textContent = option.label;
+        input.appendChild(optionEl);
+      });
     }
   });
 
@@ -495,8 +556,18 @@ export function initFooterContent() {
   const made = document.querySelector('.footer__made');
   if (copyright) copyright.textContent = bottom.copyright;
   if (made) {
-    // Remplacer {heart} par le symbole ♥
-    made.innerHTML = bottom.made.replace('{heart}', '<span aria-label="coeur">♥</span>');
+    const parts = bottom.made.split('{heart}');
+    const heart = document.createElement('span');
+    heart.setAttribute('aria-label', 'coeur');
+    heart.textContent = '♥';
+
+    made.innerHTML = '';
+    parts.forEach((part, index) => {
+      made.append(document.createTextNode(part));
+      if (index < parts.length - 1) {
+        made.append(heart.cloneNode(true));
+      }
+    });
   }
 }
 
