@@ -3579,28 +3579,53 @@ button {
   transform: translateX(2px);
 }
 
-/* ☢️ NUCLEAR FIX - INTERDICTION TOTALE D'AFFICHER L'ÉCRAN D'ERREUR */
+/* ☢️☢️☢️ NUCLEAR FIX V2 - BÂILLON TOTAL DU SYSTÈME D'ERREUR ☢️☢️☢️ */
 /* Ce CSS empêche TOUT overlay d'erreur d'apparaître, même si le JS tente de le créer */
+
+/* Cible les classes et ID d'erreur */
 .error-overlay,
 .error-screen,
+.error-container,
+.critical-error-overlay,
+.critical-error__content,
 [class*="error-"],
-[id*="error-"] {
+[id*="error-"],
+[class*="critical-"],
+div[class*="overlay"][style*="99999"] {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
   z-index: -9999 !important;
   opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
 }
 
 /* Force l'affichage du site quand chargé */
-body.loaded .preloader {
+body.loaded .preloader,
+body .preloader.hidden {
   display: none !important;
   opacity: 0 !important;
   pointer-events: none !important;
 }
 
-/* Sécurité supplémentaire : cache tout div avec z-index > 90000 qui n'est pas la modale */
+/* Sécurité NUCLÉAIRE : cache tout div avec z-index > 90000 qui n'est pas une modale légitime */
 body > div[style*="z-index: 99999"],
-body > div[style*="position: fixed"][style*="background: rgba"] {
+body > div[style*="position: fixed"][style*="background: rgba(15, 21, 29"],
+div[style*="position: fixed"][style*="width: 100%"][style*="height: 100%"][style*="z-index"] {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Force le contenu principal à être visible */
+body,
+main,
+.hero,
+.section {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
 }

@@ -157,32 +157,31 @@
    SIGNATURE SVG - IMPOSANTE ET \u00c9L\u00c9GANTE
    ======================================== */
 
-/* ✅ WRAPPER IMPOSANT - 120vw NUCLEAR FIX - Centrage absolu Awwwards */
+/* ☢️☢️☢️ WRAPPER IMPOSANT - NUCLEAR V2 - Centrage absolu Awwwards */
 .hero-signature-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120vw !important; /* ☢️ Très large comme demandé */
+  position: absolute !important;
+  inset: 0 !important; /* ☢️ Prend TOUT l'écran du hero */
+  width: 100vw !important;
+  height: 100vh !important;
   max-width: none !important;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-height: none !important;
+  display: flex !important; /* Flexbox pour centrage parfait */
+  justify-content: center !important;
+  align-items: center !important;
   margin: 0 !important;
   padding: 0 !important;
   pointer-events: auto;
   z-index: 1;
 }
 
-/* ✅ SVG SIGNATURE - Taille maximale avec overflow visible */
+/* ☢️☢️☢️ SVG SIGNATURE - TRÈS GROS - Awwwards Grade */
 .hero-signature-svg {
-  width: 100%;
-  height: auto;
-  overflow: visible;
-  display: block;
-  max-width: none;
-  max-height: none;
+  width: 90vw !important; /* ☢️ TRÈS GROS - 90% de la largeur du viewport */
+  max-width: 1600px !important; /* Limite max pour très grands écrans */
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  display: block !important;
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: none;
