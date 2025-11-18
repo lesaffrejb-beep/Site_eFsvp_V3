@@ -5,6 +5,19 @@ import type { Project, ProjectSector } from '@/types/project';
 // Validation avec gestion d'erreur
 let validatedProjects: Project[] = [];
 
+function sanitizeProjectsData() {
+  return projectsData.map((project) => ({
+    ...project,
+    media: {
+      ...project.media,
+      video: project.media?.video ?? undefined,
+      audio: project.media?.audio ?? undefined,
+    },
+    video: project.video ?? undefined,
+    audio: project.audio ?? undefined,
+  }));
+}
+
 function normalizeProjectMedia(project: Project): Project {
   const coverImage = project.media?.coverImage || project.cover.image || '';
 
@@ -46,7 +59,8 @@ function normalizeProjectMedia(project: Project): Project {
 }
 
 try {
-  validatedProjects = projectsSchema.parse(projectsData).map(normalizeProjectMedia);
+  const rawProjects = sanitizeProjectsData();
+  validatedProjects = projectsSchema.parse(rawProjects).map(normalizeProjectMedia);
   console.log(`✅ Projects loader: ${validatedProjects.length} projets chargés et validés`);
 } catch (error) {
   console.error('❌ Projects loader: Erreur de validation des projets', error);

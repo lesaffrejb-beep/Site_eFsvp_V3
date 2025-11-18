@@ -429,8 +429,25 @@ class App {
       const desktopMedia = window.matchMedia('(min-width: 1024px)');
       const isDesktopView = () => desktopMedia.matches;
 
+      const syncMenuAccessibility = (isOpen) => {
+        const ariaHidden = isDesktopView() ? 'false' : isOpen ? 'false' : 'true';
+        navMenu.setAttribute('aria-hidden', ariaHidden);
+
+        if (!isDesktopView()) {
+          if (isOpen) {
+            navMenu.removeAttribute('inert');
+          } else {
+            navMenu.setAttribute('inert', '');
+          }
+        } else {
+          navMenu.removeAttribute('inert');
+        }
+
+        navOverlay?.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      };
+
       // Initialiser l'état du menu en fonction du viewport
-      navMenu.setAttribute('aria-hidden', isDesktopView() ? 'false' : 'true');
+      syncMenuAccessibility(false);
 
       let focusableElements = [];
       let firstFocusable = null;
@@ -446,9 +463,8 @@ class App {
         navToggle.setAttribute('aria-expanded', 'false');
         navToggle.setAttribute('aria-label', 'Ouvrir le menu');
         navMenu.classList.remove('active', 'is-active');
-        navMenu.setAttribute('aria-hidden', isDesktopView() ? 'false' : 'true');
+        syncMenuAccessibility(false);
         navOverlay?.classList.remove('is-active');
-        navOverlay?.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
       };
@@ -457,9 +473,8 @@ class App {
         navToggle.setAttribute('aria-expanded', 'true');
         navToggle.setAttribute('aria-label', 'Fermer le menu');
         navMenu.classList.add('is-active');
-        navMenu.setAttribute('aria-hidden', 'false');
+        syncMenuAccessibility(true);
         navOverlay?.classList.add('is-active');
-        navOverlay?.setAttribute('aria-hidden', 'false');
         document.body.classList.add('menu-open');
         document.body.style.overflow = 'hidden';
 
@@ -468,9 +483,9 @@ class App {
       };
 
       navToggle.addEventListener('click', () => {
-        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        const isOpen = navMenu.classList.contains('is-active');
 
-        if (isExpanded) {
+        if (isOpen) {
           closeMenu();
           navToggle.focus();
         } else {
@@ -480,16 +495,15 @@ class App {
 
       navOverlay?.addEventListener('click', closeMenu);
 
-      const handleViewportChange = (event) => {
+      // Close menu on resize to desktop
+      desktopMedia.addEventListener('change', (event) => {
+        syncMenuAccessibility(navMenu.classList.contains('is-active'));
+
         if (event.matches) {
           closeMenu();
-          navMenu.setAttribute('aria-hidden', 'false');
-        } else {
-          closeMenu();
+          navMenu.classList.remove('is-active');
         }
-      };
-
-      desktopMedia.addEventListener('change', handleViewportChange);
+      });
 
       document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && navMenu.classList.contains('is-active')) {
@@ -847,9 +861,22 @@ class App {
 
 }
 
+const scheduleDribbbleAnimations = () => {
+  const loadAnimations = () => import('./dribbble-animations.js').catch((error) => {
+    console.warn('Dribbble animations deferred load failed', error);
+  });
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadAnimations, { timeout: 1500 });
+  } else {
+    setTimeout(loadAnimations, 1200);
+  }
+};
+
 // ========== INIT APP ==========
 document.addEventListener('DOMContentLoaded', () => {
   new App();
+  scheduleDribbbleAnimations();
 });
 
 // ========== ACCESSIBILITY ==========

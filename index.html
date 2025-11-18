@@ -73,7 +73,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- GSAP CDN - Chargé en priorité pour garantir disponibilité -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 
     <!-- CSS Master File - Unified Design System -->
     <link rel="stylesheet" href="/src/styles/main.css" />
@@ -330,10 +330,10 @@
           </div>
 
           <div class="hero__text-stack">
-            <!-- Baseline : Centré, minimaliste -->
-            <p class="hero__baseline hero-subtitle" data-hero-baseline>
-              Studio de narration
-            </p>
+              <!-- Baseline : Centré, minimaliste -->
+              <p class="hero__baseline hero-subtitle" data-hero-baseline>
+                Vous êtes de ceux qui écrivent l’histoire ? Ça tombe bien on est de ceux qui la raconte.
+              </p>
 
             <!-- CTA : Bouton pill centré -->
             <a href="#projects" class="btn btn-hero btn-hero--cta hero__cta" data-hero-cta data-glow>
@@ -992,7 +992,6 @@
     <!-- Scripts -->
     <script type="module" src="/src/scripts/main.js"></script>
     <script type="module" src="/src/scripts/components-efsvp.js"></script>
-    <script type="module" src="/src/scripts/dribbble-animations.js"></script>
     <!-- Filtres SVG pour effets liquides/goo -->
     <svg class="svg-filters" aria-hidden="true" style="position: absolute; width: 0; height: 0;">
       <defs>

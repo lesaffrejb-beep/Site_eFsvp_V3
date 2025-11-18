@@ -9,7 +9,7 @@ export const siteContent = {
   // ===== HERO =====
   hero: {
     title: "En français s’il vous plaît",
-    baseline: "Studio de narration",
+    baseline: "Vous êtes de ceux qui écrivent l’histoire ? Ça tombe bien on est de ceux qui la raconte.",
     moments: ["Anniversaires", "Inaugurations", "Moments fondateurs"],
     ctas: {
       primary: {
