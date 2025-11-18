@@ -9,9 +9,6 @@
  * ============================================
  */
 
-const EMERGENCY_SKIP_PRELOADER = import.meta.env?.VITE_SKIP_PRELOADER === 'true';
-const PRELOADER_FAILSAFE_TIMEOUT = 4000; // Failsafe ponctuel
-
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ErrorHandler } from './modules/errorHandler.js';
@@ -31,33 +28,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Expose main orchestrator flag for legacy bundles
 window.__EFVSP_APP_ACTIVE = true;
-
-/* ==== ANTI-VEIL FAILSAFE (final) ==== */
-const antiVeilFailsafe = () => {
-  ['html', 'body', 'main', '#app', '#main'].forEach((sel) => {
-    const el = document.querySelector(sel);
-    if (el) {
-      el.style.opacity = '1';
-      el.style.filter = 'none';
-      el.style.mixBlendMode = 'normal';
-      el.style.backdropFilter = 'none';
-    }
-  });
-  document.body?.classList?.remove('dim', 'overlay', 'veil', 'backdrop', 'blurred');
-  document.querySelectorAll('[data-scroll]').forEach((el) => {
-    const opacity = parseFloat(window.getComputedStyle(el).opacity);
-    if (!Number.isNaN(opacity) && opacity < 1) {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-    }
-  });
-};
-// appliquer tout de suite + en fin de chargement
-antiVeilFailsafe();
-window.addEventListener('load', antiVeilFailsafe);
-setTimeout(() => {
-  antiVeilFailsafe();
-}, PRELOADER_FAILSAFE_TIMEOUT);
 
 // ============================================
 // APP CLASS - Orchestration Premium
@@ -128,83 +98,47 @@ class App {
     this.modules.animations = new AnimationsManager();
   }
 
-  // 🚨 HOTFIX: Helper function to skip preloader
-  skipToMainContent() {
-    console.warn('🚨 HOTFIX: Preloader bypassé');
-    const preloader = document.querySelector('.preloader, #preloader, [data-preloader]');
-
-    // Force l'affichage du contenu
-    document.body.classList.add('loaded');
-    document.body.style.overflow = '';
-
-    if (preloader) {
-      preloader.style.display = 'none';
-      preloader.remove();
-    }
-
-    // S'assurer que le contenu est visible
-    const main = document.querySelector('main, #app, #main');
-    if (main) {
-      main.style.opacity = '1';
-      main.style.visibility = 'visible';
-    }
-
-    antiVeilFailsafe();
-  }
-
   async handlePreloader() {
-    // 🚨 HOTFIX: Emergency bypass si activé
-    if (EMERGENCY_SKIP_PRELOADER) {
-      this.skipToMainContent();
-      return;
-    }
-
     const preloader = document.getElementById('preloader');
-    const failsafeTimeout = setTimeout(() => {
-      console.error('⏱️ FAILSAFE: Preloader timeout, force show');
-      this.skipToMainContent();
-    }, PRELOADER_FAILSAFE_TIMEOUT);
 
-    if (!preloader) {
-      clearTimeout(failsafeTimeout);
-      antiVeilFailsafe();
-      document.body.classList.add('loaded');
-      return;
-    }
+    try {
+      // Attendre que tout soit prêt : fonts + DOM/images
+      await Promise.all([
+        document.fonts.ready,
+        new Promise(resolve => {
+          if (document.readyState === 'complete') {
+            resolve();
+          } else {
+            window.addEventListener('load', resolve, { once: true });
+          }
+        })
+      ]);
 
-    // Wait for page load
-    await new Promise((resolve) => {
-      if (document.readyState === 'complete') {
-        resolve();
-      } else {
-        window.addEventListener('load', resolve, { once: true });
-        // Additional failsafe: resolve after timeout even if load doesn't fire
-        setTimeout(resolve, 2500);
-      }
-    });
+      // Minimum display time pour éviter le flash
+      await new Promise(resolve => setTimeout(resolve, 800));
 
-    // Min display time
-    await new Promise((resolve) => setTimeout(resolve, 800));
-
-    // Hide preloader
-    if (preloader) {
-      preloader.classList.add('hidden');
-      preloader.addEventListener(
-        'transitionend',
-        () => {
+      // Masquer le preloader
+      if (preloader) {
+        preloader.classList.add('hidden');
+        preloader.addEventListener('transitionend', () => {
           preloader.remove();
-        },
-        { once: true },
-      );
-      setTimeout(() => preloader.remove(), 900);
+        }, { once: true });
+        setTimeout(() => preloader.remove(), 900);
+      }
+
+      // Révéler le contenu
+      document.body.classList.add('loaded');
+      document.body.style.overflow = '';
+
+    } catch (err) {
+      console.error('Boot error:', err);
+      // Fallback propre : révéler le contenu quand même
+      document.body.classList.add('loaded');
+      document.body.style.overflow = '';
+      if (preloader) {
+        preloader.remove();
+      }
     }
-
-    document.body.classList.add('loaded');
-    document.body.style.overflow = '';
-    antiVeilFailsafe();
-
-    // Clear failsafe timeout
-    clearTimeout(failsafeTimeout);
   }
 
   async initCore() {

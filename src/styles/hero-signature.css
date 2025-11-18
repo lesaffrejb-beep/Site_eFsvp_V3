@@ -155,11 +155,10 @@
 
 .hero-signature-wrapper {
   position: relative;
-  max-width: 48rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 80vw;
+  max-width: 1200px;
+  display: grid;
+  place-items: center;
   margin-inline: auto;
   margin-top: 0 !important;
   margin-bottom: var(--space-2) !important;
@@ -178,6 +177,8 @@
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: none;
+  transform-origin: center center;
+  pointer-events: none;
 }
 
 /* Classe d'initialisation pour masquer les paths pendant le setup JS */
