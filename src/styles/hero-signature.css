@@ -26,6 +26,7 @@
   /* Couleur accent (orange) */
   --color-primary: #E07855;           /* Orange accent */
   --color-primary-hover: #D06744;     /* Orange plus foncé */
+  --color-primary-rgb: 224, 120, 85;
 
   /* Navbar existante (référence) */
   --color-bg-dark: #2B3945;           /* Navbar background */
@@ -222,8 +223,6 @@
 
   /* Micro-interaction */
   transition: opacity 180ms cubic-bezier(0.4, 0, 0.2, 1);
-  animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) backwards;
-  animation-delay: 0.3s;
 
   /* Anti-aliasing parfait */
   -webkit-font-smoothing: antialiased;
@@ -386,27 +385,18 @@
 
 /* Classes supplémentaires (compatibilité) */
 .btn-hero--cta {
-  box-shadow:
-    0 4px 16px rgba(232, 146, 79, 0.3),
-    0 8px 32px rgba(232, 146, 79, 0.2) !important;
+  box-shadow: 0 4px 30px rgba(var(--color-primary-rgb, 224, 120, 85), 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-hero--cta:hover {
+  box-shadow: 0 6px 40px rgba(var(--color-primary-rgb, 224, 120, 85), 0.6);
 }
 
 .hero-cta__label {
   position: relative;
   z-index: 2;
   display: block;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ========================================

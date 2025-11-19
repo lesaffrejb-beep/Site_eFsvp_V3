@@ -108,6 +108,7 @@ export function initHeroSignature() {
       pathMeta,
       cta,
       baseline,
+      svg,
     });
   });
 }
@@ -115,11 +116,24 @@ export function initHeroSignature() {
 /**
  * Crée la timeline GSAP premium avec animations narratives
  */
-function createPremiumTimeline({ pathMeta, cta, baseline }) {
+function createPremiumTimeline({ pathMeta, cta, baseline, svg }) {
   const masterTL = gsap.timeline({
     defaults: { ease: 'none' },
     delay: 0.4, // Petit délai élégant au chargement
   });
+
+  if (svg) {
+    masterTL.fromTo(
+      svg,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        duration: 1.1,
+        ease: 'power2.out',
+      },
+      0
+    );
+  }
 
   // ===================================
   // S\u00c9QUENCE 1 : SIGNATURE S'\u00c9CRIT
@@ -149,34 +163,22 @@ function createPremiumTimeline({ pathMeta, cta, baseline }) {
   }
 
   // ===================================
-  // S\u00c9QUENCE 2 : BASELINE FADE IN UP
+  // S\u00c9QUENCE 2 : BASELINE + CTA FADE IN VIA FROM/TO
   // ===================================
-  if (baseline) {
-    masterTL.to(
-      baseline,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power2.out', // Easing subtil et élégant
-      },
-      signatureDuration + 0.2 // Commence 0.2s après la fin de la signature
-    );
-  }
+  const heroTextElements = [baseline, cta].filter(Boolean);
 
-  // ===================================
-  // S\u00c9QUENCE 3 : CTA FADE IN UP
-  // ===================================
-  if (cta) {
-    masterTL.to(
-      cta,
+  if (heroTextElements.length) {
+    masterTL.fromTo(
+      heroTextElements,
+      { opacity: 0, y: 20 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        ease: 'power2.out', // Même easing que baseline pour cohérence
+        duration: 1.2,
+        ease: 'power2.out',
+        stagger: 0.2,
       },
-      baseline ? '-=0.4' : signatureDuration + 0.4 // Chevauchement de 0.4s avec baseline si elle existe
+      signatureDuration + 0.2
     );
   }
 
