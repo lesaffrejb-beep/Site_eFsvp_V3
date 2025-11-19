@@ -108,22 +108,18 @@ function sanitizeProjectsData() {
 }
 
 function resolveProjectVideo(slug: string, fallback?: string | null): string | null {
-  const candidateVideos = [
-    `/assets/videos/projects/${slug}/teaser.mp4`,
-    `/assets/videos/projects/${slug}/video.mp4`,
-  ];
+  // ⚠️ IMPORTANT: import.meta.glob ne détecte pas les fichiers .mp4 volumineux
+  // On construit l'URL de manière déterministe et on laisse le système de fallback
+  // dans ProjectModal gérer les erreurs de chargement
+  const standardPath = `/assets/videos/projects/${slug}/video.mp4`;
 
-  const directMatch = candidateVideos.find((path) => assetExists(path));
-  if (directMatch) {
-    return directMatch;
+  // Si un fallback explicite est fourni, on le préfère
+  if (fallback) {
+    return fallback;
   }
 
-  const autoDetected = findAssetByPrefix(`/assets/videos/projects/${slug}/`);
-  if (autoDetected && autoDetected.endsWith('.mp4')) {
-    return autoDetected;
-  }
-
-  return fallback ?? null;
+  // Sinon on retourne l'URL standard (le player gérera l'erreur si le fichier n'existe pas)
+  return standardPath;
 }
 
 function normalizeProjectMedia(project: Project): Project {
