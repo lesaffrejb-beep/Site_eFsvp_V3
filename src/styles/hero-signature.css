@@ -6,6 +6,8 @@
     overflow: hidden;
     display: grid;
     place-items: center; /* Centre tout le contenu de la grille */
+    background-color: var(--color-hero-bg, #f9f5ef); /* Fond parchemin clair */
+    color: var(--color-neutral-800, #1a2332); /* Texte sombre pour contraste */
 }
 
 /* COUCHE 1 : L'Animation SVG (Background) */
@@ -34,6 +36,14 @@
     height: auto;
 }
 
+/* Paths de la signature : couleur sombre pour contraste sur fond clair */
+.hero-signature-path {
+    stroke: var(--color-neutral-800, #1a2332);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 /* COUCHE 2 : Le Contenu Texte (Foreground) */
 .hero__inner {
     position: relative;
@@ -51,15 +61,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem; /* Espace élégant entre texte et bouton */
-    margin-top: 5vh; /* Petit ajustement optique */
+    gap: 1.5rem; /* Espace élégant entre texte et bouton */
+    margin-top: 2rem; /* Rapproche baseline/CTA de la signature */
 }
 
 .hero__baseline {
     font-size: clamp(1.1rem, 2vw, 1.5rem);
     max-width: 600px;
     line-height: 1.4;
-    color: var(--color-text, #1a1a1a); /* Fallback couleur */
+    color: var(--color-neutral-700, #28303a); /* Texte sombre sur fond clair */
 }
 
 /* Bouton CTA */
