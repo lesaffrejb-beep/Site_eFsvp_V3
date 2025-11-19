@@ -1,5 +1,6 @@
 import type { Project } from '@/types/project';
 import { createProjectStatus } from './ProjectStatus';
+import { setupProjectAccentFromImage } from '@/scripts/modules/projectAccentFromImage';
 
 interface ProjectCardProps {
   project: Project;
@@ -11,9 +12,16 @@ export function createProjectCard({ project, onSelect }: ProjectCardProps): HTML
   card.className = 'project-card card-lift';
   card.tabIndex = 0;
   card.dataset.projectId = project.id;
+  card.dataset.projectSlug = project.slug;
   card.dataset.sector = project.sector;
   card.dataset.status = project.status;
   card.id = `project-${project.id}`;
+
+  // Set accent color for description based on project theme
+  if (project.accentTheme) {
+    card.dataset.accentTheme = project.accentTheme;
+    card.style.setProperty('--project-accent-color', `var(--accent-${project.accentTheme}-dark)`);
+  }
 
   const visual = document.createElement('div');
   visual.className = 'project-card__visual';
@@ -32,6 +40,9 @@ export function createProjectCard({ project, onSelect }: ProjectCardProps): HTML
     image.alt = `${project.title} – ${project.location}`;
     image.loading = 'lazy';
     frame.appendChild(image);
+
+    // Setup adaptive accent color from image analysis
+    setupProjectAccentFromImage(card, image);
   }
 
   const badge = document.createElement('span');
@@ -99,6 +110,7 @@ export function createProjectCard({ project, onSelect }: ProjectCardProps): HTML
   link.type = 'button';
   link.className = 'project-card__link';
   link.textContent = 'Voir le projet';
+  link.dataset.projectSlug = project.slug;
   link.addEventListener('click', (event) => onSelect(project, event.currentTarget as HTMLElement));
 
   footerRow.appendChild(status);

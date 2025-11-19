@@ -1,5 +1,5 @@
 import { z } from '../utils/zod-lite';
-import type { Project, ProjectSector, ProjectStatus } from '../types/project';
+import type { Project, ProjectSector, ProjectStatus, ProjectAccentTheme } from '../types/project';
 
 export const projectSchema = z.object<Project>({
   id: z.string().regex(/^[a-z0-9-]+$/),
@@ -38,8 +38,18 @@ export const projectSchema = z.object<Project>({
     'vie-associative',
   ]),
   themes: z.array(z.string()),
+  accentTheme: z.enum<ProjectAccentTheme>([
+    'terracotta',
+    'ambre',
+    'encre',
+    'sauge',
+    'ocean',
+    'lavande',
+    'coral',
+  ]).optional(),
   hasVideo: z.boolean().optional(),
   hasAudio: z.boolean().optional(),
+  videoSrc: z.string().nullable().optional(),
   details: z.object({
     format: z.string(),
     duration: z.string(),
@@ -51,8 +61,8 @@ export const projectSchema = z.object<Project>({
   media: z.object({
     coverImage: z.string().min(1),
     gallery: z.array(z.string()).optional(),
-    video: z.string().min(1).optional(),
-    audio: z.string().min(1).optional(),
+    video: z.string().nullable().optional(),
+    audio: z.string().nullable().optional(),
   }),
   audio: z
     .object({

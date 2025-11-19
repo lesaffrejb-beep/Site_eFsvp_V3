@@ -234,8 +234,16 @@ export const projectsCollection = [
     typology: 'Compagnie artistique',
     location: 'Pays de la Loire',
     tagline: 'Deux spectacles pour lever le voile sur des sujets sensibles.',
-    shortDescription: `« Dis-moi des mots d’amour » aborde les affections de longue durée, « Souffler sur les braises » parle de l’intimité des aînés. Recherche, collectage et création sonore accompagnent les danseurs sur scène.`,
-    longDescription: `De novembre 2021 à mars 2023, nous collaborons avec le Théâtre de la Jeune Plume pour créer deux spectacles musicaux. « Dis-moi des mots d’amour » traite des affections de longue durée ; « Souffler sur les braises » évoque la vie intime des personnes âgées.\n\nPour chaque projet, nous réalisons une phase de recherche et de collectage auprès des publics concernés afin d’éviter tout cliché. Les bandes-son diffusées sur scène accompagnent les danseurs et ouvrent un espace de parole sensible et respectueux.`,
+    shortDescription: `« Dis-moi des mots d'amour » aborde les affections de longue durée, « Souffler sur les braises » parle de l'intimité des aînés. Recherche, collectage et création sonore accompagnent les danseurs sur scène.`,
+    longDescription: `De novembre 2021 à mars 2023, nous collaborons avec le Théâtre de la Jeune Plume pour créer deux spectacles musicaux. « Dis-moi des mots d'amour » traite des affections de longue durée ; « Souffler sur les braises » évoque la vie intime des personnes âgées.\n\nPour chaque projet, nous réalisons une phase de recherche et de collectage auprès des publics concernés afin d'éviter tout cliché. Les bandes-son diffusées sur scène accompagnent les danseurs et ouvrent un espace de parole sensible et respectueux.`,
+    video: {
+      enabled: true,
+      files: {
+        mp4: '/assets/videos/projects/dis-moi-des-mots-d-amour/teaser_dis_moi_des_mots_damour.mp4'
+      },
+      autoplay: false,
+      description: 'Teaser du spectacle « Dis-moi des mots d\'amour »'
+    },
     roles: ['recherche', 'collectage', 'composition', 'design sonore'],
     themes: ['santé', 'intimité', 'tabous'],
     devices: ['bande-son scénique', 'création sonore immersive'],

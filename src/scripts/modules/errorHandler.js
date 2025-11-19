@@ -355,47 +355,19 @@ export class ErrorHandler {
   }
 
   showCriticalError() {
-    // Show full-page error overlay for critical errors
-    const overlay = document.createElement('div');
-    overlay.className = 'critical-error-overlay';
-    overlay.innerHTML = `
-      <div class="critical-error__content">
-        <svg style="width: 80px; height: 80px; color: #B8441E; margin-bottom: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="8" x2="12" y2="12"></line>
-          <line x1="12" y1="16" x2="12.01" y2="16"></line>
-        </svg>
-        <h2>Erreur de chargement</h2>
-        <p>Certaines ressources nécessaires n'ont pas pu être chargées.</p>
-        <button class="btn btn--primary" onclick="location.reload()">
-          Recharger la page
-        </button>
-      </div>
-    `;
+    // ☢️ NEUTRALIZED - Ne plus jamais bloquer le site
+    console.warn('⚠️ Erreur critique interceptée mais bloquée par le patch de sécurité.');
 
-    // Styles inline (backdrop-filter supprimé pour éviter tout voile global)
-    overlay.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(15, 21, 29, 0.95);
-      z-index: 99999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    `;
+    // Force le site à s'afficher quoi qu'il arrive
+    document.body.classList.add('loaded');
+    document.documentElement.classList.remove('is-loading');
 
-    const content = overlay.querySelector('.critical-error__content');
-    content.style.cssText = `
-      text-align: center;
-      color: #EAECEF;
-      padding: 48px;
-      max-width: 500px;
-    `;
-
-    document.body.appendChild(overlay);
+    // Retirer le preloader s'il existe
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.display = 'none';
+      preloader.remove();
+    }
   }
 
   logToAnalytics(errorInfo) {
