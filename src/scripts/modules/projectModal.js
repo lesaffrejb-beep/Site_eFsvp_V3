@@ -288,6 +288,9 @@ export class ProjectModal {
     const webmPath = `/assets/videos/projects/${slug}/video.webm`;
     const audioPath = `/assets/audio/projects/${slug}/audio.mp3`;
 
+    console.log('Checking video path:', mp4Path);
+    console.log('Checking fallback video path:', webmPath);
+
     const [mp4Exists, webmExists, audioExists] = await Promise.all([
       checkAssetExists(mp4Path),
       checkAssetExists(webmPath),
@@ -298,8 +301,15 @@ export class ProjectModal {
       return;
     }
 
+    const isForceVideoProject = slug === 'dis-moi-des-mots-d-amour';
+    if (isForceVideoProject) {
+      console.warn('ProjectModal: forcing video display for debug on slug', slug);
+    }
+
     const videoSource = mp4Exists ? mp4Path : webmExists ? webmPath : null;
-    if (videoSource && videoEl) {
+    const resolvedVideoSource = isForceVideoProject ? mp4Path : videoSource;
+
+    if (resolvedVideoSource && videoEl) {
       const videoElement = document.createElement('video');
       videoElement.className = 'project-modal__video-player';
       videoElement.controls = true;
@@ -308,8 +318,8 @@ export class ProjectModal {
       videoElement.setAttribute('aria-label', `Vidéo du projet ${project.title}`);
 
       const sourceElement = document.createElement('source');
-      sourceElement.src = videoSource;
-      sourceElement.type = `video/${mp4Exists ? 'mp4' : 'webm'}`;
+      sourceElement.src = resolvedVideoSource;
+      sourceElement.type = `video/${mp4Exists || isForceVideoProject ? 'mp4' : 'webm'}`;
       videoElement.appendChild(sourceElement);
 
       videoEl.innerHTML = '';

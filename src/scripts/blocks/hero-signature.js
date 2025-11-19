@@ -71,16 +71,6 @@ export function initHeroSignature() {
   // ===================================
   // \u00c9TAPE 4 : INITIALISATION DES \u00c9TATS
   // ===================================
-  // Baseline masquée au départ
-  if (baseline) {
-    gsap.set(baseline, { opacity: 0, y: 20 });
-  }
-
-  // CTA masqué au départ
-  if (cta) {
-    gsap.set(cta, { opacity: 0, y: 20 });
-  }
-
   // Initialiser tous les paths avec strokeDasharray
   const pathMeta = [];
   paths.forEach((path) => {
@@ -168,14 +158,13 @@ function createPremiumTimeline({ pathMeta, cta, baseline, svg }) {
   const heroTextElements = [baseline, cta].filter(Boolean);
 
   if (heroTextElements.length) {
-    masterTL.fromTo(
+    masterTL.to(
       heroTextElements,
-      { opacity: 0, y: 20 },
       {
         opacity: 1,
         y: 0,
         duration: 1.2,
-        ease: 'power2.out',
+        ease: 'power3.out',
         stagger: 0.2,
       },
       signatureDuration + 0.2

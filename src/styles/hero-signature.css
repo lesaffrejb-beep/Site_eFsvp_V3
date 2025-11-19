@@ -159,12 +159,12 @@
 
 .hero-signature-wrapper {
   position: relative;
-  max-width: 48rem;
   width: 100%;
-  margin-inline: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
   margin-top: 0 !important;
   margin-bottom: var(--space-2) !important;
-  padding: 0 !important;
   height: auto !important;
   max-height: none !important;
 }
@@ -174,11 +174,17 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  max-height: none;
+  max-height: 50vh;
   overflow: visible;
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: none;
+}
+
+.hero__baseline,
+.hero__cta {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 /* Classe d'initialisation pour masquer les paths pendant le setup JS */
@@ -218,7 +224,6 @@
 
   text-align: center;
   padding: 0 !important;
-  opacity: 0.9;
   text-wrap: balance;
 
   /* Micro-interaction */
