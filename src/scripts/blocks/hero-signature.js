@@ -73,12 +73,12 @@ export function initHeroSignature() {
   // ===================================
   // Baseline masquée au départ
   if (baseline) {
-    gsap.set(baseline, { opacity: 0, y: 16 });
+    gsap.set(baseline, { opacity: 0, y: 20 });
   }
 
   // CTA masqué au départ
   if (cta) {
-    gsap.set(cta, { opacity: 0, y: 10, scale: 0.98 });
+    gsap.set(cta, { opacity: 0, y: 20 });
   }
 
   // Initialiser tous les paths avec strokeDasharray
@@ -157,7 +157,7 @@ function createPremiumTimeline({ pathMeta, cta, baseline }) {
       {
         opacity: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.8,
         ease: 'power2.out', // Easing subtil et élégant
       },
       signatureDuration + 0.2 // Commence 0.2s après la fin de la signature
@@ -173,11 +173,10 @@ function createPremiumTimeline({ pathMeta, cta, baseline }) {
       {
         opacity: 1,
         y: 0,
-        scale: 1,
-        duration: 0.45,
-        ease: 'power2.out', // Easing doux et cohérent avec baseline
+        duration: 0.8,
+        ease: 'power2.out', // Même easing que baseline pour cohérence
       },
-      baseline ? '-=0.35' : signatureDuration + 0.4 // Chevauchement de 0.35s avec baseline si elle existe
+      baseline ? '-=0.4' : signatureDuration + 0.4 // Chevauchement de 0.4s avec baseline si elle existe
     );
   }
 

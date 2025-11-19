@@ -12,15 +12,6 @@ export type ProjectSector =
   | 'territoire'
   | 'vie-associative';
 
-export type ProjectAccentTheme =
-  | 'terracotta'
-  | 'ambre'
-  | 'encre'
-  | 'sauge'
-  | 'ocean'
-  | 'lavande'
-  | 'coral';
-
 export const SECTOR_LABELS: Record<ProjectSector, string> = {
   artisanat: 'Artisanat',
   btp: 'BTP',
@@ -72,10 +63,8 @@ export interface Project {
   category: string;
   sector: ProjectSector;
   themes: string[];
-  accentTheme?: ProjectAccentTheme;
   hasVideo?: boolean;
   hasAudio?: boolean;
-  videoSrc?: string | null;
   details: {
     format: string;
     duration: string;

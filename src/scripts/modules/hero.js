@@ -121,7 +121,6 @@ export class HeroManager {
     gsap.set(this.signaturePath, {
       strokeDasharray: length,
       strokeDashoffset: length,
-      visibility: 'visible' // Ensure visible before animating
     });
 
     if (this.inkDrop) {
@@ -142,13 +141,9 @@ export class HeroManager {
 
     const timeline = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
-    // Force reflow
-    this.signaturePath.getBoundingClientRect();
-
     timeline.to(this.signaturePath, {
       strokeDashoffset: 0,
-      duration: 3.2, // Even slower for a very elegant, "handwritten" feel
-      ease: 'power1.inOut'
+      duration: 1.6,
     });
 
     if (this.inkDrop) {

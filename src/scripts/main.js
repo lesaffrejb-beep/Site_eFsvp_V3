@@ -9,6 +9,9 @@
  * ============================================
  */
 
+const EMERGENCY_SKIP_PRELOADER = import.meta.env?.VITE_SKIP_PRELOADER === 'true';
+const PRELOADER_FAILSAFE_TIMEOUT = 4000; // Failsafe ponctuel
+
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ErrorHandler } from './modules/errorHandler.js';
@@ -28,6 +31,33 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Expose main orchestrator flag for legacy bundles
 window.__EFVSP_APP_ACTIVE = true;
+
+/* ==== ANTI-VEIL FAILSAFE (final) ==== */
+const antiVeilFailsafe = () => {
+  ['html', 'body', 'main', '#app', '#main'].forEach((sel) => {
+    const el = document.querySelector(sel);
+    if (el) {
+      el.style.opacity = '1';
+      el.style.filter = 'none';
+      el.style.mixBlendMode = 'normal';
+      el.style.backdropFilter = 'none';
+    }
+  });
+  document.body?.classList?.remove('dim', 'overlay', 'veil', 'backdrop', 'blurred');
+  document.querySelectorAll('[data-scroll]').forEach((el) => {
+    const opacity = parseFloat(window.getComputedStyle(el).opacity);
+    if (!Number.isNaN(opacity) && opacity < 1) {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    }
+  });
+};
+// appliquer tout de suite + en fin de chargement
+antiVeilFailsafe();
+window.addEventListener('load', antiVeilFailsafe);
+setTimeout(() => {
+  antiVeilFailsafe();
+}, PRELOADER_FAILSAFE_TIMEOUT);
 
 // ============================================
 // APP CLASS - Orchestration Premium
@@ -71,9 +101,7 @@ class App {
 
       console.log('✅ EfSVP Premium Site - Loaded successfully');
     } catch (error) {
-      console.error('🚨 CRITICAL BOOT ERROR:', error);
-      console.error('🚨 Error stack:', error?.stack);
-      console.error('🚨 Error type:', error?.constructor?.name);
+      console.error('❌ Critical initialization error:', error);
       this.handleCriticalError(error);
     }
   }
@@ -100,58 +128,83 @@ class App {
     this.modules.animations = new AnimationsManager();
   }
 
+  // 🚨 HOTFIX: Helper function to skip preloader
+  skipToMainContent() {
+    console.warn('🚨 HOTFIX: Preloader bypassé');
+    const preloader = document.querySelector('.preloader, #preloader, [data-preloader]');
+
+    // Force l'affichage du contenu
+    document.body.classList.add('loaded');
+    document.body.style.overflow = '';
+
+    if (preloader) {
+      preloader.style.display = 'none';
+      preloader.remove();
+    }
+
+    // S'assurer que le contenu est visible
+    const main = document.querySelector('main, #app, #main');
+    if (main) {
+      main.style.opacity = '1';
+      main.style.visibility = 'visible';
+    }
+
+    antiVeilFailsafe();
+  }
+
   async handlePreloader() {
+    // 🚨 HOTFIX: Emergency bypass si activé
+    if (EMERGENCY_SKIP_PRELOADER) {
+      this.skipToMainContent();
+      return;
+    }
+
     const preloader = document.getElementById('preloader');
+    const failsafeTimeout = setTimeout(() => {
+      console.error('⏱️ FAILSAFE: Preloader timeout, force show');
+      this.skipToMainContent();
+    }, PRELOADER_FAILSAFE_TIMEOUT);
 
-    // 🛡️ FAIL-SAFE BOOTLOADER
-    // Force l'affichage du site quoi qu'il arrive
-    const startApp = () => {
-      console.log('🚀 Site ready');
-      document.documentElement.classList.remove('is-loading');
+    if (!preloader) {
+      clearTimeout(failsafeTimeout);
+      antiVeilFailsafe();
       document.body.classList.add('loaded');
-      document.body.style.overflow = '';
+      return;
+    }
 
-      // Masquer le preloader avec animation
-      if (preloader) {
-        preloader.classList.add('hidden');
-        preloader.addEventListener('transitionend', () => {
-          preloader.remove();
-        }, { once: true });
-        setTimeout(() => preloader.remove(), 900);
+    // Wait for page load
+    await new Promise((resolve) => {
+      if (document.readyState === 'complete') {
+        resolve();
+      } else {
+        window.addEventListener('load', resolve, { once: true });
+        // Additional failsafe: resolve after timeout even if load doesn't fire
+        setTimeout(resolve, 2500);
       }
-    };
-
-    // Pattern de Boot Robuste (Awwwards Standard)
-    document.documentElement.classList.add('is-loading');
-
-    // Essayer de charger proprement
-    Promise.all([
-      document.fonts.ready.catch(() => {
-        console.warn('⚠️ Fonts not ready, continuing anyway');
-        return Promise.resolve();
-      }),
-      new Promise(resolve => {
-        if (document.readyState === 'interactive' || document.readyState === 'complete') {
-          resolve();
-        } else {
-          window.addEventListener('DOMContentLoaded', resolve, { once: true });
-        }
-      })
-    ]).then(() => {
-      startApp(); // Chargement propre
-    }).catch(err => {
-      console.warn('⚠️ Assets loading warning', err);
-      startApp(); // Chargement forcé (fallback)
     });
 
-    // 🚨 Sécurité ultime : si dans 10s rien ne s'est passé, on ouvre les vannes
-    // (Augmenté de 2s à 10s pour éviter les faux positifs sur connexions lentes)
-    setTimeout(() => {
-      if (!document.body.classList.contains('loaded')) {
-        console.warn('🚨 Emergency Start triggered after 10s timeout');
-        startApp();
-      }
-    }, 10000);
+    // Min display time
+    await new Promise((resolve) => setTimeout(resolve, 800));
+
+    // Hide preloader
+    if (preloader) {
+      preloader.classList.add('hidden');
+      preloader.addEventListener(
+        'transitionend',
+        () => {
+          preloader.remove();
+        },
+        { once: true },
+      );
+      setTimeout(() => preloader.remove(), 900);
+    }
+
+    document.body.classList.add('loaded');
+    document.body.style.overflow = '';
+    antiVeilFailsafe();
+
+    // Clear failsafe timeout
+    clearTimeout(failsafeTimeout);
   }
 
   async initCore() {
@@ -221,12 +274,6 @@ class App {
       initProjectsApp();
     }
 
-    // Clients social proof line (hero)
-    if (document.querySelector('[data-clients-list]')) {
-      const { initClientsLine } = await import('./clients-line.ts');
-      initClientsLine();
-    }
-
     // Testimonials carousel
     if (document.querySelector('.testimonials__carousel')) {
       const { initTestimonialsBlock } = await import('./blocks/testimonials.js');
@@ -276,46 +323,54 @@ class App {
 
   /**
    * Handle critical initialization errors
-   * ☢️ NEUTRALIZED - Force site display even on errors
    */
   handleCriticalError(error) {
-    console.warn('⚠️ Une erreur a été supprimée pour forcer l\'affichage:', error);
+    console.error('Critical app error:', error);
 
-    // Force site display - NUCLEAR MODE
-    document.body.classList.add('loaded');
-    document.body.classList.remove('is-loading');
-    document.documentElement.classList.remove('is-loading');
-    document.body.style.overflow = '';
+    // Show user-friendly error message
+    const errorOverlay = document.createElement('div');
+    errorOverlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 21, 29, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      color: #EAECEF;
+    `;
 
-    // Remove preloader if it exists
-    const loader = document.querySelector('.preloader');
-    if (loader) {
-      loader.style.display = 'none';
-      loader.remove();
-    }
+    errorOverlay.innerHTML = `
+      <div style="text-align: center; padding: 48px; max-width: 500px;">
+        <svg style="width: 80px; height: 80px; color: #B8441E; margin-bottom: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <h2 style="font-size: 32px; margin-bottom: 16px;">Une erreur est survenue</h2>
+        <p style="color: #9AA3AE; margin-bottom: 32px;">Nous nous excusons pour la gêne occasionnée.</p>
+        <button
+          onclick="location.reload()"
+          style="
+            padding: 16px 48px;
+            background: #B8441E;
+            color: white;
+            border: none;
+            border-radius: 100px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+          "
+        >
+          Recharger la page
+        </button>
+      </div>
+    `;
 
-    // Remove ALL possible error overlays (nuclear cleanup)
-    const selectors = [
-      '[class*="error-"]',
-      '[id*="error-"]',
-      '[class*="overlay"]',
-      '[class*="critical-"]',
-      'div[style*="z-index: 99999"]',
-      'div[style*="position: fixed"][style*="width: 100%"]'
-    ];
-
-    selectors.forEach(selector => {
-      try {
-        document.querySelectorAll(selector).forEach(el => {
-          // Ne pas supprimer les overlays légitimes (nav, modal)
-          if (!el.id?.includes('nav') && !el.classList.contains('modal-overlay')) {
-            el.remove();
-          }
-        });
-      } catch (e) {
-        console.warn('Cleanup selector failed:', selector, e);
-      }
-    });
+    document.body.appendChild(errorOverlay);
   }
 
   /**
@@ -576,34 +631,6 @@ class App {
 
     // Quick quote form (mini-formulaire)
     this.initQuickQuoteForm();
-
-    // Budget slider synchronization
-    this.initBudgetSlider();
-  }
-
-  // ========== BUDGET SLIDER ==========
-  initBudgetSlider() {
-    const slider = document.getElementById('budget');
-    const output = document.querySelector('.form__range-value');
-
-    if (!slider || !output) return;
-
-    const updateSlider = () => {
-      const value = parseInt(slider.value, 10);
-      const min = slider.min ? parseInt(slider.min, 10) : 0;
-      const max = slider.max ? parseInt(slider.max, 10) : 100;
-      const percentage = ((value - min) / (max - min)) * 100;
-
-      // Update text
-      output.textContent = `~${new Intl.NumberFormat('fr-FR').format(value)}€`;
-
-      // Update visual progress (CSS variable for gradient)
-      slider.style.setProperty('--value', `${percentage}%`);
-    };
-
-    slider.addEventListener('input', updateSlider);
-    // Initial call
-    updateSlider();
   }
 
   // ========== QUICK QUOTE FORM ==========

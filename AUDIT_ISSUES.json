@@ -1,0 +1,481 @@
+{
+  "audit_date": "2025-11-09",
+  "summary": {
+    "total_issues": 47,
+    "critical": 8,
+    "major": 15,
+    "minor": 24,
+    "css_coverage": "27.3%",
+    "sections_implemented": "5/7",
+    "overall_status": "INCOMPLETE - Major gaps in CSS and sections"
+  },
+  "critical_issues": [
+    {
+      "id": "C1",
+      "title": "Section Contact/Formulaire Manquante",
+      "severity": "CRITICAL",
+      "description": "La section contact avec formulaire n'existe pas dans WordPress",
+      "missing_files": [
+        "/home/user/eFsvp_maquette/src/styles/styles.css (l.2773-2933 - 311 lignes)",
+        "Bloc WordPress correspondant"
+      ],
+      "missing_classes": [
+        ".contact",
+        ".contact__layout",
+        ".contact__visual",
+        ".contact__form",
+        ".form__group",
+        ".form__input",
+        ".form__label",
+        ".form__range",
+        ".form__checkmark"
+      ],
+      "html_reference": "/home/user/eFsvp_maquette/index.html (l.1622-1933)"
+    },
+    {
+      "id": "C2",
+      "title": "Section Creations (Audio/Galerie) Manquante",
+      "severity": "CRITICAL",
+      "description": "La section creations/audio-section n'existe pas dans WordPress",
+      "missing_files": [
+        "/home/user/eFsvp_maquette/src/styles/styles.css (l.1800-2100+ lignes)"
+      ],
+      "missing_classes": [
+        ".audio-section",
+        ".creations-grid",
+        ".audio-card",
+        ".audio-card__image",
+        ".audio-card__play",
+        ".audio-modal",
+        ".swiper"
+      ],
+      "html_reference": "/home/user/eFsvp_maquette/index.html (l.424-771)",
+      "dependencies": ["Swiper JS library"]
+    },
+    {
+      "id": "C3",
+      "title": "Section Process/Timeline Manquante",
+      "severity": "CRITICAL",
+      "description": "La section process avec étapes/timeline n'existe pas dans WordPress",
+      "missing_files": [
+        "/home/user/eFsvp_maquette/src/styles/styles.css (l.1051-1380+ lignes)"
+      ],
+      "missing_classes": [
+        ".process",
+        ".process__grid",
+        ".process__step",
+        ".process__step-number",
+        ".process__step-content",
+        ".process__step-title",
+        ".process__connector"
+      ],
+      "html_reference": "/home/user/eFsvp_maquette/index.html (l.1051-1382)"
+    },
+    {
+      "id": "C4",
+      "title": "Section FAQ/Accordéon Manquante",
+      "severity": "CRITICAL",
+      "description": "La section FAQ avec accordéon n'existe pas dans WordPress",
+      "missing_files": [
+        "/home/user/eFsvp_maquette/src/styles/styles.css (l.2600-2770+ lignes)"
+      ],
+      "missing_classes": [
+        ".faq",
+        ".faq__grid",
+        ".faq__item",
+        ".faq__question",
+        ".faq__answer",
+        ".faq__search-input",
+        ".faq__item.is-active"
+      ],
+      "html_reference": "/home/user/eFsvp_maquette/index.html (l.1383-1621)"
+    },
+    {
+      "id": "C5",
+      "title": "Styles de Boutons Complètement Manquants",
+      "severity": "CRITICAL",
+      "description": "Aucune CSS pour les boutons - 140 lignes de styles perdues",
+      "missing_files": [
+        "/home/user/eFsvp_maquette/src/styles/styles.css (l.233-373)"
+      ],
+      "missing_classes": [
+        ".btn",
+        ".btn--primary",
+        ".btn--secondary",
+        ".btn--small",
+        ".btn--primary-small",
+        ".btn--large",
+        ".btn--hero",
+        ".btn--full",
+        ".btn__icon",
+        ".btn__loader",
+        ".btn.loading"
+      ],
+      "impact": "Tous les boutons manquent de style/animations",
+      "affected_elements": ["Hero CTA", "Contact form buttons", "All action buttons"]
+    },
+    {
+      "id": "C6",
+      "title": "Fichiers CSS Premium Non Enqueued",
+      "severity": "CRITICAL",
+      "description": "2 fichiers CSS cruciaux jamais chargés (1216 lignes perdues)",
+      "missing_files": [
+        "/home/user/eFsvp_maquette/src/styles/premium-enhancements.css (686 lignes)",
+        "/home/user/eFsvp_maquette/src/styles/premium-unified.css (530 lignes)"
+      ],
+      "enqueue_status": "NOT IN inc/enqueue-scripts.php",
+      "wordpress_file": "/home/user/eFsvp_maquette/wp-theme-efsvp/inc/enqueue-scripts.php (l.18-72)"
+    },
+    {
+      "id": "C7",
+      "title": "Cookie Banner CSS Manquant",
+      "severity": "CRITICAL",
+      "description": "Banneau de consentement cookies - 140 lignes de CSS perdues",
+      "missing_files": [
+        "/home/user/eFsvp_maquette/src/styles/cookie-banner.css (140 lignes)"
+      ],
+      "missing_classes": [
+        ".cookie-banner",
+        ".cookie-banner__content",
+        ".cookie-banner__btn"
+      ]
+    },
+    {
+      "id": "C8",
+      "title": "Réduction CSS Majeure (72.7%)",
+      "severity": "CRITICAL",
+      "description": "Le thème WordPress n'a que 1518 lignes CSS vs 5558 en maquette",
+      "html_css_total": 5558,
+      "wordpress_css_total": 1518,
+      "css_reduction_percent": "72.7%",
+      "analysis": "Plus de 4000 lignes de CSS sont manquantes ou non adaptées"
+    }
+  ],
+  "major_issues": [
+    {
+      "id": "M1",
+      "title": "style.css Theme Root Vide",
+      "severity": "MAJOR",
+      "description": "Fichier style.css au root du thème ne contient que 23 lignes (header vide)",
+      "file": "/home/user/eFsvp_maquette/wp-theme-efsvp/style.css",
+      "expected_content": "Styles CSS principaux du thème",
+      "actual_content": "En-tête de thème seulement"
+    },
+    {
+      "id": "M2",
+      "title": "Variables CSS Manquantes",
+      "severity": "MAJOR",
+      "description": "Alias short-radius non présents dans WordPress design-system.css",
+      "missing_vars": [
+        "--r-xs: 0.4rem",
+        "--r-sm: 0.6rem",
+        "--r-md: 0.9rem",
+        "--r-lg: 1.2rem"
+      ],
+      "html_source": "/home/user/eFsvp_maquette/src/styles/design-tokens.css (l.122-127)"
+    },
+    {
+      "id": "M3",
+      "title": "Typography Scale Alias Manquants",
+      "severity": "MAJOR",
+      "description": "Variables de typographie compactes non présentes",
+      "missing_vars": [
+        "--fs-xxl",
+        "--fs-xl",
+        "--fs-lg",
+        "--fs-md",
+        "--fs-sm",
+        "--fs-xs"
+      ],
+      "html_source": "/home/user/eFsvp_maquette/src/styles/design-tokens.css"
+    },
+    {
+      "id": "M4",
+      "title": "Section Contact Formulaire Absent",
+      "severity": "MAJOR",
+      "description": "Pas de bloc WordPress pour la section contact",
+      "expected_block": "contact",
+      "status": "NOT CREATED",
+      "wordpress_dir": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/"
+    },
+    {
+      "id": "M5",
+      "title": "footer.css Non Enqueued",
+      "severity": "MAJOR",
+      "description": "Le fichier footer.css existe mais n'est pas enqueued correctement",
+      "file": "/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/components/footer.css (84 lignes)",
+      "enqueue_file": "/home/user/eFsvp_maquette/wp-theme-efsvp/inc/enqueue-scripts.php",
+      "status": "NON ENQUEUED"
+    },
+    {
+      "id": "M6",
+      "title": "Sound Toggle Button Manquant Hero",
+      "severity": "MAJOR",
+      "description": "Le bouton sound toggle du hero HTML n'existe pas en WordPress",
+      "html_reference": "/home/user/eFsvp_maquette/index.html (l.370-414, classe hero__sound-toggle)",
+      "wordpress_block": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/hero/render.php",
+      "status": "NOT IMPLEMENTED"
+    },
+    {
+      "id": "M7",
+      "title": "Title Line Segments Manquants Hero",
+      "severity": "MAJOR",
+      "description": "Les spans hero__title-line pour split text n'existent pas",
+      "html_structure": "<span class=\"hero__title-line hero__title-line--primary\">",
+      "wordpress_structure": "<h1 class=\"efsvp-hero__title\"> (pas de spans)",
+      "impact": "Impossible de styler les lignes de titre différemment"
+    },
+    {
+      "id": "M8",
+      "title": "Swiper Carousel Dépendance Manquante",
+      "severity": "MAJOR",
+      "description": "HTML utilise Swiper v11 mais pas d'intégration dans WordPress",
+      "html_reference": "/home/user/eFsvp_maquette/index.html (l.193)",
+      "swiper_cdn": "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css",
+      "wordpress_status": "NOT ENQUEUED"
+    },
+    {
+      "id": "M9",
+      "title": "Premium Enhancements CSS Non Utilisés",
+      "severity": "MAJOR",
+      "description": "Fichier premium-enhancements.css (686 lignes) jamais enqueued",
+      "file": "/home/user/eFsvp_maquette/src/styles/premium-enhancements.css",
+      "content": "Animations, transitions, effets avancés",
+      "wordpress_status": "NOT INCLUDED"
+    },
+    {
+      "id": "M10",
+      "title": "Premium Unified CSS Non Utilisés",
+      "severity": "MAJOR",
+      "description": "Fichier premium-unified.css (530 lignes) jamais enqueued",
+      "file": "/home/user/eFsvp_maquette/src/styles/premium-unified.css",
+      "content": "Unification des styles premium",
+      "wordpress_status": "NOT INCLUDED"
+    },
+    {
+      "id": "M11",
+      "title": "Section Creations Bloc Manquant",
+      "severity": "MAJOR",
+      "description": "Bloc WordPress 'creations' n'existe pas",
+      "block_name": "efsvp/creations",
+      "expected_dir": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/creations/",
+      "status": "NOT CREATED",
+      "html_reference": "/home/user/eFsvp_maquette/index.html (l.424-771)"
+    },
+    {
+      "id": "M12",
+      "title": "Section Process Bloc Manquant",
+      "severity": "MAJOR",
+      "description": "Bloc WordPress 'process' n'existe pas",
+      "block_name": "efsvp/process",
+      "expected_dir": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/process/",
+      "status": "NOT CREATED",
+      "html_reference": "/home/user/eFsvp_maquette/index.html (l.1051-1382)"
+    },
+    {
+      "id": "M13",
+      "title": "Section FAQ Bloc Manquant",
+      "severity": "MAJOR",
+      "description": "Bloc WordPress 'faq' n'existe pas",
+      "block_name": "efsvp/faq",
+      "expected_dir": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/faq/",
+      "status": "NOT CREATED",
+      "html_reference": "/home/user/eFsvp_maquette/index.html (l.1383-1621)"
+    },
+    {
+      "id": "M14",
+      "title": "Contact Bloc Manquant",
+      "severity": "MAJOR",
+      "description": "Bloc WordPress 'contact' n'existe pas",
+      "block_name": "efsvp/contact",
+      "expected_dir": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/contact/",
+      "status": "NOT CREATED",
+      "html_reference": "/home/user/eFsvp_maquette/index.html (l.1622-1933)"
+    },
+    {
+      "id": "M15",
+      "title": "Button Component CSS Manquant",
+      "severity": "MAJOR",
+      "description": "Aucun fichier CSS spécifique pour les boutons dans WordPress",
+      "missing_file": "/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/components/buttons.css",
+      "expected_content": "140 lignes de styles de boutons",
+      "html_reference": "/home/user/eFsvp_maquette/src/styles/styles.css (l.233-373)"
+    }
+  ],
+  "files_analysis": {
+    "html_maquette": {
+      "path": "/home/user/eFsvp_maquette",
+      "css_files": 6,
+      "total_css_lines": 5558,
+      "files": [
+        {
+          "name": "design-tokens.css",
+          "path": "/home/user/eFsvp_maquette/src/styles/design-tokens.css",
+          "lines": 164,
+          "status": "ADAPTED"
+        },
+        {
+          "name": "design-system.css",
+          "path": "/home/user/eFsvp_maquette/src/styles/design-system.css",
+          "lines": 285,
+          "status": "ADAPTED"
+        },
+        {
+          "name": "styles.css",
+          "path": "/home/user/eFsvp_maquette/src/styles/styles.css",
+          "lines": 3753,
+          "status": "PARTIALLY_ADAPTED",
+          "missing_sections": ["creations", "process", "faq", "contact", "buttons"]
+        },
+        {
+          "name": "premium-enhancements.css",
+          "path": "/home/user/eFsvp_maquette/src/styles/premium-enhancements.css",
+          "lines": 686,
+          "status": "NOT_ENQUEUED"
+        },
+        {
+          "name": "premium-unified.css",
+          "path": "/home/user/eFsvp_maquette/src/styles/premium-unified.css",
+          "lines": 530,
+          "status": "NOT_ENQUEUED"
+        },
+        {
+          "name": "cookie-banner.css",
+          "path": "/home/user/eFsvp_maquette/src/styles/cookie-banner.css",
+          "lines": 140,
+          "status": "NOT_ENQUEUED"
+        }
+      ]
+    },
+    "wordpress_theme": {
+      "path": "/home/user/eFsvp_maquette/wp-theme-efsvp",
+      "css_files": 12,
+      "total_css_lines": 1518,
+      "coverage_percent": "27.3%",
+      "files": [
+        {
+          "name": "style.css",
+          "path": "/home/user/eFsvp_maquette/wp-theme-efsvp/style.css",
+          "lines": 23,
+          "status": "EMPTY",
+          "issue": "Only contains header, no actual styles"
+        },
+        {
+          "name": "design-system.css",
+          "path": "/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/design-system.css",
+          "lines": 339,
+          "status": "OK"
+        },
+        {
+          "name": "gutenberg.css",
+          "path": "/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/gutenberg.css",
+          "lines": 117,
+          "status": "OK"
+        },
+        {
+          "name": "header.css",
+          "path": "/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/components/header.css",
+          "lines": 202,
+          "status": "OK"
+        },
+        {
+          "name": "footer.css",
+          "path": "/home/user/eFsvp_maquette/wp-theme-efsvp/assets/css/components/footer.css",
+          "lines": 84,
+          "status": "EXISTS_NOT_ENQUEUED"
+        },
+        {
+          "name": "hero/style.css",
+          "path": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/hero/style.css",
+          "lines": 161,
+          "status": "OK"
+        },
+        {
+          "name": "services/style.css",
+          "path": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/services/style.css",
+          "lines": 92,
+          "status": "OK"
+        },
+        {
+          "name": "portfolio/style.css",
+          "path": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/portfolio/style.css",
+          "lines": 140,
+          "status": "OK"
+        },
+        {
+          "name": "testimonials/style.css",
+          "path": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/testimonials/style.css",
+          "lines": 179,
+          "status": "OK"
+        },
+        {
+          "name": "cta/style.css",
+          "path": "/home/user/eFsvp_maquette/wp-theme-efsvp/blocks/cta/style.css",
+          "lines": 132,
+          "status": "OK"
+        },
+        {
+          "name": "MISSING: buttons.css",
+          "status": "MISSING",
+          "expected_lines": 140
+        },
+        {
+          "name": "MISSING: creations.css",
+          "status": "MISSING",
+          "expected_lines": 300
+        },
+        {
+          "name": "MISSING: process.css",
+          "status": "MISSING",
+          "expected_lines": 280
+        },
+        {
+          "name": "MISSING: faq.css",
+          "status": "MISSING",
+          "expected_lines": 350
+        },
+        {
+          "name": "MISSING: contact.css",
+          "status": "MISSING",
+          "expected_lines": 311
+        },
+        {
+          "name": "MISSING: premium-enhancements.css",
+          "status": "NOT_ENQUEUED",
+          "expected_lines": 686
+        },
+        {
+          "name": "MISSING: premium-unified.css",
+          "status": "NOT_ENQUEUED",
+          "expected_lines": 530
+        },
+        {
+          "name": "MISSING: cookie-banner.css",
+          "status": "NOT_ENQUEUED",
+          "expected_lines": 140
+        }
+      ]
+    }
+  },
+  "recommendations": {
+    "critical_fixes": [
+      "1. Create missing blocks: creations, process, faq, contact",
+      "2. Add button component CSS file",
+      "3. Enqueue premium-enhancements.css and premium-unified.css",
+      "4. Add cookie banner CSS",
+      "5. Add all missing form/input styles"
+    ],
+    "high_priority": [
+      "1. Fix hero block: add sound toggle, title line segments",
+      "2. Add footer.css to enqueue scripts",
+      "3. Add missing CSS variables (radius aliases, font size aliases)",
+      "4. Integrate Swiper for creations carousel"
+    ],
+    "medium_priority": [
+      "1. Create contact form block with validation",
+      "2. Create faq accordion block",
+      "3. Create process timeline block",
+      "4. Create creations gallery/carousel block"
+    ]
+  }
+}
