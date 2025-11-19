@@ -82,16 +82,22 @@
    ======================================== */
 
 .hero.hero--signature {
+  /* ✅ FULL HEIGHT ENFORCEMENT - Fix white strip */
+  height: 100svh;
   min-height: 100svh;
-  height: auto;
   max-height: none;
+  margin: 0;
+  padding: 0;
+
+  /* Layout */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--color-hero-bg);
-  padding-block: var(--space-14);
-  padding-inline: clamp(1.5rem, 3vw, 3rem);
   position: relative;
+
+  /* Style */
+  background: var(--color-hero-bg);
   overflow: hidden;
   isolation: isolate;
   z-index: 1;
@@ -106,7 +112,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: var(--space-6);
+
+  /* ✅ BREATHING ROOM - Viewport-based gap */
+  gap: 4vh;
+
   text-align: center;
 }
 
@@ -159,12 +168,13 @@
 
 .hero-signature-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 1200px;
+
+  /* ✅ SIGNATURE SIZING - Make it HUGE */
+  width: 90%;
+  max-width: 1400px;
+
   margin: 0 auto;
-  padding: 0 1rem;
-  margin-top: 0 !important;
-  margin-bottom: var(--space-2) !important;
+  padding: 0;
   height: auto !important;
   max-height: none !important;
 }
@@ -221,6 +231,9 @@
   margin: 0 !important;
   margin-left: auto !important;
   margin-right: auto !important;
+
+  /* ✅ SPECIFIC ADJUSTMENT - Separate baseline from CTA */
+  margin-bottom: 2rem !important;
 
   text-align: center;
   padding: 0 !important;
@@ -410,13 +423,16 @@
 
 @media (max-width: 639px) {
   .hero.hero--signature {
-    min-height: auto !important;
-    height: auto !important;
-    padding: var(--space-12) var(--space-6) !important;
+    /* ✅ Keep full height on mobile too */
+    height: 100svh;
+    min-height: 100svh;
+    padding: var(--space-6);
   }
 
   .hero__inner {
-    min-height: auto;
+    /* Auto height for inner to allow flex centering */
+    height: auto;
+    gap: 3vh; /* Slightly reduced gap on mobile */
   }
 
   .hero__content {
@@ -517,67 +533,9 @@
 }
 
 /* ========================================
-   HERO - OVERRIDES LAYOUT & FULL HEIGHT
+   HERO - OVERRIDES REMOVED
+   Architecture is now handled in the main section
    ======================================== */
-
-.hero.hero--signature {
-  min-height: calc(100vh - var(--header-height));
-  padding-block: var(--space-14);
-  padding-inline: clamp(1.5rem, 3vw, 3rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero__inner {
-  max-width: var(--layout-max-width, 72rem);
-  margin-inline: auto;
-  width: min(100%, var(--layout-max-width, 72rem));
-  min-height: calc(100vh - var(--header-height));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: var(--space-6);
-}
-
-.hero__animation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-4);
-  margin: 0;
-}
-
-.hero-signature-wrapper {
-  max-width: 48rem;
-  width: 100%;
-  height: auto !important;
-  max-height: none !important;
-}
-
-.hero-signature-svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.hero__text-stack {
-  margin-top: 0 !important;
-  gap: var(--space-4);
-}
-
-@media (max-width: 768px) {
-  .hero.hero--signature {
-    padding-block: var(--space-10);
-  }
-
-  .hero__text-stack {
-    margin-top: 0 !important;
-  }
-}
 
 /* ========================================
    RESPONSIVE PREMIUM - TRÈS PETIT MOBILE (< 475px)
@@ -585,13 +543,15 @@
 
 @media (max-width: 475px) {
   .hero.hero--signature {
-    min-height: auto !important;
-    height: auto !important;
-    padding: var(--space-12) var(--space-5) var(--space-10) !important;
+    /* ✅ Keep full height on very small mobile */
+    height: 100svh;
+    min-height: 100svh;
+    padding: var(--space-5);
   }
 
   .hero__inner {
-    min-height: auto;
+    height: auto;
+    gap: 2.5vh; /* Even smaller gap for tiny screens */
   }
 
   .hero-signature-wrapper {
@@ -701,57 +661,6 @@ section#hero.force-fullscreen {
 }
 
 /* ========================================
-   HERO - OVERRIDES LAYOUT & FULL HEIGHT
+   HERO - DUPLICATE SECTION REMOVED
+   All styling is now unified in the main section above
    ======================================== */
-
-.hero.hero--signature {
-  min-height: calc(100vh - var(--header-height));
-  padding-block: var(--space-14);
-  display: flex;
-  align-items: center;
-}
-
-.hero__inner {
-  max-width: var(--layout-max-width, 72rem);
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--space-6);
-}
-
-.hero__animation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: var(--space-4);
-}
-
-.hero-signature-wrapper {
-  max-width: 48rem;
-  width: 100%;
-  height: auto !important;
-  max-height: none !important;
-}
-
-.hero-signature-svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.hero__text-stack {
-  margin-top: -3rem !important;
-  row-gap: var(--space-3);
-}
-
-@media (max-width: 768px) {
-  .hero.hero--signature {
-    padding-block: var(--space-10);
-  }
-
-  .hero__text-stack {
-    margin-top: -1.5rem !important;
-  }
-}

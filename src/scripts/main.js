@@ -493,8 +493,30 @@ class App {
         document.body.classList.add('menu-open');
         document.body.style.overflow = 'hidden';
 
+        // ✅ GSAP ENTRANCE ANIMATION - AWWWARDS Style
+        // Reset initial state
+        gsap.set(navMenu, { opacity: 0 });
+        gsap.set('.nav__item', { y: 50, opacity: 0 });
+
+        // Animate overlay fade in
+        gsap.to(navMenu, {
+          opacity: 1,
+          duration: 0.4,
+          ease: 'power2.out'
+        });
+
+        // Animate links with stagger
+        gsap.to('.nav__item', {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power3.out',
+          delay: 0.1
+        });
+
         updateFocusableElements();
-        setTimeout(() => firstFocusable?.focus(), 100);
+        setTimeout(() => firstFocusable?.focus(), 600); // Wait for animation
       };
 
       navToggle.addEventListener('click', () => {

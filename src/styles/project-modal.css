@@ -5,16 +5,23 @@
  * ============================================
  */
 
-/* ===== Modal Container ===== */
+/* ===== Modal Container - THE SCROLL CONTAINER ===== */
 .project-modal {
   position: fixed;
   inset: 0;
-  overflow-y: auto;
   z-index: var(--z-modal);
+
+  /* ✅ CRITICAL: This is the scroll container */
+  overflow-y: auto;
+  overflow-x: hidden;
+
   display: none;
   align-items: flex-start;
   justify-content: center;
-  padding: var(--space-6);
+
+  /* ✅ Padding to ensure content doesn't touch edges on mobile */
+  padding: 2rem 1rem;
+
   opacity: 0;
   transition: opacity var(--transition-slow);
 }
@@ -33,17 +40,27 @@
   cursor: pointer;
 }
 
-/* ===== Modal Content Container ===== */
+/* ===== Modal Content Container - THE CONTENT WRAPPER ===== */
 .modal-container {
+  /* ✅ CRITICAL: Use relative positioning, let parent handle scroll */
   position: relative;
+
   width: 100%;
   max-width: 800px;
+
+  /* ✅ CRITICAL: Auto height to allow natural content flow */
+  height: auto;
+  min-height: min-content;
   max-height: none;
-  margin: 2rem auto;
+
+  margin: auto;
   background: var(--bg-primary);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-2xl);
-  overflow: hidden;
+
+  /* ✅ CRITICAL: NO overflow properties - let parent handle scroll */
+  /* overflow removed */
+
   display: flex;
   flex-direction: column;
   transform: scale(0.95);
@@ -264,7 +281,8 @@
   }
 
   .modal-container {
-    max-height: 95vh;
+    /* ✅ REMOVED max-height constraint - let content flow naturally */
+    height: auto;
     border-radius: var(--radius-xl);
   }
 
