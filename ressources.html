@@ -1,0 +1,90 @@
+<!-- LEGACY – non utilisé dans la version actuelle du site. À supprimer après vérification. -->
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ressources & Chroniques | En français s'il vous plaît</title>
+    <meta name="description" content="Articles, chroniques et ressources sur la narration, la composition musicale et le patrimoine culturel des Pays de la Loire." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles/design-tokens.css" />
+    <link rel="stylesheet" href="/src/styles/design-system.css" />
+    <link rel="stylesheet" href="/src/styles/styles.css" />
+    <link rel="stylesheet" href="/src/styles/premium-enhancements.css" />
+    <link rel="stylesheet" href="/src/styles/premium-unified.css" />
+  </head>
+  <body>
+    <nav class="nav visible" id="nav">
+      <div class="nav__container">
+        <a href="/index.html" class="nav__logo"><span class="nav__logo-text">EfSVP</span></a>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="/index.html#creations" class="nav__link">Créations</a></li>
+            <li class="nav__item"><a href="/pays-de-la-loire.html" class="nav__link">Pays de la Loire</a></li>
+            <li class="nav__item"><a href="/ressources.html" class="nav__link" aria-current="page">Ressources</a></li>
+          </ul>
+        </div>
+        <a href="/index.html#contact" class="nav__cta btn btn--primary-small">Contact</a>
+      </div>
+    </nav>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="page-hero__title">Ressources & Chroniques</h1>
+          <p class="page-hero__subtitle">
+            Réflexions sur la narration, la musique et le patrimoine culturel
+          </p>
+        </div>
+      </section>
+
+      <section class="resources-section">
+        <div class="container">
+          <p style="text-align: center; font-size: 1.125rem; color: var(--text-muted); padding: var(--space-16) 0;">
+            <em>Cette section est en cours de développement. Des articles et chroniques seront bientôt disponibles sur :</em>
+          </p>
+
+          <div class="resources-preview" style="max-width: 700px; margin: 0 auto;">
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: var(--space-4); border-bottom: 1px solid var(--border);">
+                <strong>L'histoire culturelle d'Angers</strong> — Le patrimoine narratif et musical angevin
+              </li>
+              <li style="padding: var(--space-4); border-bottom: 1px solid var(--border);">
+                <strong>Patrimoine musical des Pays de la Loire</strong> — Traditions et créations contemporaines
+              </li>
+              <li style="padding: var(--space-4); border-bottom: 1px solid var(--border);">
+                <strong>Comment raconter l'histoire de votre institution</strong> — Guide pratique
+              </li>
+              <li style="padding: var(--space-4);">
+                <strong>Créations narratives sur-mesure</strong> — Méthodologie et exemples
+              </li>
+            </ul>
+          </div>
+
+          <div style="text-align: center; margin-top: var(--space-12);">
+            <a href="/index.html#contact" class="btn btn--primary">
+              Restez informé
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__bottom">
+          <p class="footer__copyright">© 2025 En français s'il vous plaît</p>
+          <p class="footer__made">Made with <span class="footer__heart">♥</span> in Angers</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/scripts/main.js"></script>
+  </body>
+</html>
