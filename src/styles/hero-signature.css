@@ -75,10 +75,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-8);
-    /* Generous gap */
+    gap: var(--space-6);
+    /* Keep elements close */
     width: 100%;
     max-width: 800px;
+    margin-top: 10vh;
+    /* Push text stack down but keep it balanced */
+    margin-bottom: var(--space-12);
 }
 
 .hero__baseline {
