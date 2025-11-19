@@ -9,9 +9,10 @@
 .project-modal {
   position: fixed;
   inset: 0;
+  overflow-y: auto;
   z-index: var(--z-modal);
   display: none;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: var(--space-6);
   opacity: 0;
@@ -37,7 +38,8 @@
   position: relative;
   width: 100%;
   max-width: 800px;
-  max-height: 90vh;
+  max-height: none;
+  margin: 2rem auto;
   background: var(--bg-primary);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-2xl);
@@ -91,8 +93,8 @@
 
 /* ===== Modal Content ===== */
 .modal-content {
-  overflow-y: auto;
-  max-height: 100%;
+  overflow: visible;
+  max-height: none;
   padding: var(--space-8);
 }
 
@@ -171,10 +173,19 @@
 .modal-audio {
   display: none;
   width: 100%;
-  padding: var(--space-4);
   background: var(--bg-secondary);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
+}
+
+.modal-video {
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  overflow: hidden;
+}
+
+.modal-audio {
+  padding: var(--space-4);
 }
 
 .project-modal__video-player {
