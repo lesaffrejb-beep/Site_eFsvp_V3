@@ -48,14 +48,6 @@ export class ProjectModal {
     if (titleEl) titleEl.textContent = project.title;
     if (metaEl) metaEl.textContent = [project.client, project.year, project.location].filter(Boolean).join(' · ');
 
-    if (visualContainer && visualImage && project.coverSrc) {
-      visualContainer.style.display = 'block';
-      visualImage.src = project.coverSrc;
-      visualImage.alt = `${project.title} – ${project.location}`;
-    } else if (visualContainer) {
-      visualContainer.style.display = 'none';
-    }
-
     if (descriptionEl) {
       descriptionEl.innerHTML = '';
       project.longDescription.forEach((paragraph) => {
@@ -94,56 +86,60 @@ export class ProjectModal {
       statsContainer.style.display = stats.length ? 'block' : 'none';
     }
 
-    // ✅ GESTION MEDIA DYNAMIQUE - Approche basée sur le SLUG
-    // Priorité : Vidéo > Audio
-    const audioContainer = document.getElementById('project-modal-audio');
-    const videoContainer = document.getElementById('project-modal-video');
-
-    // ✅ NOUVELLE APPROCHE : Vidéo dynamique basée sur le slug
-    // Construction du chemin : /assets/videos/projects/${slug}/video.mp4
+    // ✅ NOUVELLE LOGIQUE : VIDÉO REMPLACE L'IMAGE DANS LE CONTAINER VISUEL
+    // Stratégie : Tenter de charger la vidéo → Si succès : remplacer l'image | Si échec : garder l'image
     const slug = project.id;
     const videoPath = `/assets/videos/projects/${slug}/video.mp4`;
+    const audioContainer = document.getElementById('project-modal-audio');
 
-    if (videoContainer) {
-      // Créer un élément vidéo simple avec gestion d'erreur
-      const videoElement = document.createElement('video');
-      videoElement.className = 'project-modal__video-player';
-      videoElement.controls = true;
-      videoElement.preload = 'metadata';
-      videoElement.playsInline = true;
-      videoElement.setAttribute('aria-label', `Vidéo du projet ${project.title}`);
+    if (visualContainer) {
+      // Créer un élément vidéo de test
+      const videoEl = document.createElement('video');
+      videoEl.className = 'project-modal__visual-video';
+      videoEl.src = videoPath;
+      videoEl.controls = true;
+      videoEl.playsInline = true;
+      videoEl.preload = 'metadata';
+      videoEl.setAttribute('aria-label', `Vidéo du projet ${project.title}`);
 
-      const sourceElement = document.createElement('source');
-      sourceElement.src = videoPath;
-      sourceElement.type = 'video/mp4';
-      videoElement.appendChild(sourceElement);
+      // ✅ SUCCESS : Si la vidéo charge → remplacer l'image par la vidéo
+      videoEl.onloadedmetadata = () => {
+        console.log(`✅ Vidéo trouvée pour "${project.title}" (${slug}), remplacement de l'image`);
+        visualContainer.innerHTML = '';
+        visualContainer.appendChild(videoEl);
+        visualContainer.style.display = 'block';
 
-      // ✅ GESTION D'ERREUR : Si la vidéo n'existe pas (404), masquer le container
-      videoElement.onerror = () => {
-        console.log(`ℹ️ Aucune vidéo trouvée pour ${slug}`);
-        videoContainer.style.display = 'none';
+        // Masquer audio si présent (priorité à la vidéo)
+        if (audioContainer) audioContainer.style.display = 'none';
+      };
 
-        // Fallback vers audio si disponible
+      // ✅ FALLBACK : Si la vidéo échoue → afficher l'image
+      videoEl.onerror = () => {
+        console.log(`ℹ️ Aucune vidéo pour "${project.title}" (${slug}), utilisation de l'image`);
+
+        // Afficher l'image (fallback)
+        if (project.coverSrc) {
+          visualContainer.innerHTML = '';
+          const imgEl = document.createElement('img');
+          imgEl.src = project.coverSrc;
+          imgEl.alt = `${project.title} – ${project.location}`;
+          visualContainer.appendChild(imgEl);
+          visualContainer.style.display = 'block';
+        } else {
+          visualContainer.style.display = 'none';
+        }
+
+        // Afficher audio si disponible (uniquement si pas de vidéo)
         if (hasProjectAudio(project) && audioContainer) {
           audioContainer.style.display = 'block';
           this.currentAudioPlayer = createProjectAudioPlayer(audioContainer, project);
         }
       };
 
-      // ✅ SUCCESS : Si la vidéo charge, afficher le container et masquer audio
-      videoElement.onloadedmetadata = () => {
-        console.log(`✅ Vidéo chargée pour ${slug}`);
-        videoContainer.style.display = 'block';
-        if (audioContainer) audioContainer.style.display = 'none';
-      };
-
-      // Injecter le player
-      videoContainer.innerHTML = '';
-      videoContainer.appendChild(videoElement);
+      // Déclencher le chargement en injectant l'élément vidéo
+      visualContainer.innerHTML = '';
+      visualContainer.appendChild(videoEl);
     }
-
-    // Si pas de vidéo ET qu'on a un audio, afficher l'audio
-    // (sera géré automatiquement par le onerror du vidéo)
 
     this.modal.classList.add('active');
     this.setModalAccessibility(true);
