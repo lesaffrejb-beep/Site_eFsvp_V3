@@ -170,7 +170,8 @@
   position: relative;
 
   /* ✅ SIGNATURE SIZING - IMMENSE & CENTERED */
-  width: min(95vw, 1800px);
+  /* ✅ UPGRADED: 92vw for more presence, 2400px max for ultra-wide screens */
+  width: min(92vw, 2400px);
   margin: 0 auto;
   padding: 0;
   height: auto !important;
@@ -515,7 +516,8 @@
 @media (min-width: 640px) and (max-width: 1023px) {
   .hero__animation,
   .hero-signature-wrapper {
-    max-width: min(100%, 42rem);
+    /* ✅ UPGRADED: 56rem (896px) instead of 42rem (672px) for more impact */
+    max-width: min(100%, 56rem);
   }
 
   .hero__text-stack {
@@ -538,7 +540,8 @@
 @media (min-width: 1024px) {
   .hero__animation,
   .hero-signature-wrapper {
-    max-width: 48rem;
+    /* ✅ UPGRADED: 72rem (1152px) instead of 48rem (768px) for HUGE impact on desktop */
+    max-width: 72rem;
   }
 
   .hero__baseline,

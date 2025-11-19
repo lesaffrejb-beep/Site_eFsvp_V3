@@ -59,7 +59,12 @@
   min-height: min-content;
   max-height: none;
 
-  margin: auto;
+  /* ✅ FIXED: Use margin-inline only to center horizontally, NOT vertically
+     - margin: auto would center vertically in flex parent and prevent overflow
+     - margin-inline: auto centers horizontally only
+     - This allows content to grow beyond viewport and trigger parent scroll */
+  margin-inline: auto;
+  margin-block: 0;
   background: var(--bg-primary);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-2xl);
