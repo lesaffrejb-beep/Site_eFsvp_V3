@@ -46,16 +46,13 @@
   width: min(960px, 100%);
   height: auto;
   min-height: 0;
-  max-height: calc(100vh - 2 * var(--space-6));
+  max-height: none; /* ✅ FIXED: Pas de max-height pour permettre au contenu de s'étendre */
   margin-inline: auto;
   margin-block: 0;
   background: var(--bg-primary);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-2xl);
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
+  overflow: visible; /* ✅ FIXED: Pas de scroll ici, le scroll se fait sur .project-modal */
   display: flex;
   flex-direction: column;
   transform: scale(0.95);
