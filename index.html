@@ -335,7 +335,7 @@
               </p>
 
             <!-- CTA : Bouton pill centré -->
-            <a href="#projects" class="btn btn-hero btn-hero--cta hero__cta" data-hero-cta data-glow>
+            <a href="#projects" class="btn btn--primary btn--lg btn-hero btn-hero--cta hero__cta" data-hero-cta data-glow>
               <span class="hero-cta__label">Découvrir nos projets</span>
               <span class="hero-cta__ink-fill" aria-hidden="true"></span>
             </a>
@@ -372,19 +372,28 @@
           <div class="projects__filters" data-scroll></div>
 
           <div class="projects__grid" data-scroll></div>
+
+          <div class="projects__actions" data-scroll>
+            <button type="button" class="btn btn--secondary btn--lg projects__see-all" id="see-all-projects">
+              Voir tous nos projets
+            </button>
+          </div>
         </div>
       </section>
 
       <!-- ============================================
            SECTION 3: IMPACT / VALUE PROPOSITION
            ============================================ -->
-      <section class="promise" id="promesse">
+      <section class="promise section-what-changes" id="promesse">
         <div class="promise__container">
-          <h2 class="section-title">Ce que ça change vraiment</h2>
+          <div class="promise__header">
+            <h2 class="section-title">Ce que ça change vraiment</h2>
+          </div>
 
           <div class="promise__grid">
             <article class="promise-card card-lift">
-              <div class="promise-card__icon">
+              <span class="promise-card__badge" aria-hidden="true">01</span>
+              <div class="promise-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
@@ -396,7 +405,8 @@
             </article>
 
             <article class="promise-card card-lift">
-              <div class="promise-card__icon">
+              <span class="promise-card__badge" aria-hidden="true">02</span>
+              <div class="promise-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
@@ -408,7 +418,8 @@
             </article>
 
             <article class="promise-card card-lift">
-              <div class="promise-card__icon">
+              <span class="promise-card__badge" aria-hidden="true">03</span>
+              <div class="promise-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
@@ -420,8 +431,7 @@
             </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       <!-- ============================================
            SECTION 4: PROCESSUS
@@ -517,29 +527,24 @@
       <!-- ============================================
            SECTION 5: PROJECT HIGHLIGHT
            ============================================ -->
-      <section class="creation-highlight section" id="creation-approche">
+      <section class="creation-highlight section section-a2mo" id="creation-approche">
         <div class="creation-highlight__container container">
           <div class="creation-highlight__content" data-scroll>
+            <span class="creation-highlight__eyebrow">Coulisses A2MO</span>
             <h2 class="creation-highlight__title">Une création qui raconte notre approche</h2>
             <p class="creation-highlight__description">
               Zoom sur notre making-of réalisé avec A2MO : immersion sur le terrain, écriture en atelier et restitution scénique.
               Une démonstration concrète de la manière dont nous transformons vos contenus en récit sensible.
             </p>
           </div>
-          <div class="creation-highlight__media" data-scroll>
-            <div
-              class="creation-highlight__video"
-              role="img"
-              aria-label="Placeholder vidéo du making-of A2MO"
-            >
-              <div class="creation-highlight__video-overlay">
+          <div class="creation-highlight__screen" data-scroll>
+            <div class="creation-highlight__screen-frame" role="img" aria-label="Placeholder vidéo du making-of A2MO">
+              <div class="creation-highlight__screen-glow"></div>
+              <div class="creation-highlight__screen-surface">
                 <span class="creation-highlight__badge">Making-of A2MO</span>
-                <span class="creation-highlight__play" aria-hidden="true">
-                  <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="28" cy="28" r="26" opacity="0.28"></circle>
-                    <path d="M24 20v16l12-8-12-8z" stroke-linejoin="round" stroke-linecap="round"></path>
-                  </svg>
-                </span>
+                <p class="creation-highlight__screen-copy">
+                  Bientôt : les coulisses de notre collaboration avec A2MO en vidéo.
+                </p>
               </div>
             </div>
             <p class="creation-highlight__caption">

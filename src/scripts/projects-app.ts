@@ -9,6 +9,9 @@ export function initProjectsApp() {
     console.log('🚀 initProjectsApp: Démarrage');
   }
 
+  const INITIAL_PROJECT_COUNT = 6;
+  const SEE_ALL_BUTTON_ID = 'see-all-projects';
+
   const FEATURED_ORDER = [
     'la-force-de-la-douceur',
     'sival',
@@ -38,6 +41,7 @@ export function initProjectsApp() {
 
   const filtersContainer = document.querySelector('.projects__filters');
   const gridContainer = document.querySelector('.projects__grid');
+  const seeAllButton = document.getElementById(SEE_ALL_BUTTON_ID) as HTMLButtonElement | null;
 
   if (!filtersContainer || !gridContainer) {
     console.warn('⚠️ initProjectsApp: Containers non trouvés', {
@@ -49,6 +53,8 @@ export function initProjectsApp() {
 
   const projects = getAllProjects().sort(sortProjects);
   const sectors = getUniqueSectors();
+  let isExpanded = false;
+  let currentSector: ProjectSector | 'tous' = 'tous';
 
   if (import.meta.env.DEV) {
     console.log(`📊 initProjectsApp: ${projects.length} projets, ${sectors.length} secteurs uniques`, {
@@ -62,12 +68,39 @@ export function initProjectsApp() {
     onSelect: (project: Project, trigger?: HTMLElement | null) => modal.open(project, trigger),
   });
 
-  const handleFilterChange = (sector: ProjectSector | 'tous') => {
-    const filtered = sector === 'tous' ? projects : projects.filter((project) => project.sector === sector);
-    if (import.meta.env.DEV) {
-      console.log(`🔍 Filtrage: secteur="${sector}", ${filtered.length} projets affichés`);
+  const updateSeeAllState = (availableCount: number) => {
+    if (!seeAllButton) return;
+
+    const shouldHideButton = isExpanded || availableCount <= INITIAL_PROJECT_COUNT;
+
+    if (shouldHideButton) {
+      seeAllButton.setAttribute('disabled', 'true');
+      seeAllButton.classList.add('is-inactive');
+      seeAllButton.textContent = 'Tous nos projets sont affichés';
+    } else {
+      seeAllButton.removeAttribute('disabled');
+      seeAllButton.classList.remove('is-inactive');
+      seeAllButton.textContent = 'Voir tous nos projets';
     }
-    grid.render(filtered);
+  };
+
+  const renderProjects = (sector: ProjectSector | 'tous' = currentSector) => {
+    currentSector = sector;
+    const filtered = sector === 'tous' ? projects : projects.filter((project) => project.sector === sector);
+    const visibleProjects = isExpanded ? filtered : filtered.slice(0, INITIAL_PROJECT_COUNT);
+
+    grid.render(visibleProjects);
+    updateSeeAllState(filtered.length);
+
+    if (import.meta.env.DEV) {
+      console.log(
+        `🎞️ Rendu projets: ${visibleProjects.length}/${filtered.length} projets (${isExpanded ? 'étendu' : 'condensé'}) pour ${sector}`,
+      );
+    }
+  };
+
+  const handleFilterChange = (sector: ProjectSector | 'tous') => {
+    renderProjects(sector);
   };
 
   new SectorFilter({
@@ -77,7 +110,14 @@ export function initProjectsApp() {
     onChange: handleFilterChange,
   });
 
-  grid.render(projects);
+  if (seeAllButton) {
+    seeAllButton.addEventListener('click', () => {
+      isExpanded = true;
+      renderProjects();
+    });
+  }
+
+  renderProjects();
   if (import.meta.env.DEV) {
     console.log('✅ initProjectsApp: Rendu complet');
   }

@@ -434,6 +434,15 @@ $ultra: 1920px
 
 ---
 
+## 🏠 Home updates (UX pass 2)
+
+- **Portfolio unique** : le portfolio est concentré dans la section « Quelques histoires que nous avons racontées ». Le bouton `#see-all-projects` (style bouton secondaire large) affiche d'abord 6 projets puis déploie la liste complète sans changer de section ni de titre.
+- **Fond impact** : `--section-bg-impact` introduit un fond clair légèrement parcheminé pour différencier la section « Ce que ça change vraiment », avec badges numérotés pour chaque bénéfice.
+- **Bande A2MO** : `--section-bg-a2mo` et `--on-dark-text` pilotent le mode sombre home cinéma pour la section A2MO, avec un bloc « écran » prêt à accueillir une future vidéo.
+- **CTA hero** : le call-to-action du hero utilise désormais la variante bouton primaire large pour guider vers les projets.
+
+---
+
 ## 🎨 Règles d'Usage
 
 ### ✅ Toujours Faire
